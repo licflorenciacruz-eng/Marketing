@@ -166,9 +166,10 @@ a { color: inherit; text-decoration: none; }
 .tipo-card .tc-price { font-family: var(--g); font-weight: 700; font-size: 1.4rem; color: var(--rosa); }
 .tipo-card .tc-price-sub { font-size: 0.75rem; color: var(--mid); margin-top: 4px; font-family: var(--body); }
 .featured-badge {
-  display: inline-block; background: var(--rosa); color: white;
+  display: block; background: var(--rosa); color: white;
   font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 4px 12px; border-radius: 20px; margin-bottom: 0.8rem;
+  text-align: center;
 }
 .tc-dur-badge {
   display: inline-block;
@@ -313,7 +314,7 @@ a { color: inherit; text-decoration: none; }
         <div>
           <h4>Fase 2 · Tratamiento</h4>
           <p>Es la etapa más larga del proceso. Aplicamos intervenciones específicas orientadas a lograr un cambio, tratando de alcanzar los objetivos planteados. Las técnicas se adaptan a tu situación y al enfoque que mejor se ajuste a tus necesidades.</p>
-          <span class="badge">Sesiones semanales · 45 a 50 minutos</span>
+          <span class="badge">Sesiones semanales</span>
         </div>
       </div>
       <div class="step">
@@ -321,6 +322,7 @@ a { color: inherit; text-decoration: none; }
         <div>
           <h4>Fase 3 · Seguimiento y prevención de recaídas</h4>
           <p>Se va espaciando la frecuencia de las sesiones mientras se monitorea que el cambio se consolide. Cuando los objetivos se lograron y el cambio se afianzó, se programa el alta terapéutica.</p>
+          <span class="badge">Sesiones quincenales</span>
         </div>
       </div>
     </div>
@@ -339,7 +341,7 @@ a { color: inherit; text-decoration: none; }
       </div>
       <div class="info-item">
         <div class="ii-icon">🕐</div>
-        <div><h4>Duración y frecuencia</h4><p>Las sesiones tienen una duración de 45 a 50 minutos. La frecuencia habitual es semanal.</p></div>
+        <div><h4>Duración y frecuencia</h4><p>Las sesiones tienen una duración de 45 a 50 minutos. La frecuencia inicial es semanal y, luego se puede ir espaciando a quincenal, según la evolución y objetivos de cada consultante.</p></div>
       </div>
       <div class="info-item">
         <div class="ii-icon">📍</div>
@@ -376,7 +378,7 @@ a { color: inherit; text-decoration: none; }
         <p>Abonando 4 sesiones por adelantado obtenés un precio especial. Ideal para consolidar el proceso terapéutico con continuidad.</p>
         <div class="tc-footer">
           <div class="tc-price">$172.000</div>
-          <div class="tc-price-sub">$43.000 por sesión · ahorrás $8.000</div>
+          <div class="tc-price-sub">$43.000 por sesión</div>
           <div><span class="tc-dur-badge">🎯 4 sesiones</span></div>
         </div>
       </div>
@@ -402,10 +404,10 @@ a { color: inherit; text-decoration: none; }
     <div class="sedes-grid">
       <div class="sede-card">
         <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="sede-avatar">
-        <div class="sede-zona">Coordinación · Online</div>
+        <div class="sede-zona">Coordinación de equipo terapéutico</div>
         <h3>Lic. Florencia Cruz</h3>
         <div class="sede-mn">MN 68840</div>
-        <div class="sede-esp">Psicóloga clínica · Especializada en Neuropsicología (UBA)</div>
+        <div class="sede-esp">Psicoterapeuta TCC, DBT, ACT · Especializada en Neuropsicología Clínica (UBA)</div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
@@ -415,11 +417,11 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
       <div class="sede-card">
-        <img src="https://5v5uhz4w7w.ucarecd.net/856d127b-5166-4a7a-b1d8-1234312081ec/FotoLicNataliaAlberto.jpeg" alt="Lic. Natalia Alberto" class="sede-avatar">
-        <div class="sede-zona">Belgrano · CABA</div>
+        <img src="https://5v5uhz4w7w.ucarecd.net/856d127b-5166-4a7a-b1d8-1234312081ec/FotoLicNataliaAlberto.jpeg" alt="Lic. Natalia Alberto" class="sede-avatar" style="object-position: center 5%;">
+        <div class="sede-zona">Online</div>
         <h3>Lic. Natalia Alberto</h3>
         <div class="sede-mn">MN 77584</div>
-        <div class="sede-esp">Psicóloga clínica · TCC · DBT · EMDR</div>
+        <div class="sede-esp">Psicoterapeuta · TCC · DBT · EMDR</div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
@@ -440,7 +442,7 @@ a { color: inherit; text-decoration: none; }
     <div class="cancel-grid">
       <div class="cancel-item">
         <div class="ci-icon">✅</div>
-        <div><h4>Confirmación del turno</h4><p>Al coordinar el horario se confirma abonando la primera sesión por adelantado.</p></div>
+        <div><h4>Confirmación del turno</h4><p>Al coordinar el horario se confirma abonando la primera sesión/pack de sesiones por adelantado.</p></div>
       </div>
       <div class="cancel-item">
         <div class="ci-icon">🔔</div>
