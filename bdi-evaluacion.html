@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario de Depresión de Beck · Lic. Florencia Cruz</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/c2f1f705-bbba-4eeb-92ae-d231ad415aff/GlacialIndifferenceRegular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/f7b4da21-46d8-4d7d-a522-b1fb08c37bdc/GlacialIndifferenceBold.otf') format('opentype');
+  font-weight: 700;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rosa:         #C96B7A;
+  --rosa-light:   #F2DDE1;
+  --rosa-pale:    #FAF3F4;
+  --celeste:      #B8CCCC;
+  --celeste-light:#E8F0F0;
+  --celeste-dark: #4A7070;
+  --crema:        #F0EDE8;
+  --crema-dark:   #E0DBD3;
+  --dark:         #2C2826;
+  --mid:          #6B6560;
+  --white:        #FFFFFF;
+  --g: 'Glacial', sans-serif;
+  --body: 'Open Sans', sans-serif;
+  --s: 'Dancing Script', cursive;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--white); color: var(--dark); line-height: 1.7; }
+a { color: var(--rosa); }
+
+/* HEADER */
+.page-header {
+  background: var(--rosa);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  color: white;
+}
+.page-header .tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  font-family: var(--g); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 1rem;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.page-header h1 {
+  font-family: var(--g); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem); letter-spacing: 0.04em; margin-bottom: 0.5rem;
+}
+.page-header p {
+  font-size: 0.95rem; opacity: 0.9; max-width: 520px; margin: 0 auto;
+}
+
+/* MAIN */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* INSTRUCCIONES */
+.instrucciones {
+  background: var(--celeste-light);
+  border-left: 4px solid var(--celeste-dark);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.92rem;
+  color: var(--celeste-dark);
+}
+.instrucciones strong { display: block; margin-bottom: 0.3rem; font-family: var(--g); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* DATOS PACIENTE */
+.datos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 500px) { .datos-grid { grid-template-columns: 1fr; } }
+.field label {
+  display: block; font-family: var(--g); font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--mid); margin-bottom: 0.4rem;
+}
+.field input, .field select {
+  width: 100%; padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--crema-dark); border-radius: 8px;
+  font-family: var(--body); font-size: 0.93rem; color: var(--dark);
+  background: var(--white); transition: border-color 0.2s;
+}
+.field input:focus, .field select:focus {
+  outline: none; border-color: var(--rosa);
+}
+
+/* ITEMS BDI */
+.bdi-item {
+  background: var(--rosa-pale);
+  border-radius: 12px;
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s;
+}
+.bdi-item.answered { border-color: var(--rosa-light); }
+.bdi-item .numero {
+  font-family: var(--g); font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--rosa); margin-bottom: 0.6rem;
+}
+.bdi-item .titulo {
+  font-family: var(--g); font-weight: 700; font-size: 1rem;
+  color: var(--dark); margin-bottom: 1rem;
+}
+.opciones { display: flex; flex-direction: column; gap: 0.5rem; }
+.opcion {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.6rem 0.9rem; border-radius: 8px;
+  cursor: pointer; transition: background 0.15s;
+  border: 1.5px solid transparent;
+}
+.opcion:hover { background: var(--rosa-light); }
+.opcion input[type="radio"] { display: none; }
+.opcion.selected {
+  background: var(--rosa-light);
+  border-color: var(--rosa);
+}
+.opcion .radio-custom {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--crema-dark); flex-shrink: 0;
+  margin-top: 2px; transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.opcion.selected .radio-custom {
+  border-color: var(--rosa); background: var(--rosa);
+}
+.opcion.selected .radio-custom::after {
+  content: ''; width: 6px; height: 6px;
+  background: white; border-radius: 50%;
+}
+.opcion .puntaje {
+  font-family: var(--g); font-size: 0.8rem; color: var(--rosa);
+  font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.opcion .texto { font-size: 0.88rem; line-height: 1.5; }
+
+/* PROGRESO */
+.progreso-wrap {
+  position: sticky; top: 0; z-index: 10;
+  background: white; border-bottom: 1px solid var(--crema-dark);
+  padding: 0.7rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+  max-width: 760px; margin: 0 auto;
+}
+.progreso-bar-bg {
+  flex: 1; height: 6px; background: var(--crema-dark); border-radius: 3px; overflow: hidden;
+}
+.progreso-bar { height: 100%; background: var(--rosa); border-radius: 3px; transition: width 0.3s; }
+.progreso-texto { font-family: var(--g); font-size: 0.75rem; color: var(--mid); white-space: nowrap; }
+
+/* SEPARADOR */
+.seccion-titulo {
+  font-family: var(--g); font-weight: 700; text-transform: uppercase;
+  font-size: 0.75rem; letter-spacing: 0.12em; color: var(--mid);
+  border-bottom: 1px solid var(--crema-dark); padding-bottom: 0.5rem;
+  margin: 2rem 0 1.2rem;
+}
+
+/* BOTÓN */
+.btn-submit {
+  display: block; width: 100%;
+  background: var(--rosa); color: white;
+  font-family: var(--g); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+  border: none; border-radius: 8px; padding: 1.1rem;
+  cursor: pointer; margin-top: 2rem; transition: background 0.2s, transform 0.1s;
+}
+.btn-submit:hover { background: #b55a68; }
+.btn-submit:active { transform: scale(0.99); }
+.btn-submit:disabled { background: var(--crema-dark); cursor: not-allowed; }
+
+/* RESULTADO */
+#resultado {
+  display: none;
+  margin-top: 2rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--rosa-light);
+}
+.resultado-header {
+  background: var(--rosa);
+  color: white;
+  padding: 1.8rem 2rem;
+  text-align: center;
+}
+.resultado-header .puntaje-total {
+  font-family: var(--g); font-weight: 700;
+  font-size: 3.5rem; line-height: 1; margin-bottom: 0.3rem;
+}
+.resultado-header .puntaje-label {
+  font-family: var(--g); font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase; opacity: 0.85;
+}
+.resultado-body {
+  background: var(--rosa-pale);
+  padding: 1.8rem 2rem;
+}
+.nivel-badge {
+  display: inline-block;
+  font-family: var(--g); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 20px; margin-bottom: 1rem;
+}
+.nivel-badge.minima  { background: #d4edda; color: #155724; }
+.nivel-badge.leve    { background: #fff3cd; color: #856404; }
+.nivel-badge.moderada{ background: #ffe0b2; color: #7a3e0a; }
+.nivel-badge.severa  { background: #f8d7da; color: #842029; }
+
+.resultado-body h3 {
+  font-family: var(--g); font-weight: 700; font-size: 1.15rem; margin-bottom: 0.7rem;
+}
+.resultado-body p { font-size: 0.92rem; color: var(--mid); margin-bottom: 0.8rem; }
+
+/* MENSAJE ENVIADO */
+#enviado {
+  display: none;
+  text-align: center; padding: 3rem 2rem;
+  background: var(--celeste-light);
+  border-radius: 14px; margin-top: 2rem;
+  border: 2px solid var(--celeste);
+}
+#enviado .check { font-size: 3rem; margin-bottom: 1rem; }
+#enviado h3 { font-family: var(--g); font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--celeste-dark); }
+#enviado p { font-size: 0.9rem; color: var(--mid); }
+
+/* ERROR */
+.error-msg { color: #842029; font-size: 0.82rem; margin-top: 0.3rem; }
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 2rem;
+  font-size: 0.8rem; color: var(--mid);
+  border-top: 1px solid var(--crema-dark);
+}
+footer a { color: var(--rosa); }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <span class="tag">Evaluación psicológica</span>
+  <h1>Inventario de Depresión de Beck</h1>
+  <p>Este cuestionario es completamente confidencial. Tus respuestas serán analizadas por tu terapeuta.</p>
+</header>
+
+<div class="progreso-wrap" id="progreso-wrap">
+  <div class="progreso-bar-bg">
+    <div class="progreso-bar" id="progreso-bar" style="width:0%"></div>
+  </div>
+  <span class="progreso-texto" id="progreso-texto">0 / 21</span>
+</div>
+
+<main>
+  <div class="instrucciones">
+    <strong>Instrucciones</strong>
+    Este cuestionario contiene grupos de afirmaciones. Lee cada grupo y elegí la opción que mejor describa cómo te has sentido durante las <strong>últimas dos semanas</strong>, incluyendo el día de hoy.
+  </div>
+
+  <form id="bdi-form" novalidate>
+    <!-- Campo oculto requerido por Formspree -->
+    <input type="hidden" name="_subject" id="subject-hidden" value="Nueva evaluación BDI · Paciente">
+    <input type="hidden" name="_replyto" id="replyto-hidden" value="">
+    <input type="hidden" name="puntaje_total" id="puntaje-hidden" value="">
+    <input type="hidden" name="nivel_depresion" id="nivel-hidden" value="">
+    <input type="hidden" name="detalle_respuestas" id="detalle-hidden" value="">
+
+    <!-- DATOS PERSONALES -->
+    <p class="seccion-titulo">Tus datos</p>
+    <div class="datos-grid">
+      <div class="field">
+        <label for="nombre">Nombre y apellido *</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Ej: María González">
+        <span class="error-msg" id="err-nombre"></span>
+      </div>
+      <div class="field">
+        <label for="email">Email de contacto</label>
+        <input type="email" id="email" name="email_paciente" placeholder="tu@email.com">
+      </div>
+      <div class="field">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" min="10" max="100" placeholder="Ej: 32">
+      </div>
+      <div class="field">
+        <label for="fecha">Fecha de evaluación</label>
+        <input type="date" id="fecha" name="fecha">
+      </div>
+    </div>
+
+    <!-- ÍTEMS BDI-II -->
+    <p class="seccion-titulo">Cuestionario · 21 ítems</p>
+    <div id="items-container"></div>
+
+    <button type="submit" class="btn-submit" id="btn-submit">
+      Enviar evaluación →
+    </button>
+  </form>
+
+  <div id="resultado">
+    <div class="resultado-header">
+      <div class="puntaje-total" id="res-puntaje">—</div>
+      <div class="puntaje-label">Puntaje total · Escala 0–63</div>
+    </div>
+    <div class="resultado-body">
+      <span class="nivel-badge" id="res-badge">—</span>
+      <h3 id="res-titulo">—</h3>
+      <p id="res-descripcion">—</p>
+      <p style="font-size:0.82rem; color:var(--mid); font-style:italic;">
+        Este resultado es orientativo. Será analizado en detalle por la Lic. Florencia Cruz en tu próxima consulta.
+      </p>
+    </div>
+  </div>
+
+  <div id="enviado">
+    <div class="check">✓</div>
+    <h3>¡Evaluación enviada correctamente!</h3>
+    <p>La Lic. Florencia Cruz recibirá tus respuestas y las interpretación de tus resultados antes de tu próxima sesión.<br><br>
+    Podés cerrar esta página.</p>
+  </div>
+</main>
+
+<footer>
+  Lic. Florencia Cruz · Psicología clínica ·
+  <a href="psicoterapia-online.html">Volver al sitio</a>
+</footer>
+
+<script>
+// ─── DATOS BDI-II ────────────────────────────────────────────────────────────
+const items = [
+  {
+    titulo: "Tristeza",
+    opciones: [
+      "No me siento triste.",
+      "Me siento triste gran parte del tiempo.",
+      "Me siento triste todo el tiempo.",
+      "Me siento tan triste o tan desgraciado/a que no puedo soportarlo."
+    ]
+  },
+  {
+    titulo: "Pesimismo",
+    opciones: [
+      "No estoy desanimado/a respecto de mi futuro.",
+      "Me siento más desanimado/a respecto de mi futuro que antes.",
+      "No espero que las cosas mejoren.",
+      "Siento que mi futuro es desesperanzador y que las cosas solo empeorarán."
+    ]
+  },
+  {
+    titulo: "Fracasos del pasado",
+    opciones: [
+      "No me siento como un fracasado/a.",
+      "He fracasado más de lo que hubiera debido.",
+      "Cuando miro atrás veo muchos fracasos.",
+      "Siento que como persona soy un fracaso total."
+    ]
+  },
+  {
+    titulo: "Pérdida de placer",
+    opciones: [
+      "Obtengo tanto placer como siempre por las cosas que disfruto.",
+      "No disfruto tanto de las cosas como antes.",
+      "Obtengo muy poco placer de las cosas que antes disfrutaba.",
+      "No puedo obtener ningún placer de las cosas que antes disfrutaba."
+    ]
+  },
+  {
+    titulo: "Sentimientos de culpa",
+    opciones: [
+      "No me siento particularmente culpable.",
+      "Me siento culpable de muchas cosas que he hecho o debería haber hecho.",
+      "Me siento bastante culpable la mayor parte del tiempo.",
+      "Me siento culpable todo el tiempo."
+    ]
+  },
+  {
+    titulo: "Sentimientos de castigo",
+    opciones: [
+      "No siento que estoy siendo castigado/a.",
+      "Siento que quizás puedo ser castigado/a.",
+      "Espero ser castigado/a.",
+      "Siento que estoy siendo castigado/a."
+    ]
+  },
+  {
+    titulo: "Disconformidad con uno mismo",
+    opciones: [
+      "Siento lo mismo que siempre respecto de mí mismo/a.",
+      "He perdido la confianza en mí mismo/a.",
+      "Estoy decepcionado/a conmigo mismo/a.",
+      "No me gusto."
+    ]
+  },
+  {
+    titulo: "Autocrítica",
+    opciones: [
+      "No me critico ni me culpo más que antes.",
+      "Soy más crítico/a conmigo mismo/a de lo que solía ser.",
+      "Me critico a mí mismo/a por todos mis errores.",
+      "Me culpo por todo lo malo que sucede."
+    ]
+  },
+  {
+    titulo: "Pensamientos o deseos de suicidio",
+    opciones: [
+      "No tengo ningún pensamiento de matarme.",
+      "He tenido pensamientos de matarme pero no lo haría.",
+      "Querría matarme.",
+      "Me mataría si tuviera la oportunidad."
+    ]
+  },
+  {
+    titulo: "Llanto",
+    opciones: [
+      "No lloro más de lo que lloraba antes.",
+      "Lloro más de lo que lloraba antes.",
+      "Lloro por cualquier pequeñez.",
+      "Tengo ganas de llorar pero no puedo."
+    ]
+  },
+  {
+    titulo: "Agitación",
+    opciones: [
+      "No me siento más inquieto/a o tenso/a que de costumbre.",
+      "Me siento más inquieto/a o tenso/a que de costumbre.",
+      "Estoy tan inquieto/a o agitado/a que me es difícil quedarme quieto/a.",
+      "Estoy tan inquieto/a o agitado/a que tengo que estar siempre en movimiento o haciendo algo."
+    ]
+  },
+  {
+    titulo: "Pérdida de interés",
+    opciones: [
+      "No he perdido el interés en otras personas o actividades.",
+      "Estoy menos interesado/a que antes en otras personas o cosas.",
+      "He perdido la mayor parte de mi interés en los demás o en las cosas.",
+      "Me resulta difícil interesarme por algo."
+    ]
+  },
+  {
+    titulo: "Indecisión",
+    opciones: [
+      "Tomo mis decisiones tan bien como siempre.",
+      "Me resulta más difícil que de costumbre tomar decisiones.",
+      "Encuentro mucha más dificultad que antes para tomar decisiones.",
+      "Tengo problemas para tomar cualquier decisión."
+    ]
+  },
+  {
+    titulo: "Desvalorización",
+    opciones: [
+      "No siento que yo no sea valioso/a.",
+      "No me considero a mí mismo/a tan valioso/a y útil como solía.",
+      "Me siento menos valioso/a cuando me comparo con otros.",
+      "Siento que no valgo nada."
+    ]
+  },
+  {
+    titulo: "Pérdida de energía",
+    opciones: [
+      "Tengo tanta energía como siempre.",
+      "Tengo menos energía que la que solía tener.",
+      "No tengo suficiente energía para hacer muchas cosas.",
+      "No tengo suficiente energía para hacer nada."
+    ]
+  },
+  {
+    titulo: "Cambios en los hábitos de sueño",
+    opciones: [
+      "No he experimentado ningún cambio en mis hábitos de sueño.",
+      "Duermo algo más de lo habitual / Duermo algo menos de lo habitual.",
+      "Duermo mucho más de lo habitual / Duermo mucho menos de lo habitual.",
+      "Duermo la mayor parte del día / Me despierto 1-2 horas antes y no puedo volver a dormirme."
+    ]
+  },
+  {
+    titulo: "Irritabilidad",
+    opciones: [
+      "No estoy más irritable que de costumbre.",
+      "Estoy más irritable que de costumbre.",
+      "Estoy mucho más irritable que de costumbre.",
+      "Estoy irritable todo el tiempo."
+    ]
+  },
+  {
+    titulo: "Cambios en el apetito",
+    opciones: [
+      "No he experimentado ningún cambio en mi apetito.",
+      "Mi apetito es algo menor / algo mayor de lo habitual.",
+      "Mi apetito es mucho menor / mayor que de costumbre.",
+      "No tengo apetito en absoluto / Tengo ganas de comer todo el tiempo."
+    ]
+  },
+  {
+    titulo: "Dificultad de concentración",
+    opciones: [
+      "Puedo concentrarme tan bien como siempre.",
+      "No puedo concentrarme tan bien como habitualmente.",
+      "Me es difícil mantener la mente en algo por mucho tiempo.",
+      "Encuentro que no puedo concentrarme en nada."
+    ]
+  },
+  {
+    titulo: "Cansancio o fatiga",
+    opciones: [
+      "No estoy más cansado/a o fatigado/a de lo habitual.",
+      "Me fatigo o me canso más fácilmente que de costumbre.",
+      "Estoy demasiado fatigado/a o cansado/a para hacer muchas de las cosas que solía hacer.",
+      "Estoy demasiado fatigado/a o cansado/a para hacer la mayoría de las cosas que solía hacer."
+    ]
+  },
+  {
+    titulo: "Pérdida de interés en el sexo",
+    opciones: [
+      "No he notado ningún cambio reciente en mi interés por el sexo.",
+      "Estoy menos interesado/a en el sexo de lo que solía estar.",
+      "Estoy mucho menos interesado/a en el sexo ahora.",
+      "He perdido completamente el interés en el sexo."
+    ]
+  }
+];
+
+// ─── INTERPRETACIÓN ──────────────────────────────────────────────────────────
+function interpretacion(puntaje) {
+  if (puntaje <= 13) return {
+    nivel: "mínima", clase: "minima",
+    titulo: "Depresión mínima",
+    descripcion: "El puntaje obtenido se encuentra dentro del rango normal. Los síntomas referidos son leves y esperables en el día a día."
+  };
+  if (puntaje <= 19) return {
+    nivel: "leve", clase: "leve",
+    titulo: "Depresión leve",
+    descripcion: "Existe un nivel leve de sintomatología depresiva que merece atención. Es un buen momento para trabajar estrategias de bienestar emocional."
+  };
+  if (puntaje <= 28) return {
+    nivel: "moderada", clase: "moderada",
+    titulo: "Depresión moderada",
+    descripcion: "El puntaje indica un nivel moderado de síntomas depresivos. Se recomienda abordar esto en consulta para definir el plan de trabajo más adecuado."
+  };
+  return {
+    nivel: "severa", clase: "severa",
+    titulo: "Depresión severa",
+    descripcion: "El puntaje refleja síntomas depresivos intensos. Es importante trabajarlos en consulta a la brevedad. Recordá que estás en el lugar correcto para recibir ayuda."
+  };
+}
+
+// ─── RENDER ÍTEMS ────────────────────────────────────────────────────────────
+const container = document.getElementById('items-container');
+const respuestas = new Array(items.length).fill(null);
+
+items.forEach((item, i) => {
+  const div = document.createElement('div');
+  div.className = 'bdi-item';
+  div.id = `item-${i}`;
+
+  let opcionesHTML = item.opciones.map((txt, j) => `
+    <label class="opcion" id="op-${i}-${j}" data-i="${i}" data-j="${j}">
+      <input type="radio" name="item_${i}" value="${j}">
+      <span class="radio-custom"></span>
+      <span class="puntaje">${j}</span>
+      <span class="texto">${txt}</span>
+    </label>
+  `).join('');
+
+  div.innerHTML = `
+    <div class="numero">Ítem ${i + 1} de 21</div>
+    <div class="titulo">${item.titulo}</div>
+    <div class="opciones">${opcionesHTML}</div>
+  `;
+  container.appendChild(div);
+});
+
+// ─── INTERACCIÓN ─────────────────────────────────────────────────────────────
+document.addEventListener('click', e => {
+  const op = e.target.closest('.opcion');
+  if (!op) return;
+  const i = +op.dataset.i, j = +op.dataset.j;
+
+  // Deseleccionar anterior
+  document.querySelectorAll(`[id^="op-${i}-"]`).forEach(el => el.classList.remove('selected'));
+  op.classList.add('selected');
+  op.querySelector('input[type="radio"]').checked = true;
+
+  respuestas[i] = j;
+  document.getElementById(`item-${i}`).classList.add('answered');
+  actualizarProgreso();
+});
+
+function actualizarProgreso() {
+  const contestadas = respuestas.filter(r => r !== null).length;
+  const pct = (contestadas / 21) * 100;
+  document.getElementById('progreso-bar').style.width = pct + '%';
+  document.getElementById('progreso-texto').textContent = `${contestadas} / 21`;
+}
+
+// ─── FECHA HOY ───────────────────────────────────────────────────────────────
+document.getElementById('fecha').value = new Date().toISOString().split('T')[0];
+
+// ─── EMAIL → _replyto ────────────────────────────────────────────────────────
+document.getElementById('email').addEventListener('input', function() {
+  document.getElementById('replyto-hidden').value = this.value;
+});
+document.getElementById('nombre').addEventListener('input', function() {
+  document.getElementById('subject-hidden').value = `Nueva evaluación BDI · ${this.value}`;
+});
+
+// ─── SUBMIT ──────────────────────────────────────────────────────────────────
+document.getElementById('bdi-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  // Validar nombre
+  const nombre = document.getElementById('nombre').value.trim();
+  const errNombre = document.getElementById('err-nombre');
+  if (!nombre) {
+    errNombre.textContent = 'Por favor ingresá tu nombre.';
+    document.getElementById('nombre').focus();
+    return;
+  }
+  errNombre.textContent = '';
+
+  // Validar ítems
+  const sinResponder = respuestas.map((r, i) => r === null ? i + 1 : null).filter(Boolean);
+  if (sinResponder.length > 0) {
+    const primero = sinResponder[0];
+    alert(`Falta responder el ítem ${primero}. Por favor completá todos los ítems.`);
+    document.getElementById(`item-${primero - 1}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Calcular puntaje
+  const total = respuestas.reduce((a, b) => a + b, 0);
+  const interp = interpretacion(total);
+
+  // Detalle de respuestas
+  const detalle = items.map((item, i) => `${i + 1}. ${item.titulo}: ${respuestas[i]} — "${item.opciones[respuestas[i]]}"`).join('\n');
+
+  // Rellenar campos ocultos
+  document.getElementById('puntaje-hidden').value = total;
+  document.getElementById('nivel-hidden').value = `${interp.titulo} (${total} puntos)`;
+  document.getElementById('detalle-hidden').value = detalle;
+
+  // Mostrar resultado al paciente
+  document.getElementById('res-puntaje').textContent = total;
+  document.getElementById('res-badge').textContent = interp.nivel;
+  document.getElementById('res-badge').className = `nivel-badge ${interp.clase}`;
+  document.getElementById('res-titulo').textContent = interp.titulo;
+  document.getElementById('res-descripcion').textContent = interp.descripcion;
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('resultado').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Enviar via Formspree
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+
+  const formData = new FormData(this);
+  try {
+    const res = await fetch('https://formspree.io/f/REEMPLAZAR_CON_TU_ID', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      this.style.display = 'none';
+      document.getElementById('enviado').style.display = 'block';
+      document.getElementById('resultado').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Reintentar envío →';
+      alert('Hubo un error al enviar. Por favor intentá nuevamente o avisale a tu terapeuta.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Reintentar envío →';
+    alert('Sin conexión. Verificá tu internet e intentá nuevamente.');
+  }
+});
+</script>
+</body>
+</html>
