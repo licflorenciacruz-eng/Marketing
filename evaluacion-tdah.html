@@ -65,7 +65,7 @@ nav {
 }
 .nav-cta:hover { background: #b05566; }
 
-/* HERO BANNER */
+/* HERO */
 #hero {
   background: var(--celeste-dark);
   padding: 5rem 4rem;
@@ -91,22 +91,55 @@ nav {
   font-size: 1rem; color: rgba(255,255,255,0.75);
   max-width: 580px; margin: 1rem auto 2rem;
 }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .btn-white-hero {
   background: white; color: var(--celeste-dark);
-  padding: 14px 32px; border-radius: 32px;
+  padding: 14px 28px; border-radius: 32px;
   font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
   display: inline-flex; align-items: center; gap: 8px;
   transition: opacity 0.2s;
 }
 .btn-white-hero:hover { opacity: 0.9; }
+.btn-ghost-hero {
+  background: transparent; color: white;
+  padding: 14px 28px; border-radius: 32px;
+  border: 1px solid rgba(255,255,255,0.45);
+  font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s;
+}
+.btn-ghost-hero:hover { background: rgba(255,255,255,0.1); }
 
-/* INCLUYE */
-#incluye { padding: 5rem 4rem; background: var(--crema); }
+/* SHARED */
 .container { max-width: 1000px; margin: 0 auto; }
 .sec-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa); margin-bottom: 0.8rem; }
 .sec-title { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: 0.04em; color: var(--celeste-dark); line-height: 1.2; margin-bottom: 2rem; }
 .sec-title .s { font-family: var(--s); text-transform: none; color: var(--rosa); font-size: 1.1em; letter-spacing: 0; }
 
+/* SECCIÓN: ¿Esta evaluación puede ayudarte? */
+#para-ti { padding: 5rem 4rem; background: var(--white); }
+#para-ti .sec-intro {
+  font-size: 0.95rem; color: var(--mid); max-width: 640px; line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+.check-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem;
+}
+.check-item {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  background: var(--crema); border-radius: 12px; padding: 1rem 1.25rem;
+}
+.check-icon {
+  flex-shrink: 0; margin-top: 2px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--celeste-light); border: 1.5px solid var(--celeste);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--celeste-dark); font-size: 0.7rem; font-weight: 700;
+}
+.check-item p { font-size: 0.84rem; color: var(--mid); line-height: 1.6; }
+
+/* SECCIÓN: ¿Cómo funciona el proceso? */
+#incluye { padding: 5rem 4rem; background: var(--crema); }
 .steps { display: flex; flex-direction: column; gap: 1rem; }
 .step {
   background: var(--white); border-radius: 14px;
@@ -124,7 +157,6 @@ nav {
 .step h4 { font-family: var(--g); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.2rem; }
 .step p { font-size: 0.85rem; color: var(--mid); line-height: 1.65; }
 
-/* FRANJA MODALIDAD */
 .modalidad-strip {
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
   margin-top: 2rem; padding: 1.25rem 1.5rem;
@@ -136,16 +168,34 @@ nav {
 }
 .mod-item .mod-icon { font-size: 1rem; }
 
-/* INFO GENERAL */
-#info-general { padding: 4rem 4rem 0; background: var(--rosa-pale); }
+/* SECCIÓN: Información general */
+#info-general { padding: 5rem 4rem; background: var(--rosa-pale); }
 .ig-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; max-width: 760px; margin: 1.5rem auto 0; }
 .ig-list li { font-size: 0.84rem; color: var(--mid); padding-left: 1.4rem; position: relative; line-height: 1.7; }
 .ig-list li::before { content: '·'; position: absolute; left: 0; color: var(--celeste-dark); font-size: 1.2rem; line-height: 1.2; }
 
-/* VALORES — funnel de 2 etapas */
+/* SECCIÓN: ¿Qué sucede después? */
+#siguiente { padding: 5rem 4rem; background: var(--white); }
+.siguiente-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
+.sig-card {
+  background: var(--crema); border-radius: 16px;
+  padding: 1.75rem; border: 1px solid var(--crema-dark);
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.sig-card .sig-icon { font-size: 1.6rem; }
+.sig-card h4 { font-family: var(--g); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); }
+.sig-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.65; flex: 1; }
+.sig-card a, .sig-card span.sig-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--g); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--celeste-dark); margin-top: 0.5rem; border-bottom: 1px solid var(--celeste);
+  padding-bottom: 1px; width: fit-content;
+}
+.sig-card span.sig-link { color: var(--mid); border-color: var(--crema-dark); cursor: default; }
+
+/* SECCIÓN: Inversión — funnel de 2 etapas */
 #valores { padding: 5rem 4rem; background: var(--rosa-pale); }
 
-/* Etapa 1: orientación */
 .val-stage-1 {
   max-width: 460px; margin: 2rem auto 0;
   background: var(--white); border-radius: 16px;
@@ -157,21 +207,10 @@ nav {
 .val-stage-1.visible { opacity: 1; transform: translateY(0); }
 .val-stage-1:hover { box-shadow: 0 8px 24px rgba(74,112,112,0.12); }
 
-/* Separador entre etapas */
-.val-funnel-sep {
-  text-align: center; margin: 2rem 0 0.75rem;
-}
-.val-funnel-sep .sep-arrow {
-  display: inline-block; color: var(--celeste-dark);
-  font-size: 1.5rem; opacity: 0.45; line-height: 1;
-}
-.val-funnel-sep .sep-label {
-  display: block; margin-top: 0.5rem;
-  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--mid);
-}
+.val-funnel-sep { text-align: center; margin: 2rem 0 0.75rem; }
+.val-funnel-sep .sep-arrow { display: inline-block; color: var(--celeste-dark); font-size: 1.5rem; opacity: 0.45; line-height: 1; }
+.val-funnel-sep .sep-label { display: block; margin-top: 0.5rem; font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid); }
 
-/* Etapa 2: evaluación integral */
 .val-stage-2 {
   max-width: 700px; margin: 0 auto;
   background: var(--white); border-radius: 16px;
@@ -198,18 +237,6 @@ nav {
 .val-opt-badge { background: var(--rosa); color: white; font-family: var(--g); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 8px; }
 .val-opt-note { font-size: 0.72rem; color: var(--mid); margin-top: 0.4rem; font-style: italic; line-height: 1.5; }
 
-/* CTA compartido de valores */
-.val-cta-wrap { text-align: center; margin-top: 2rem; }
-.vc-cta {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 10px 24px; border-radius: 24px;
-  background: var(--celeste-dark); color: white;
-  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-  transition: opacity 0.2s;
-}
-.vc-cta:hover { opacity: 0.85; }
-
-/* elementos compartidos val-card (usados en etapa 1) */
 .vc-badge {
   display: inline-block; background: var(--celeste-dark); color: white;
   font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
@@ -221,7 +248,48 @@ nav {
 .vc-list li { font-size: 0.78rem; color: var(--mid); padding-left: 1.1rem; position: relative; line-height: 1.5; }
 .vc-list li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
 
-/* POLITICAS */
+.vc-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 24px; border-radius: 24px;
+  background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+.vc-cta:hover { opacity: 0.85; }
+
+/* SECCIÓN: Sobre mí */
+#quien-soy { padding: 5rem 4rem; background: var(--crema); }
+.qs-card {
+  max-width: 720px; margin: 2rem auto 0;
+  background: var(--white); border-radius: 20px;
+  padding: 2rem 2.5rem; border: 1px solid var(--crema-dark);
+  display: flex; align-items: flex-start; gap: 2rem;
+}
+.qs-avatar {
+  width: 110px; height: 110px; border-radius: 50%;
+  object-fit: cover; object-position: center 20%;
+  border: 3px solid var(--rosa-light); flex-shrink: 0;
+}
+.qs-zona {
+  display: inline-block; background: var(--rosa-light); color: var(--rosa);
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.5rem;
+}
+.qs-card h3 { font-family: var(--g); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.15rem; }
+.qs-mn { font-size: 0.75rem; color: var(--mid); margin-bottom: 0.5rem; }
+.qs-esp { font-size: 0.84rem; color: var(--mid); margin-bottom: 0.4rem; line-height: 1.6; }
+.qs-esp strong { color: var(--celeste-dark); font-weight: 600; }
+.qs-bio { font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
+.qs-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 0.75rem; padding: 6px 14px; border-radius: 20px;
+  background: transparent; border: 1px solid var(--celeste);
+  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--celeste-dark); cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.qs-toggle:hover { background: var(--celeste-light); }
+
+/* SECCIÓN: Información importante */
 #politicas { padding: 5rem 4rem; background: var(--white); }
 .pol-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2rem; }
 .pol-card { border-top: 3px solid var(--celeste); padding: 1.5rem 0.5rem; }
@@ -242,74 +310,23 @@ nav {
 }
 .btn-wh:hover { opacity: 0.9; }
 
-
-
-/* QUIÉN SOY */
-#quien-soy { padding: 5rem 4rem; background: var(--crema); }
-.qs-card {
-  max-width: 680px; margin: 2rem auto 0;
-  background: var(--white); border-radius: 20px;
-  padding: 2rem 2.5rem; border: 1px solid var(--crema-dark);
-  display: flex; align-items: flex-start; gap: 2rem;
-}
-.qs-avatar {
-  width: 100px; height: 100px; border-radius: 50%;
-  object-fit: cover; object-position: center 20%;
-  border: 3px solid var(--rosa-light); flex-shrink: 0;
-}
-.qs-zona {
-  display: inline-block; background: var(--rosa-light); color: var(--rosa);
-  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.5rem;
-}
-.qs-card h3 { font-family: var(--g); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.15rem; }
-.qs-mn { font-size: 0.75rem; color: var(--mid); margin-bottom: 0.4rem; }
-.qs-esp { font-size: 0.82rem; color: var(--mid); margin-bottom: 0.9rem; line-height: 1.5; font-style: italic; }
-.qs-bio { font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
-.qs-toggle {
-  display: inline-flex; align-items: center; gap: 4px;
-  margin-top: 0.75rem; padding: 6px 14px; border-radius: 20px;
-  background: transparent; border: 1px solid var(--celeste);
-  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--celeste-dark); cursor: pointer; transition: background 0.2s, color 0.2s;
-}
-.qs-toggle:hover { background: var(--celeste-light); }
-
-/* QUÉ SIGUE */
-#siguiente { padding: 5rem 4rem; background: var(--rosa-pale); }
-.siguiente-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
-.sig-card {
-  background: var(--white); border-radius: 16px;
-  padding: 1.75rem; border: 1px solid var(--rosa-light);
-  display: flex; flex-direction: column; gap: 0.5rem;
-}
-.sig-card .sig-icon { font-size: 1.6rem; }
-.sig-card h4 { font-family: var(--g); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); }
-.sig-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.65; flex: 1; }
-.sig-card a, .sig-card span.sig-link {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-family: var(--g); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--celeste-dark); margin-top: 0.5rem; border-bottom: 1px solid var(--celeste);
-  padding-bottom: 1px; width: fit-content;
-}
-.sig-card span.sig-link { color: var(--mid); border-color: var(--crema-dark); cursor: default; }
-
 @media (max-width: 800px) {
-  #hero, #incluye, #valores, #info-general, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  #hero, #para-ti, #incluye, #info-general, #siguiente, #valores, #quien-soy, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .check-grid { grid-template-columns: 1fr; }
   .modalidad-strip { flex-direction: column; align-items: flex-start; }
-  .two-col, .pol-grid, .siguiente-grid { grid-template-columns: 1fr; }
+  .siguiente-grid, .pol-grid { grid-template-columns: 1fr; }
   .val-options { grid-template-columns: 1fr; }
   .qs-card { flex-direction: column; align-items: center; text-align: center; }
   nav { padding: 0 1.5rem; }
 }
 @media (min-width: 801px) and (max-width: 1024px) {
   .pol-grid { grid-template-columns: repeat(2,1fr); }
+  .check-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
-
-
 
 <!-- HERO -->
 <section id="hero">
@@ -317,24 +334,96 @@ nav {
   <h1>Evaluación diagnóstica de TDAH y Autismo<br>
     <span class="s">en adultos</span>
   </h1>
-  <p>Un proceso integral y personalizado para comprender tu perfil atencional, ejecutivo y emocional — y evaluar si se trata de TDAH, Autismo u otras condiciones.</p>
-  <a href="https://wa.me/541123902485" class="btn-white-hero">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-    Agendar mi primera entrevista
-  </a>
+  <p>Comprendé tu perfil atencional, ejecutivo y emocional a través de un proceso de evaluación integral y basado en evidencia.</p>
+  <div class="hero-btns">
+    <a href="https://wa.me/541123902485" class="btn-white-hero">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Reservar consulta de orientación diagnóstica
+    </a>
+    <a href="#incluye" class="btn-ghost-hero">Conocer el proceso</a>
+  </div>
 </section>
 
-<!-- QUÉ INCLUYE -->
+<!-- ¿ESTA EVALUACIÓN PUEDE AYUDARTE? -->
+<section id="para-ti">
+  <div class="container">
+    <div class="sec-label">Para quién es</div>
+    <h2 class="sec-title">¿Esta evaluación puede <span class="s">ayudarte?</span></h2>
+    <p class="sec-intro">Quizás llegaste hasta acá porque hace tiempo te preguntás si algunas de las dificultades que experimentás podrían estar relacionadas con TDAH o Autismo.</p>
+    <div class="check-grid">
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <p>Sentís que te cuesta organizarte, mantener la atención o terminar tareas, incluso cuando realmente querés hacerlo.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <p>Te resulta difícil gestionar emociones intensas, la frustración o el agotamiento cotidiano.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <p>Sentís que siempre funcionaste de manera diferente a los demás, pero nunca encontraste una explicación clara.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <p>Te identificás con experiencias que otras personas con TDAH o autismo comparten en redes sociales, libros o comunidades.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <p>Un familiar cercano recibió un diagnóstico de TDAH o autismo y algunas de sus experiencias te resultan familiares.</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <p>Un profesional de la salud te sugirió realizar una evaluación diagnóstica.</p>
+      </div>
+      <div class="check-item" style="grid-column: 1 / -1; max-width: 480px;">
+        <div class="check-icon">✓</div>
+        <p>Buscás comprender mejor tu forma de pensar, sentir y relacionarte para tomar decisiones más informadas sobre tu bienestar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿CÓMO FUNCIONA EL PROCESO? -->
 <section id="incluye">
   <div class="container">
     <div class="sec-label">El proceso</div>
-    <h2 class="sec-title">¿Qué <span class="s">incluye?</span></h2>
+    <h2 class="sec-title">¿Cómo funciona <span class="s">el proceso?</span></h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><h4>Consulta de orientación diagnóstica</h4><p>Encuentro de 90 minutos. Entrevista clínica exhaustiva para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y autismo enviados previamente.</p></div></div>
-      <div class="step"><div class="step-num">02</div><div><h4>Tests y cuestionarios validados</h4><p>Aplicación de escalas y cuestionarios validados para TDAH y Autismo en adultos, enviados previamente.</p></div></div>
-      <div class="step"><div class="step-num">03</div><div><h4>Administración de pruebas estandarizadas</h4><p>Con el objetivo de realizar un diagnóstico diferencial con otras condiciones: ansiedad, depresión, rasgos de personalidad, entre otras.</p></div></div>
-      <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva, emocional y conductual</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral. Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA).</p></div></div>
-      <div class="step"><div class="step-num">05</div><div><h4>Devolución diagnóstica</h4><p>Con orientación personalizada, recomendaciones terapéuticas e informe diagnóstico final.</p></div></div>
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h4>Consulta de orientación diagnóstica</h4>
+          <p>Encuentro de 90 minutos. Entrevista clínica inicial para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y Autismo enviados previamente.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h4>Evaluación clínica especializada</h4>
+          <p>Entrevistas para comprender en profundidad tu historia y funcionamiento actual, junto con tests y cuestionarios validados para TDAH y Autismo en adultos.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h4>Evaluación clínica y diagnóstico diferencial</h4>
+          <p>Para comprender si los síntomas se explican por TDAH, Autismo u otras condiciones que pueden presentar manifestaciones similares, como ansiedad, depresión o dificultades emocionales.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <h4>Evaluación neurocognitiva</h4>
+          <p>Permite analizar atención, memoria, funciones ejecutivas y otros procesos cognitivos relevantes para la comprensión integral del caso. Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <h4>Informe y devolución diagnóstica</h4>
+          <p>Explicación de resultados, conclusiones clínicas y recomendaciones personalizadas. Incluye informe diagnóstico escrito.</p>
+        </div>
+      </div>
     </div>
     <div class="modalidad-strip">
       <div class="mod-item"><span class="mod-icon">🖥️</span> 100% virtual · Google Meet</div>
@@ -343,13 +432,57 @@ nav {
   </div>
 </section>
 
-<!-- VALORES -->
+<!-- INFORMACIÓN GENERAL -->
+<section id="info-general">
+  <div class="container">
+    <div class="sec-label">Antes de empezar</div>
+    <h2 class="sec-title">Información <span class="s">general</span></h2>
+    <ul class="ig-list">
+      <li>Las evaluaciones pueden realizarse de forma online o presencial, según disponibilidad y las necesidades de cada caso.</li>
+      <li>Para la modalidad online se requiere computadora, cámara, micrófono y conexión estable.</li>
+      <li>Es recomendable contar con antecedentes o información sobre la infancia y el desarrollo.</li>
+      <li>El resultado puede confirmar o descartar una hipótesis diagnóstica.</li>
+      <li>Todas las evaluaciones incluyen devolución clínica e informe escrito.</li>
+      <li>Los informes se elaboran siguiendo criterios diagnósticos internacionales (DSM-5-TR).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ¿QUÉ SUCEDE DESPUÉS? -->
+<section id="siguiente">
+  <div class="container">
+    <div class="sec-label">Después del diagnóstico</div>
+    <h2 class="sec-title">¿Qué sucede después <span class="s">del diagnóstico?</span></h2>
+    <p style="font-size:0.9rem;color:var(--mid);max-width:600px;margin-top:0.5rem;">El diagnóstico es el punto de partida. A partir de ahí, podemos acompañarte en el proceso que mejor se adapte a lo que necesitás.</p>
+    <div class="siguiente-grid">
+      <div class="sig-card">
+        <div class="sig-icon">🧠</div>
+        <h4>Psicoterapia</h4>
+        <p>Un espacio para trabajar en profundidad a partir de lo que el diagnóstico reveló sobre vos.</p>
+        <a href="https://florenciacruz.com/page/psicoterapia-online" target="_blank">Ver más →</a>
+      </div>
+      <div class="sig-card">
+        <div class="sig-icon">🎯</div>
+        <h4>Entrenamiento ejecutivo</h4>
+        <p>Para desarrollar estrategias concretas de organización, planificación y regulación.</p>
+        <span class="sig-link">Próximamente</span>
+      </div>
+      <div class="sig-card">
+        <div class="sig-icon">📚</div>
+        <h4>Curso de regulación emocional</h4>
+        <p>Un recurso grabado para empezar a trabajar la regulación a tu ritmo, cuando quieras.</p>
+        <a href="https://florenciacruz.com/curso/comprender-y-regular-tus-emociones" target="_blank">Ver más →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVERSIÓN -->
 <section id="valores">
   <div class="container">
     <div class="sec-label">Inversión</div>
     <h2 class="sec-title">Valores y <span class="s">modalidades</span></h2>
 
-    <!-- ETAPA 1: orientación -->
     <div class="val-stage-1">
       <div class="vc-badge">Por acá se empieza</div>
       <div class="vc-label">Consulta de orientación diagnóstica</div>
@@ -362,18 +495,16 @@ nav {
       <div style="margin-top:1.5rem;">
         <a href="https://wa.me/541123902485" class="vc-cta">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-          Reservar consulta de orientación
+          Comenzar el proceso
         </a>
       </div>
     </div>
 
-    <!-- Separador -->
     <div class="val-funnel-sep">
       <span class="sep-arrow">↓</span>
       <span class="sep-label">Si se recomienda avanzar con la evaluación integral</span>
     </div>
 
-    <!-- ETAPA 2: evaluación integral -->
     <div class="val-stage-2">
       <div class="val-s2-header">
         <div class="val-s2-title">Evaluación diagnóstica integral</div>
@@ -394,27 +525,31 @@ nav {
         </div>
       </div>
     </div>
-
-    <p style="font-size:0.78rem;color:var(--mid);margin-top:1.5rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.</p>
   </div>
 </section>
 
-<!-- INFORMACIÓN GENERAL -->
-<section id="info-general">
+<!-- EVALUADORA -->
+<section id="quien-soy">
   <div class="container">
-    <div class="sec-label">Antes de empezar</div>
-    <h2 class="sec-title">Información <span class="s">general</span></h2>
-    <ul class="ig-list">
-      <li>Las evaluaciones pueden realizarse de forma online o presencial, según disponibilidad. Para sesiones virtuales se necesita cámara, micrófono y buena conexión a internet.</li>
-      <li>Es recomendable —aunque no obligatorio— contar con personas cercanas que puedan aportar información, o con materiales escolares y laborales de la infancia y adolescencia.</li>
-      <li>El resultado puede ser un diagnóstico positivo o negativo. En ambos casos, ofrecemos orientación clínica personalizada.</li>
-      <li>Si durante el proceso surgen situaciones que dificultan la evaluación (estado de salud, situación emocional u otros factores), el proceso puede reprogramarse o suspenderse sin costo adicional.</li>
-      <li>Los informes diagnósticos se elaboran siguiendo los criterios internacionales del DSM-5.</li>
-    </ul>
+    <div class="sec-label">Evaluadora</div>
+    <h2 class="sec-title">Sobre <span class="s">mí</span></h2>
+    <div class="qs-card">
+      <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="qs-avatar">
+      <div>
+        <div class="qs-zona">Evaluación diagnóstica TDAH · Autismo</div>
+        <h3>Lic. Florencia Cruz</h3>
+        <div class="qs-mn">MN 68840</div>
+        <div class="qs-esp"><strong>Especializada en Neuropsicología Clínica (UBA)</strong><br>Experiencia en diagnóstico de TDAH y autismo en personas adultas · Psicoterapeuta TCC, DBT, ACT</div>
+        <div id="bio-extra" style="display:none;">
+          <p class="qs-bio" style="margin-top:0.75rem;">Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA), y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
+        </div>
+        <button class="qs-toggle" onclick="var el=document.getElementById('bio-extra');var open=el.style.display!=='none';el.style.display=open?'none':'block';this.textContent=open?'Más info →':'Menos info ↑';">Más info →</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- POLÍTICAS -->
+<!-- INFORMACIÓN IMPORTANTE -->
 <section id="politicas">
   <div class="container">
     <div class="sec-label">Información importante</div>
@@ -444,56 +579,6 @@ nav {
   </div>
 </section>
 
-<!-- QUIÉN SOY -->
-<section id="quien-soy">
-  <div class="container">
-    <div class="sec-label">Evaluadora</div>
-    <h2 class="sec-title">Sobre <span class="s">mí</span></h2>
-    <div class="qs-card">
-      <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="qs-avatar">
-      <div>
-        <div class="qs-zona">Coordinación de equipo terapéutico</div>
-        <h3>Lic. Florencia Cruz</h3>
-        <div class="qs-mn">MN 68840</div>
-        <div class="qs-esp">Psicoterapeuta TCC, DBT, ACT · Especializada en Neuropsicología Clínica (UBA)</div>
-        <div id="bio-extra" style="display:none;">
-          <p class="qs-bio">Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA) y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
-        </div>
-        <button class="qs-toggle" onclick="var el=document.getElementById('bio-extra');var open=el.style.display!=='none';el.style.display=open?'none':'block';this.textContent=open?'Más info →':'Menos info ↑';">Más info →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUÉ SIGUE -->
-<section id="siguiente">
-  <div class="container">
-    <div class="sec-label">Después del diagnóstico</div>
-    <h2 class="sec-title">¿Qué sigue <span class="s">a partir de acá?</span></h2>
-    <p style="font-size:0.9rem;color:var(--mid);max-width:600px;margin-top:0.5rem;">El diagnóstico es el punto de partida. A partir de ahí, podemos acompañarte en el proceso que mejor se adapte a lo que necesitás.</p>
-    <div class="siguiente-grid">
-      <div class="sig-card">
-        <div class="sig-icon">🧠</div>
-        <h4>Psicoterapia</h4>
-        <p>Un espacio para trabajar en profundidad a partir de lo que el diagnóstico reveló sobre vos.</p>
-        <a href="https://florenciacruz.com/page/psicoterapia-online" target="_blank">Ver más →</a>
-      </div>
-      <div class="sig-card">
-        <div class="sig-icon">🎯</div>
-        <h4>Entrenamiento ejecutivo</h4>
-        <p>Para desarrollar estrategias concretas de organización, planificación y regulación.</p>
-        <span class="sig-link">Próximamente</span>
-      </div>
-      <div class="sig-card">
-        <div class="sig-icon">📚</div>
-        <h4>Curso de regulación emocional</h4>
-        <p>Un recurso grabado para empezar a trabajar la regulación a tu ritmo, cuando quieras.</p>
-        <a href="https://florenciacruz.com/curso/comprender-y-regular-tus-emociones" target="_blank">Ver más →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA FINAL -->
 <section id="cta">
   <h2>¿Querés dar el primer paso?</h2>
@@ -502,17 +587,15 @@ nav {
   <div class="cta-btns">
     <a href="https://wa.me/541123902485" class="btn-wh">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-      Agendar mi primera entrevista
+      Comenzar el proceso
     </a>
   </div>
 </section>
 
-
-
 <script>
 const animEls = document.querySelectorAll('.step, .val-stage-1, .val-stage-2');
 const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
+  entries.forEach((e) => {
     if(e.isIntersecting){
       const idx = [...animEls].indexOf(e.target);
       setTimeout(() => e.target.classList.add('visible'), (idx % 5) * 100);
