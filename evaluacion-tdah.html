@@ -201,7 +201,13 @@ nav {
 .val-s2-anchor-price { font-family: var(--g); font-weight: 700; font-size: 1.8rem; color: var(--celeste-dark); }
 
 .val-s2-includes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1rem; margin: 1rem 0; padding: 1rem; background: var(--crema); border-radius: 10px; text-align: left; }
-.val-s2-inc { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--celeste-dark); font-weight: 600; }
+.val-s2-inc {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem; color: var(--celeste-dark); font-weight: 600;
+  opacity: 0; transform: translateX(-8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.val-s2-inc.inc-visible { opacity: 1; transform: translateX(0); }
 .val-s2-inc::before { content: '✓'; flex-shrink: 0; color: var(--rosa); font-size: 0.75rem; }
 
 .val-s2-divider { height: 1px; background: var(--rosa-light); margin: 1.25rem 0; }
@@ -565,7 +571,7 @@ nav {
         <div id="bio-extra" style="display:none;">
           <p class="qs-bio" style="margin-top:0.75rem;">Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA), y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
         </div>
-        <button class="qs-toggle" onclick="var el=document.getElementById('bio-extra');var open=el.style.display!=='none';el.style.display=open?'none':'block';this.textContent=open?'Más info →':'Menos info ↑';">Más info →</button>
+        <button class="qs-toggle" onclick="var el=document.getElementById('bio-extra');var open=el.style.display!=='none';el.style.display=open?'none':'block';this.textContent=open?'Ver CV →':'Cerrar ↑';">Ver CV →</button>
       </div>
     </div>
   </div>
@@ -637,7 +643,7 @@ nav {
 <!-- RESEÑAS -->
 <section id="resenas">
   <div class="container" style="text-align:center;">
-    <div class="sec-label">Lo que dicen</div>
+    <div class="sec-label">Testimonios</div>
     <h2 class="sec-title">Reseñas de <span class="s">Google</span></h2>
   </div>
   <div class="carousel-wrap container">
@@ -649,7 +655,7 @@ nav {
             <div class="review-header">
               <div class="review-avatar" style="background:#7B68EE;">M</div>
               <div>
-                <div class="review-name">majo</div>
+                <div class="review-name">Majo</div>
                 <div class="review-meta">1 opinión · 0 fotos</div>
               </div>
               <div class="review-google-icon">
@@ -667,7 +673,7 @@ nav {
             <div class="review-header">
               <div class="review-avatar" style="background:#2E7D32; background-image:url('https://lh3.googleusercontent.com/a/default-user');"><span>N</span></div>
               <div>
-                <div class="review-name">Nicolas Barrios</div>
+                <div class="review-name">Nicolas B.</div>
                 <div class="review-meta">Local Guide · 21 opiniones</div>
               </div>
               <div class="review-google-icon">
@@ -685,7 +691,7 @@ nav {
             <div class="review-header">
               <div class="review-avatar" style="background:#5D4037;"><span>L</span></div>
               <div>
-                <div class="review-name">Loreto Jara</div>
+                <div class="review-name">Loreto J.</div>
                 <div class="review-meta">Local Guide · 19 opiniones</div>
               </div>
               <div class="review-google-icon">
@@ -703,7 +709,7 @@ nav {
             <div class="review-header">
               <div class="review-avatar" style="background:#C62828;"><span>R</span></div>
               <div>
-                <div class="review-name">Ruth Inés Delgado</div>
+                <div class="review-name">Ruth I. D.</div>
                 <div class="review-meta">2 opiniones · 0 fotos</div>
               </div>
               <div class="review-google-icon">
@@ -721,7 +727,7 @@ nav {
             <div class="review-header">
               <div class="review-avatar" style="background:#00838F;"><span>A</span></div>
               <div>
-                <div class="review-name">Araceli Del Boca</div>
+                <div class="review-name">Araceli D. B.</div>
                 <div class="review-meta">1 opinión · 0 fotos</div>
               </div>
               <div class="review-google-icon">
@@ -804,6 +810,18 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
     if (!wasOpen) item.classList.add('open');
   });
 });
+
+/* ── Val-s2-inc staggered ──────────────────────────── */
+const valStage2 = document.querySelector('.val-stage-2');
+if (valStage2) {
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.val-s2-inc').forEach((el, i) => {
+        setTimeout(() => el.classList.add('inc-visible'), i * 80);
+      });
+    }
+  }, { threshold: 0.2 }).observe(valStage2);
+}
 
 /* ── Carousel ──────────────────────────────────────── */
 (function() {
