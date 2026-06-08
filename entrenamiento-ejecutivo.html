@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrenamiento Ejecutivo · Lic. Florencia Cruz</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/c2f1f705-bbba-4eeb-92ae-d231ad415aff/GlacialIndifferenceRegular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/f7b4da21-46d8-4d7d-a522-b1fb08c37bdc/GlacialIndifferenceBold.otf') format('opentype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/5f6d7081-614a-454c-84f0-155e75d63836/GlacialIndifferenceItalic.otf') format('opentype');
+  font-style: italic;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rosa:         #C96B7A;
+  --rosa-light:   #F2DDE1;
+  --rosa-pale:    #FAF3F4;
+  --celeste:      #B8CCCC;
+  --celeste-light:#E8F0F0;
+  --celeste-dark: #4A7070;
+  --crema:        #F0EDE8;
+  --crema-dark:   #E0DBD3;
+  --dark:         #2C2826;
+  --mid:          #6B6560;
+  --white:        #FFFFFF;
+  --g: 'Glacial', sans-serif;
+  --body: 'Open Sans', sans-serif;
+  --s: 'Dancing Script', cursive;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--white); color: var(--dark); line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+
+/* HERO */
+#hero {
+  background: var(--celeste-dark);
+  padding: 5rem 4rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15); color: white;
+  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+#hero h1 {
+  font-family: var(--g); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 0.05em;
+  color: white; line-height: 1.2; margin-bottom: 0.5rem;
+}
+#hero h1 .s {
+  font-family: var(--s); text-transform: none; color: var(--celeste);
+  font-size: 1.1em; letter-spacing: 0; display: block; line-height: 1.3;
+}
+#hero p { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 600px; margin: 1rem auto 2rem; }
+.btn-white-hero {
+  background: white; color: var(--celeste-dark);
+  padding: 14px 32px; border-radius: 32px;
+  font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s;
+}
+.btn-white-hero:hover { opacity: 0.9; }
+
+/* SHARED */
+.container { max-width: 1000px; margin: 0 auto; }
+.sec-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa); margin-bottom: 0.8rem; }
+.sec-label-cel { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.8rem; }
+.sec-title { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: 0.04em; color: var(--celeste-dark); line-height: 1.2; margin-bottom: 1.5rem; }
+.sec-title .s { font-family: var(--s); text-transform: none; color: var(--rosa); font-size: 1.1em; letter-spacing: 0; }
+.intro-text { font-size: 0.95rem; color: var(--mid); line-height: 1.85; max-width: 800px; margin-bottom: 2rem; }
+
+/* QUÉ ES */
+#que-es { padding: 5rem 4rem; background: var(--crema); }
+.enfoques-wrap { display: flex; flex-wrap: wrap; gap: 10px; margin: 1rem 0 2rem; }
+.enfoque-pill {
+  background: white; border: 2px solid var(--celeste-light);
+  border-radius: 28px; padding: 9px 20px;
+  font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--celeste-dark);
+}
+.diff-box {
+  background: var(--celeste-light); border-left: 4px solid var(--celeste-dark);
+  border-radius: 0 12px 12px 0; padding: 1rem 1.4rem;
+  font-size: 0.85rem; color: var(--mid); line-height: 1.75;
+  margin-top: 1.5rem;
+}
+.diff-box strong { color: var(--celeste-dark); font-family: var(--g); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* PARA QUIÉN */
+#para-quien { padding: 5rem 4rem; background: var(--white); }
+.quien-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 2rem; }
+.quien-item {
+  background: var(--crema); border-radius: 14px; padding: 1.3rem 1.5rem;
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  border-left: 3px solid var(--celeste);
+}
+.quien-item .qi-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.quien-item h4 { font-family: var(--g); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.3rem; }
+.quien-item p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+
+/* ÁREAS DE TRABAJO */
+#areas { padding: 5rem 4rem; background: var(--celeste-light); }
+.areas-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
+.area-card {
+  background: white; border-radius: 16px; padding: 1.6rem;
+  border: 1px solid var(--celeste); display: flex; flex-direction: column; gap: 0.7rem;
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+}
+.area-card.visible { opacity: 1; transform: translateY(0); }
+.area-card:hover { box-shadow: 0 6px 20px rgba(74,112,112,0.12); }
+.area-card .ac-icon { font-size: 1.7rem; }
+.area-card h4 { font-family: var(--g); font-size: 0.8rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--celeste-dark); line-height: 1.4; }
+.area-card p { font-size: 0.81rem; color: var(--mid); line-height: 1.65; }
+
+/* PROCESO */
+#proceso { padding: 5rem 4rem; background: var(--white); }
+.timeline {
+  position: relative;
+  margin: 2rem 0 2rem;
+  padding-left: 3.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.05rem; top: 1rem; bottom: 1rem; width: 2px;
+  background: linear-gradient(to bottom, var(--celeste), var(--rosa-light));
+}
+.tl-step {
+  position: relative;
+  padding-bottom: 2.2rem;
+  opacity: 0; transform: translateX(-24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.tl-step:last-child { padding-bottom: 0; }
+.tl-step.visible { opacity: 1; transform: translateX(0); }
+.tl-num {
+  position: absolute;
+  left: -3.5rem; top: 0.1rem;
+  width: 2.1rem; height: 2.1rem;
+  background: var(--celeste-dark); color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--g); font-weight: 700; font-size: 0.9rem;
+  box-shadow: 0 0 0 4px white, 0 0 0 5px var(--celeste-light);
+  z-index: 1;
+}
+.tl-step h4 {
+  font-family: var(--g); font-size: 0.88rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.4rem;
+}
+.tl-step p { font-size: 0.84rem; color: var(--mid); line-height: 1.7; }
+.tl-note {
+  background: var(--crema); border-left: 3px solid var(--celeste);
+  border-radius: 0 10px 10px 0; padding: 0.7rem 1rem;
+  font-size: 0.81rem; color: var(--mid); line-height: 1.65;
+  margin-top: 0.7rem;
+}
+.proceso-cierre {
+  background: var(--celeste-light); border: 1px solid var(--celeste);
+  border-radius: 12px; padding: 1rem 1.4rem;
+  font-size: 0.82rem; color: var(--mid); line-height: 1.7;
+  margin-top: 1.5rem; font-style: italic;
+}
+
+/* EQUIPO */
+#equipo { padding: 5rem 4rem; background: var(--crema); }
+.sedes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; }
+.sede-card {
+  background: var(--white); border-radius: 20px; padding: 2rem;
+  border: 1px solid var(--celeste-light);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.sede-avatar {
+  width: 100px; height: 100px; border-radius: 50%;
+  object-fit: cover; object-position: center 20%;
+  margin-bottom: 1.2rem;
+  border: 3px solid var(--celeste-light);
+}
+.sede-zona {
+  display: inline-block; background: var(--celeste-light); color: var(--celeste-dark);
+  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 12px; margin-bottom: 0.75rem;
+}
+.sede-card h3 { font-family: var(--g); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; color: var(--celeste-dark); margin-bottom: 0.2rem; text-transform: uppercase; }
+.sede-card .sede-mn { font-size: 0.75rem; color: var(--mid); margin-bottom: 0.5rem; }
+.sede-card .sede-esp { font-size: 0.79rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.5; }
+.sede-divider { width: 100%; height: 1px; background: var(--crema-dark); margin-bottom: 1.2rem; }
+.btn-masinfo {
+  width: 100%; padding: 11px; border-radius: 28px;
+  background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: background 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-masinfo:hover { background: #3a5f5f; }
+.btn-masinfo.open { background: var(--crema-dark); color: var(--dark); }
+.sede-cv {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  width: 100%; text-align: left;
+}
+.sede-cv.open { max-height: 600px; padding-top: 1rem; }
+.sede-cv p { font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
+
+/* ARANCELES */
+#valores { padding: 5rem 4rem; background: var(--white); }
+.tipos-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem; margin-top: 2rem; max-width: 680px; }
+.tipo-card {
+  background: var(--crema); border-radius: 18px;
+  padding: 2rem; border: 1px solid var(--crema-dark);
+  display: flex; flex-direction: column;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+}
+.tipo-card.visible { opacity: 1; transform: translateY(0); }
+.tipo-card:hover { box-shadow: 0 8px 28px rgba(74,112,112,0.1); }
+.tipo-card.featured {
+  background: var(--celeste-light);
+  border: 2px solid var(--celeste-dark);
+  box-shadow: 0 4px 20px rgba(74,112,112,0.15);
+}
+.tipo-card .tc-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.tipo-card h3 { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.08em; color: var(--celeste-dark); margin-bottom: 0.75rem; line-height: 1.4; }
+.tipo-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.65; flex: 1; margin-bottom: 1.2rem; }
+.tipo-card .tc-footer { border-top: 1px solid var(--crema-dark); padding-top: 1rem; margin-top: auto; text-align: center; }
+.precio-box {
+  background: white; border: 2px solid var(--crema-dark);
+  border-radius: 12px; padding: 0.85rem 1rem;
+  text-align: center; margin-bottom: 0.75rem;
+}
+.tipo-card.featured .precio-box { background: var(--celeste-dark); border-color: var(--celeste-dark); }
+.tc-price { font-family: var(--g); font-weight: 700; font-size: 1.5rem; color: var(--celeste-dark); display: block; }
+.tipo-card.featured .tc-price { color: white; }
+.tc-price-sub { font-size: 0.74rem; color: var(--mid); margin-top: 3px; font-family: var(--body); display: block; }
+.tipo-card.featured .tc-price-sub { color: rgba(255,255,255,0.85); }
+.featured-badge {
+  display: block; background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 0.8rem; text-align: center;
+}
+.tc-dur-badge {
+  display: inline-block;
+  background: white; color: var(--celeste-dark);
+  border: 1.5px solid var(--celeste-dark);
+  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.08em;
+  padding: 4px 14px; border-radius: 20px;
+}
+.pago-note {
+  background: var(--crema); border-radius: 10px; padding: 0.9rem 1.2rem;
+  font-size: 0.81rem; color: var(--mid); margin-top: 1.5rem; line-height: 1.65;
+  border-left: 3px solid var(--celeste);
+}
+
+/* ANTES DE COMENZAR */
+#cancelacion { padding: 5rem 4rem; background: var(--crema); }
+.cancel-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; margin-top: 2rem; }
+.cancel-item {
+  background: var(--white); border-radius: 12px; padding: 1.3rem 1.5rem;
+  display: flex; gap: 0.9rem; align-items: flex-start;
+}
+.cancel-item .ci-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.cancel-item h4 { font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.3rem; }
+.cancel-item p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
+
+/* CTA */
+#cta { padding: 6rem 4rem; background: var(--rosa); text-align: center; }
+#cta h2 { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: 0.04em; color: white; margin-bottom: 0.5rem; }
+.s2 { font-family: var(--s); font-size: 1.8rem; color: rgba(255,255,255,0.85); display: block; margin-bottom: 1rem; }
+#cta p { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 2.5rem; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-wh {
+  background: white; color: var(--rosa);
+  padding: 14px 30px; border-radius: 32px;
+  font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s;
+}
+.btn-wh:hover { opacity: 0.9; }
+
+@media (max-width: 800px) {
+  #hero, #que-es, #para-quien, #areas, #proceso, #equipo, #valores, #cancelacion, #cta { padding: 3.5rem 1.5rem; }
+  .areas-grid, .sedes-grid, .tipos-grid-2, .cancel-grid, .quien-grid { grid-template-columns: 1fr; }
+  .tipos-grid-2 { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Entrenamiento ejecutivo · Online y presencial</div>
+  <h1>Entrenamiento
+    <span class="s">ejecutivo</span>
+  </h1>
+  <p>Acompañamiento práctico y funcional para desarrollar habilidades de organización, planificación y autonomía en la vida cotidiana.</p>
+  <a href="https://wa.me/5491123902485" class="btn-white-hero">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Consultar disponibilidad
+  </a>
+</section>
+
+<!-- QUÉ ES -->
+<section id="que-es">
+  <div class="container">
+    <div class="sec-label">¿Qué es?</div>
+    <h2 class="sec-title">Un abordaje práctico <span class="s">orientado a la autonomía</span></h2>
+    <p class="intro-text">El entrenamiento ejecutivo es un acompañamiento especializado que trabaja sobre las funciones ejecutivas: las habilidades cognitivas que nos permiten organizarnos, planificar, iniciar y completar tareas, y gestionar nuestra vida cotidiana de manera funcional y autónoma.</p>
+    <p class="intro-text" style="margin-top:-1rem;">No es psicoterapia clínica, sino un espacio de trabajo concreto y orientado a objetivos, donde se aprenden y entrenan herramientas que pueden aplicarse de forma inmediata en el día a día.</p>
+
+    <div class="enfoques-wrap">
+      <div class="enfoque-pill">Funciones ejecutivas</div>
+      <div class="enfoque-pill">Vida cotidiana</div>
+      <div class="enfoque-pill">Organización y planificación</div>
+      <div class="enfoque-pill">Autonomía funcional</div>
+    </div>
+
+    <div class="diff-box">
+      <strong>¿En qué se diferencia de la psicoterapia?</strong><br>
+      La psicoterapia trabaja sobre el malestar emocional y los procesos psicológicos. El entrenamiento ejecutivo, en cambio, se enfoca en el desarrollo de habilidades prácticas para la gestión de la vida diaria. Ambos pueden complementarse, pero son servicios distintos con objetivos específicos.
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section id="para-quien">
+  <div class="container">
+    <div class="sec-label">¿Para quién es?</div>
+    <h2 class="sec-title">Especialmente pensado <span class="s">para vos si…</span></h2>
+    <div class="quien-grid">
+      <div class="quien-item">
+        <div class="qi-icon">🧠</div>
+        <div>
+          <h4>Tenés TDAH o sospecha diagnóstica</h4>
+          <p>Las dificultades en funciones ejecutivas son centrales en el TDAH. Este espacio te da herramientas concretas para compensarlas y generar rutinas más funcionales.</p>
+        </div>
+      </div>
+      <div class="quien-item">
+        <div class="qi-icon">🔵</div>
+        <div>
+          <h4>Sos autista o tenés diagnóstico de TEA</h4>
+          <p>Muchas personas autistas encuentran dificultades en la organización, flexibilidad y planificación. El entrenamiento adapta las estrategias a tu perfil y forma de procesar.</p>
+        </div>
+      </div>
+      <div class="quien-item">
+        <div class="qi-icon">💡</div>
+        <div>
+          <h4>Sentís que "nunca llegás" a todo</h4>
+          <p>Postergación, inicio difícil de tareas, sensación de caos constante: si te identificás con esto, el entrenamiento ejecutivo puede darte estructura y claridad.</p>
+        </div>
+      </div>
+      <div class="quien-item">
+        <div class="qi-icon">🌱</div>
+        <div>
+          <h4>Querés mejorar tu organización y autonomía</h4>
+          <p>También está dirigido a adultos sin diagnóstico que buscan desarrollar hábitos, rutinas y estrategias para gestionar mejor sus responsabilidades y autocuidado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE TRABAJO -->
+<section id="areas">
+  <div class="container">
+    <div class="sec-label-cel">Áreas de trabajo</div>
+    <h2 class="sec-title">¿Sobre qué <span class="s">trabajamos?</span></h2>
+    <div class="areas-grid">
+      <div class="area-card">
+        <div class="ac-icon">📅</div>
+        <h4>Organización de la vida diaria</h4>
+        <p>Desarrollamos estrategias personalizadas para estructurar el día a día, reducir el caos y aumentar la sensación de control sobre las actividades cotidianas.</p>
+      </div>
+      <div class="area-card">
+        <div class="ac-icon">🗂️</div>
+        <h4>Planificación semanal</h4>
+        <p>Aprendemos a organizar la semana de forma realista, distribuyendo tareas, obligaciones y tiempo libre de manera equilibrada y sostenible.</p>
+      </div>
+      <div class="area-card">
+        <div class="ac-icon">⚡</div>
+        <h4>Iniciación y finalización de tareas</h4>
+        <p>Trabajamos sobre las dificultades para empezar y completar actividades, con técnicas concretas para superar el bloqueo y sostener el foco hasta el cierre.</p>
+      </div>
+      <div class="area-card">
+        <div class="ac-icon">✅</div>
+        <h4>Gestión de responsabilidades</h4>
+        <p>Entrenamos la capacidad de priorizar, delegar y administrar compromisos personales, laborales y académicos sin sentirse abrumado/a.</p>
+      </div>
+      <div class="area-card">
+        <div class="ac-icon">💆</div>
+        <h4>Rutinas de autocuidado</h4>
+        <p>Construimos rutinas de sueño, alimentación, descanso y actividad física que sean funcionales, flexibles y adaptadas a las necesidades de cada persona.</p>
+      </div>
+      <div class="area-card">
+        <div class="ac-icon">📓</div>
+        <h4>Uso funcional de agendas y planificadores</h4>
+        <p>Exploramos y adaptamos herramientas de organización (físicas o digitales) para que realmente funcionen en tu vida, en lugar de sumar más carga.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="proceso">
+  <div class="container">
+    <div class="sec-label">Cómo funciona</div>
+    <h2 class="sec-title">El proceso de <span class="s">entrenamiento</span></h2>
+
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-num">1</div>
+        <h4>Primer contacto</h4>
+        <p>Escribinos para contarnos qué área querés trabajar y qué dificultades estás experimentando. A partir de eso, te orientamos y confirmamos si el entrenamiento ejecutivo es lo que necesitás.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">2</div>
+        <h4>Sesión inicial de evaluación</h4>
+        <p>En la primera sesión conocemos tu perfil de funcionamiento ejecutivo, tus rutinas actuales, tus objetivos y el contexto de tu vida diaria. A partir de ahí, diseñamos un plan de trabajo personalizado.</p>
+        <div class="tl-note">Cada plan es único: no existe un protocolo genérico. Las estrategias se adaptan a tu perfil, diagnóstico (si lo tenés) y objetivos concretos.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">3</div>
+        <h4>Sesiones de entrenamiento</h4>
+        <p>Trabajamos de forma sistemática sobre las áreas identificadas, incorporando herramientas y revisando su aplicación semana a semana. La frecuencia habitual es semanal.</p>
+      </div>
+      <div class="tl-step">
+        <div class="tl-num">4</div>
+        <h4>Seguimiento y consolidación</h4>
+        <p>A medida que las estrategias se incorporan, revisamos los avances, ajustamos el plan y preparamos el cierre del proceso con herramientas que puedas sostener de forma autónoma.</p>
+      </div>
+    </div>
+
+    <div class="proceso-cierre">
+      El entrenamiento ejecutivo requiere un mínimo de 10 sesiones para generar cambios sostenibles. El proceso completo y su duración se evalúan en conjunto con cada persona.
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo">
+  <div class="container">
+    <div class="sec-label">Quiénes somos</div>
+    <h2 class="sec-title">Nuestro <span class="s">equipo</span></h2>
+    <div class="sedes-grid">
+
+      <div class="sede-card">
+        <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="sede-avatar">
+        <div class="sede-zona">Coordinación</div>
+        <h3>Lic. Florencia Cruz</h3>
+        <div class="sede-mn">MN 68840</div>
+        <div class="sede-esp">Neuropsicología clínica · TCC · Entrenamiento ejecutivo</div>
+        <div class="sede-divider"></div>
+        <button class="btn-masinfo" onclick="toggleCV(this)">
+          <span class="btn-label">+ Más info</span>
+        </button>
+        <div class="sede-cv">
+          <p>Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Experiencia en instituciones como INECO, INBA, CRIBE y Fundación AlunCo.</p>
+        </div>
+      </div>
+
+      <div class="sede-card">
+        <img src="https://5v5uhz4w7w.ucarecd.net/d8c65c2c-852d-45a1-a418-162087778436/Natifoto.png" alt="Lic. Natalia Alberto" class="sede-avatar" style="object-position: center top;">
+        <div class="sede-zona">Entrenadora ejecutiva</div>
+        <h3>Lic. Natalia Alberto</h3>
+        <div class="sede-mn">MN 77584</div>
+        <div class="sede-esp">TCC · DBT · Entrenamiento ejecutivo</div>
+        <div class="sede-divider"></div>
+        <button class="btn-masinfo" onclick="toggleCV(this)">
+          <span class="btn-label">+ Más info</span>
+        </button>
+        <div class="sede-cv">
+          <p>Licenciada en Psicología (UBA). Formación clínica especializada en Neuropsicología (Fundación Foro e INECO), TCC y DBT. Experiencia en acompañamiento de infancias, adolescencias y adultos. Docente universitaria en Universidad CAECE. Práctica clínica especializada en población adulta-joven neurodivergente.</p>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER: completar con datos de Camila -->
+      <div class="sede-card">
+        <div class="sede-avatar" style="background:var(--celeste-light);display:flex;align-items:center;justify-content:center;font-size:2rem;">👤</div>
+        <div class="sede-zona">Entrenadora ejecutiva</div>
+        <h3>Lic. Camila [Apellido]</h3>
+        <div class="sede-mn">MN [número]</div>
+        <div class="sede-esp">[Especialidad y formación]</div>
+        <div class="sede-divider"></div>
+        <button class="btn-masinfo" onclick="toggleCV(this)">
+          <span class="btn-label">+ Más info</span>
+        </button>
+        <div class="sede-cv">
+          <p>[Biografía profesional de Camila]</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ARANCELES -->
+<section id="valores">
+  <div class="container">
+    <div class="sec-label">Aranceles</div>
+    <h2 class="sec-title">Valores <span class="s">del servicio</span></h2>
+    <div class="tipos-grid-2">
+      <div class="tipo-card">
+        <div class="tc-icon">🗓️</div>
+        <h3>Sesión individual</h3>
+        <p>Podés comenzar con sesiones sueltas para conocer el espacio y evaluar si el proceso es para vos.</p>
+        <div class="tc-footer">
+          <div class="precio-box">
+            <span class="tc-price">$45.000</span>
+            <span class="tc-price-sub">por sesión</span>
+          </div>
+          <span class="tc-dur-badge">⏱️ 45–50 minutos</span>
+        </div>
+      </div>
+      <div class="tipo-card featured">
+        <div class="featured-badge">Recomendado</div>
+        <div class="tc-icon">📦</div>
+        <h3>Pack proceso completo</h3>
+        <p>Para quienes se comprometen con el proceso. El pack te asegura continuidad y un valor preferencial por sesión.</p>
+        <div class="tc-footer">
+          <div class="precio-box">
+            <span class="tc-price">$410.000</span>
+            <span class="tc-price-sub">pack completo · 12 sesiones</span>
+          </div>
+          <span class="tc-dur-badge">🎯 Mínimo 10 sesiones</span>
+        </div>
+      </div>
+    </div>
+    <div class="pago-note">
+      💳 <strong>Medio de pago:</strong> Mercado Pago. El horario se confirma abonando una sesión por adelantado.
+    </div>
+  </div>
+</section>
+
+<!-- ANTES DE COMENZAR -->
+<section id="cancelacion">
+  <div class="container">
+    <div class="sec-label">Información administrativa</div>
+    <h2 class="sec-title">Antes de <span class="s">comenzar</span></h2>
+    <div class="cancel-grid">
+      <div class="cancel-item">
+        <div class="ci-icon">✅</div>
+        <div><h4>Confirmación del turno</h4><p>El horario queda reservado una vez abonada la primera sesión o el pack correspondiente.</p></div>
+      </div>
+      <div class="cancel-item">
+        <div class="ci-icon">🔔</div>
+        <div><h4>Cancelaciones y cambios</h4><p>Los cambios o cancelaciones pueden realizarse con hasta 24 hs hábiles de anticipación vía WhatsApp. Pasado ese plazo, la sesión se considera realizada.</p></div>
+      </div>
+      <div class="cancel-item">
+        <div class="ci-icon">⚠️</div>
+        <div><h4>Continuidad del proceso</h4><p>Si se registran dos inasistencias consecutivas sin aviso previo, el espacio podrá darse de baja para priorizar la organización de turnos.</p></div>
+      </div>
+      <div class="cancel-item">
+        <div class="ci-icon">🧾</div>
+        <div><h4>Medio de pago</h4><p>Mercado Pago. El pack se abona de forma completa o en cuotas según se acuerde al momento de la inscripción.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2>¿Querés empezar?</h2>
+  <span class="s2">estamos para acompañarte</span>
+  <p>Escribinos para contarnos qué área querés trabajar y coordinamos una primera sesión.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5491123902485" class="btn-wh">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C96B7A"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Escribinos por WhatsApp
+    </a>
+  </div>
+</section>
+
+<script>
+function toggleCV(btn) {
+  const cv = btn.nextElementSibling;
+  const label = btn.querySelector('.btn-label');
+  const isOpen = cv.classList.contains('open');
+  cv.classList.toggle('open');
+  btn.classList.toggle('open');
+  label.textContent = isOpen ? '+ Más info' : '× Cerrar';
+}
+
+const animEls = document.querySelectorAll('.area-card, .tl-step, .tipo-card');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = [...animEls].indexOf(e.target);
+      setTimeout(() => e.target.classList.add('visible'), (idx % 6) * 120);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+animEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
