@@ -136,6 +136,12 @@ nav {
 }
 .mod-item .mod-icon { font-size: 1rem; }
 
+/* INFO GENERAL */
+#info-general { padding: 4rem 4rem 0; background: var(--rosa-pale); }
+.ig-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; max-width: 760px; margin: 1.5rem auto 0; }
+.ig-list li { font-size: 0.84rem; color: var(--mid); padding-left: 1.4rem; position: relative; line-height: 1.7; }
+.ig-list li::before { content: '·'; position: absolute; left: 0; color: var(--celeste-dark); font-size: 1.2rem; line-height: 1.2; }
+
 /* VALORES */
 #valores { padding: 5rem 4rem; background: var(--rosa-pale); }
 .valores-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
@@ -168,10 +174,14 @@ nav {
   border: 1px solid var(--celeste);
 }
 .val-card .vc-highlight {
-  margin-top: 0.9rem; padding: 0.7rem 1rem;
-  background: var(--celeste-light); border-radius: 10px;
-  font-size: 0.78rem; color: var(--celeste-dark); line-height: 1.6;
-  border-left: 3px solid var(--celeste-dark); text-align: left;
+  margin-top: 0.9rem;
+  font-size: 0.74rem; color: var(--mid); line-height: 1.6;
+  font-style: italic; text-align: center;
+}
+.val-card .vc-badge-plain {
+  display: inline-block;
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 0.75rem;
 }
 .val-card .vc-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -260,7 +270,7 @@ nav {
 .sig-card span.sig-link { color: var(--mid); border-color: var(--crema-dark); cursor: default; }
 
 @media (max-width: 800px) {
-  #hero, #incluye, #valores, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  #hero, #incluye, #valores, #info-general, #politicas, #cta { padding: 3.5rem 1.5rem; }
   .modalidad-strip { flex-direction: column; align-items: flex-start; }
   .two-col, .valores-grid, .pol-grid, .siguiente-grid { grid-template-columns: 1fr; }
   .qs-card { flex-direction: column; align-items: center; text-align: center; }
@@ -295,7 +305,7 @@ nav {
     <div class="sec-label">El proceso</div>
     <h2 class="sec-title">¿Qué <span class="s">incluye?</span></h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><h4>Consulta de orientación diagnóstica</h4><p>Primera entrevista clínica exhaustiva para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y autismo enviados previamente.</p></div></div>
+      <div class="step"><div class="step-num">01</div><div><h4>Consulta de orientación diagnóstica</h4><p>Encuentro de 90 minutos. Entrevista clínica exhaustiva para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y autismo enviados previamente.</p></div></div>
       <div class="step"><div class="step-num">02</div><div><h4>Tests y cuestionarios validados</h4><p>Aplicación de escalas y cuestionarios validados para TDAH y Autismo en adultos, enviados previamente.</p></div></div>
       <div class="step"><div class="step-num">03</div><div><h4>Administración de pruebas estandarizadas</h4><p>Con el objetivo de realizar un diagnóstico diferencial con otras condiciones: ansiedad, depresión, rasgos de personalidad, entre otras.</p></div></div>
       <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva, emocional y conductual</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral. Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA).</p></div></div>
@@ -303,9 +313,7 @@ nav {
     </div>
     <div class="modalidad-strip">
       <div class="mod-item"><span class="mod-icon">🖥️</span> 100% virtual · Google Meet</div>
-      <div class="mod-item"><span class="mod-icon">⏱️</span> Sesiones de 45–50 min, semanales</div>
-      <div class="mod-item"><span class="mod-icon">📋</span> Cuestionarios enviados antes de la primera sesión</div>
-      <div class="mod-item"><span class="mod-icon">📍</span> Evaluación neurocognitiva también presencial (Villa Devoto)</div>
+      <div class="mod-item"><span class="mod-icon">⏱️</span> 1.ª sesión de 90 min · siguientes de 50 min, semanales</div>
     </div>
   </div>
 </section>
@@ -325,11 +333,7 @@ nav {
           <li>Entrevista clínica inicial</li>
           <li>Cuestionarios de cribado para TDAH y Autismo</li>
         </ul>
-        <div class="vc-highlight">✓ Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
-        <a href="https://wa.me/541123902485" class="vc-cta">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-          Reservar consulta
-        </a>
+        <div class="vc-highlight">Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
       </div>
       <!-- CARD 2 -->
       <div class="val-card">
@@ -348,7 +352,7 @@ nav {
       </div>
       <!-- CARD 3 -->
       <div class="val-card">
-        <div class="vc-badge">Proceso completo</div>
+        <div class="vc-badge-plain">Proceso completo</div>
         <div class="vc-label">Pago en 3 cuotas</div>
         <div class="vc-price">$420.000</div>
         <ul class="vc-list">
@@ -358,7 +362,28 @@ nav {
         </ul>
       </div>
     </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="https://wa.me/541123902485" class="vc-cta" style="display:inline-flex;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Reservar consulta de orientación
+      </a>
+    </div>
     <p style="font-size:0.78rem;color:var(--mid);margin-top:1.2rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.</p>
+  </div>
+</section>
+
+<!-- INFORMACIÓN GENERAL -->
+<section id="info-general">
+  <div class="container">
+    <div class="sec-label">Antes de empezar</div>
+    <h2 class="sec-title">Información <span class="s">general</span></h2>
+    <ul class="ig-list">
+      <li>Las evaluaciones pueden realizarse de forma online o presencial, según disponibilidad. Para sesiones virtuales se necesita cámara, micrófono y buena conexión a internet.</li>
+      <li>Es recomendable —aunque no obligatorio— contar con personas cercanas que puedan aportar información, o con materiales escolares y laborales de la infancia y adolescencia.</li>
+      <li>El resultado puede ser un diagnóstico positivo o negativo. En ambos casos, ofrecemos orientación clínica personalizada.</li>
+      <li>Si durante el proceso surgen situaciones que dificultan la evaluación (estado de salud, situación emocional u otros factores), el proceso puede reprogramarse o suspenderse sin costo adicional.</li>
+      <li>Los informes diagnósticos se elaboran siguiendo los criterios internacionales del DSM-5.</li>
+    </ul>
   </div>
 </section>
 
@@ -419,7 +444,7 @@ nav {
       <div class="sig-card">
         <div class="sig-icon">🧠</div>
         <h4>Psicoterapia</h4>
-        <p>Un espacio para trabajar en profundidad las áreas que el diagnóstico iluminó.</p>
+        <p>Un espacio para trabajar en profundidad a partir de lo que el diagnóstico reveló sobre vos.</p>
         <a href="https://florenciacruz.com/page/psicoterapia-online" target="_blank">Ver más →</a>
       </div>
       <div class="sig-card">
