@@ -173,6 +173,13 @@ nav {
   padding: 5px 12px; border-radius: 10px; margin-bottom: 0.75rem;
   border: 1px solid var(--celeste);
 }
+.val-card .vc-highlight {
+  margin-top: 0.9rem; padding: 0.7rem 1rem;
+  background: var(--celeste-light); border-radius: 10px;
+  font-size: 0.78rem; color: var(--celeste-dark); line-height: 1.6;
+  border-left: 3px solid var(--celeste-dark); text-align: left;
+}
+.val-card .vc-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   margin-top: 1.25rem; padding: 10px 20px; border-radius: 24px;
   background: var(--celeste-dark); color: white;
@@ -284,7 +291,11 @@ nav {
         <div class="vc-badge">Por acá se empieza</div>
         <div class="vc-label">Consulta de orientación diagnóstica</div>
         <div class="vc-price">$70.000</div>
-        <div class="vc-desc">Entrevista inicial + screenings de TDAH y Autismo.<br>Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
+        <ul class="vc-list">
+          <li>Entrevista inicial</li>
+          <li>Cuestionarios de cribado para TDAH y Autismo</li>
+        </ul>
+        <div class="vc-highlight">✓ Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
         <a href="https://wa.me/541123902485" class="vc-cta">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
           Reservar consulta
@@ -295,7 +306,6 @@ nav {
         <div class="vc-label">Evaluación diagnóstica integral</div>
         <div class="vc-price">$420.000</div>
         <div class="vc-saldo">✓ Saldo tras la consulta de orientación: $350.000</div>
-        <div class="vc-context">Proceso completo en 4–6 semanas</div>
         <ul class="vc-list">
           <li>Consulta de orientación diagnóstica + todos los encuentros clínicos</li>
           <li>Administración de pruebas estandarizadas</li>
