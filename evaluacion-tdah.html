@@ -124,23 +124,17 @@ nav {
 .step h4 { font-family: var(--g); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.2rem; }
 .step p { font-size: 0.85rem; color: var(--mid); line-height: 1.65; }
 
-/* DURACION + NEURO — dos columnas */
-#logistica { padding: 5rem 4rem; background: var(--white); }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.info-card {
-  background: var(--crema); border-radius: 18px;
-  padding: 2rem 2.2rem;
+/* FRANJA MODALIDAD */
+.modalidad-strip {
+  display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;
+  margin-top: 2rem; padding: 1.25rem 1.5rem;
+  background: var(--celeste-light); border-radius: 14px;
 }
-.info-card .ic-icon { font-size: 2rem; margin-bottom: 1rem; }
-.info-card h3 { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.08em; color: var(--celeste-dark); margin-bottom: 1rem; }
-.info-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.info-card ul li { font-size: 0.85rem; color: var(--mid); padding-left: 1.2rem; position: relative; line-height: 1.6; }
-.info-card ul li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
-.info-card .note {
-  margin-top: 1rem; padding: 0.9rem 1rem;
-  background: var(--celeste-light); border-radius: 10px;
-  font-size: 0.8rem; color: var(--celeste-dark); line-height: 1.6;
+.mod-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem; color: var(--celeste-dark);
 }
+.mod-item .mod-icon { font-size: 1rem; }
 
 /* VALORES */
 #valores { padding: 5rem 4rem; background: var(--rosa-pale); }
@@ -163,10 +157,9 @@ nav {
 .val-card .vc-list li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
 .val-card.featured { border: 2px solid var(--celeste); }
 .val-card .vc-badge {
-  display: inline-block;
-  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--celeste-dark); border-bottom: 2px solid var(--celeste-dark);
-  padding-bottom: 2px; margin-bottom: 0.75rem;
+  display: inline-block; background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem;
 }
 .val-card .vc-saldo {
   display: inline-block; background: var(--celeste-light); color: var(--celeste-dark);
@@ -267,7 +260,8 @@ nav {
 .sig-card span.sig-link { color: var(--mid); border-color: var(--crema-dark); cursor: default; }
 
 @media (max-width: 800px) {
-  #hero, #incluye, #logistica, #valores, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  #hero, #incluye, #valores, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  .modalidad-strip { flex-direction: column; align-items: flex-start; }
   .two-col, .valores-grid, .pol-grid, .siguiente-grid { grid-template-columns: 1fr; }
   .qs-card { flex-direction: column; align-items: center; text-align: center; }
   nav { padding: 0 1.5rem; }
@@ -307,24 +301,11 @@ nav {
       <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva, emocional y conductual</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral. Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA).</p></div></div>
       <div class="step"><div class="step-num">05</div><div><h4>Devolución diagnóstica</h4><p>Con orientación personalizada, recomendaciones terapéuticas e informe diagnóstico final.</p></div></div>
     </div>
-  </div>
-</section>
-
-<!-- DURACIÓN + NEUROCOGNITIVA -->
-<section id="logistica">
-  <div class="container">
-    <div class="sec-label">Modalidad de trabajo</div>
-    <h2 class="sec-title">¿Cómo nos <span class="s">encontramos?</span></h2>
-    <div class="info-card" style="max-width:600px;">
-      <div class="ic-icon">⏱️</div>
-      <h3>Duración y modalidad</h3>
-      <ul>
-        <li>3 a 6 encuentros según cada caso</li>
-        <li>Sesiones de 45–50 minutos, semanales</li>
-        <li>100% virtual por Google Meet</li>
-        <li>Se recomienda estar en un espacio privado y tranquilo con buena conexión</li>
-      </ul>
-      <div class="note">📋 Antes de la primera entrevista, te envío cuestionarios online para completar. Esto permite una primera sesión más enfocada y personalizada.</div>
+    <div class="modalidad-strip">
+      <div class="mod-item"><span class="mod-icon">🖥️</span> 100% virtual · Google Meet</div>
+      <div class="mod-item"><span class="mod-icon">⏱️</span> Sesiones de 45–50 min, semanales</div>
+      <div class="mod-item"><span class="mod-icon">📋</span> Cuestionarios enviados antes de la primera sesión</div>
+      <div class="mod-item"><span class="mod-icon">📍</span> Evaluación neurocognitiva también presencial (Villa Devoto)</div>
     </div>
   </div>
 </section>
@@ -340,7 +321,6 @@ nav {
         <div class="vc-badge">Por acá se empieza</div>
         <div class="vc-label">Consulta de orientación diagnóstica</div>
         <div class="vc-price">$70.000</div>
-        <div class="vc-price-note">24 hs hábiles antes del encuentro</div>
         <ul class="vc-list">
           <li>Entrevista clínica inicial</li>
           <li>Cuestionarios de cribado para TDAH y Autismo</li>
@@ -360,14 +340,10 @@ nav {
           <span class="vc-discount-badge">10% off</span>
         </div>
         <div class="vc-price">$378.000</div>
-        <div class="vc-price-note">abonado 24 hs hábiles antes del 2.º encuentro · ahorrás $42.000</div>
         <ul class="vc-list">
-          <li>Todos los encuentros clínicos</li>
-          <li>Administración de pruebas estandarizadas</li>
-          <li>Evaluación cognitiva, emocional y conductual</li>
-          <li>Análisis e integración de resultados</li>
-          <li>Informe detallado y completo</li>
-          <li>Sesión de devolución diagnóstica</li>
+          <li>5 a 6 encuentros</li>
+          <li>Evaluación neurocognitiva</li>
+          <li>Devolución con informe</li>
         </ul>
       </div>
       <!-- CARD 3 -->
@@ -375,16 +351,10 @@ nav {
         <div class="vc-badge">Proceso completo</div>
         <div class="vc-label">Pago en 3 cuotas</div>
         <div class="vc-price">$420.000</div>
-        <div class="vc-price-note">total en tres pagos</div>
         <ul class="vc-list">
-          <li>$175.000 · 24 hs hábiles antes del 2.º encuentro</li>
-          <li>$175.000 · 24 hs hábiles antes de la devolución</li>
-          <li>Todos los encuentros clínicos</li>
-          <li>Administración de pruebas estandarizadas</li>
-          <li>Evaluación cognitiva, emocional y conductual</li>
-          <li>Análisis e integración de resultados</li>
-          <li>Informe detallado y completo</li>
-          <li>Sesión de devolución diagnóstica</li>
+          <li>5 a 6 encuentros</li>
+          <li>Evaluación neurocognitiva</li>
+          <li>Devolución con informe</li>
         </ul>
       </div>
     </div>
