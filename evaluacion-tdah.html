@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación diagnóstica TDAH y Autismo · Lic. Florencia Cruz</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/c2f1f705-bbba-4eeb-92ae-d231ad415aff/GlacialIndifferenceRegular.otf') format('opentype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/f7b4da21-46d8-4d7d-a522-b1fb08c37bdc/GlacialIndifferenceBold.otf') format('opentype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Glacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/5f6d7081-614a-454c-84f0-155e75d63836/GlacialIndifferenceItalic.otf') format('opentype');
+  font-style: italic;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rosa:         #C96B7A;
+  --rosa-light:   #F2DDE1;
+  --rosa-pale:    #FAF3F4;
+  --celeste:      #B8CCCC;
+  --celeste-light:#E8F0F0;
+  --celeste-dark: #4A7070;
+  --crema:        #F0EDE8;
+  --crema-dark:   #E0DBD3;
+  --dark:         #2C2826;
+  --mid:          #6B6560;
+  --white:        #FFFFFF;
+  --g: 'Glacial', sans-serif;
+  --body: 'Open Sans', sans-serif;
+  --s: 'Dancing Script', cursive;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--white); color: var(--dark); line-height: 1.7; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(240,237,232,0.97);
+  border-bottom: 1px solid var(--crema-dark);
+  padding: 0 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo img { height: 36px; width: auto; }
+.nav-back {
+  font-family: var(--g); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--mid); display: flex; align-items: center; gap: 6px;
+}
+.nav-back:hover { color: var(--rosa); }
+.nav-cta {
+  background: var(--rosa); color: white;
+  padding: 9px 22px; border-radius: 28px;
+  font-family: var(--g); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #b05566; }
+
+/* HERO BANNER */
+#hero {
+  background: var(--celeste-dark);
+  padding: 5rem 4rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.15); color: white;
+  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+#hero h1 {
+  font-family: var(--g); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: 0.05em;
+  color: white; line-height: 1.2; margin-bottom: 0.5rem;
+}
+#hero h1 .s {
+  font-family: var(--s); text-transform: none; color: var(--celeste);
+  font-size: 1.1em; letter-spacing: 0; display: block; line-height: 1.2;
+}
+#hero p {
+  font-size: 1rem; color: rgba(255,255,255,0.75);
+  max-width: 580px; margin: 1rem auto 2rem;
+}
+.btn-white-hero {
+  background: white; color: var(--celeste-dark);
+  padding: 14px 32px; border-radius: 32px;
+  font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.2s;
+}
+.btn-white-hero:hover { opacity: 0.9; }
+
+/* INCLUYE */
+#incluye { padding: 5rem 4rem; background: var(--crema); }
+.container { max-width: 1000px; margin: 0 auto; }
+.sec-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rosa); margin-bottom: 0.8rem; }
+.sec-title { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: 0.04em; color: var(--celeste-dark); line-height: 1.2; margin-bottom: 2rem; }
+.sec-title .s { font-family: var(--s); text-transform: none; color: var(--rosa); font-size: 1.1em; letter-spacing: 0; }
+
+.steps { display: flex; flex-direction: column; gap: 1rem; }
+.step {
+  background: var(--white); border-radius: 14px;
+  border-left: 4px solid var(--rosa);
+  padding: 1.25rem 1.5rem;
+  display: flex; align-items: flex-start; gap: 1rem;
+  opacity: 0; transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.step.visible { opacity: 1; transform: translateX(0); }
+.step-num {
+  font-family: var(--g); font-weight: 700; font-size: 1.1rem;
+  color: var(--rosa); flex-shrink: 0; width: 28px;
+}
+.step h4 { font-family: var(--g); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.2rem; }
+.step p { font-size: 0.85rem; color: var(--mid); line-height: 1.65; }
+
+/* DURACION + NEURO — dos columnas */
+#logistica { padding: 5rem 4rem; background: var(--white); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.info-card {
+  background: var(--crema); border-radius: 18px;
+  padding: 2rem 2.2rem;
+}
+.info-card .ic-icon { font-size: 2rem; margin-bottom: 1rem; }
+.info-card h3 { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.08em; color: var(--celeste-dark); margin-bottom: 1rem; }
+.info-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.info-card ul li { font-size: 0.85rem; color: var(--mid); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+.info-card ul li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
+.info-card .note {
+  margin-top: 1rem; padding: 0.9rem 1rem;
+  background: var(--celeste-light); border-radius: 10px;
+  font-size: 0.8rem; color: var(--celeste-dark); line-height: 1.6;
+}
+
+/* VALORES */
+#valores { padding: 5rem 4rem; background: var(--rosa-pale); }
+.valores-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
+.val-card {
+  background: var(--white); border-radius: 16px;
+  padding: 1.75rem; border: 1px solid var(--rosa-light);
+  text-align: center;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+}
+.val-card.visible { opacity: 1; transform: translateY(0); }
+.val-card:hover { box-shadow: 0 8px 24px rgba(201,107,122,0.1); }
+.val-card .vc-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+.val-card .vc-price { font-family: var(--g); font-weight: 700; font-size: 1.4rem; color: var(--celeste-dark); margin-bottom: 0.5rem; }
+.val-card .vc-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.6; }
+.val-card.featured { border: 2px solid var(--celeste); }
+.val-card .vc-badge {
+  display: inline-block; background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem;
+}
+
+/* POLITICAS */
+#politicas { padding: 5rem 4rem; background: var(--white); }
+.pol-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
+.pol-card { border-top: 3px solid var(--celeste); padding: 1.5rem 0.5rem; }
+.pol-card h4 { font-family: var(--g); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.75rem; }
+.pol-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.7; }
+
+/* CTA FINAL */
+#cta { padding: 6rem 4rem; background: var(--celeste-dark); text-align: center; }
+#cta h2 { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: 0.04em; color: white; margin-bottom: 0.5rem; }
+#cta .s2 { font-family: var(--s); font-size: 1.8rem; color: var(--celeste); display: block; margin-bottom: 1rem; }
+#cta p { font-size: 0.9rem; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 2.5rem; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-wh {
+  background: white; color: var(--celeste-dark);
+  padding: 14px 30px; border-radius: 32px;
+  font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s;
+}
+.btn-wh:hover { opacity: 0.9; }
+
+
+
+@media (max-width: 800px) {
+  #hero, #incluye, #logistica, #valores, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  .two-col, .valores-grid, .pol-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Evaluación diagnóstica · TDAH y Autismo · Online</div>
+  <h1>Evaluación diagnóstica de TDAH y Autismo<br>
+    <span class="s">en adultos</span>
+  </h1>
+  <p>Un proceso integral y personalizado para comprender tu perfil atencional, ejecutivo y emocional — y evaluar si se trata de TDAH, Autismo u otras condiciones.</p>
+  <a href="https://wa.me/541123902485" class="btn-white-hero">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Agendar mi primera entrevista
+  </a>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section id="incluye">
+  <div class="container">
+    <div class="sec-label">El proceso</div>
+    <h2 class="sec-title">¿Qué <span class="s">incluye?</span></h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div><h4>Entrevista clínica detallada</h4><p>Sobre tus antecedentes, historia personal, académica, laboral y emocional.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div><h4>Tests y cuestionarios validados</h4><p>Aplicación de escalas y cuestionarios validados para TDAH y Autismo en adultos, enviados previamente para optimizar el tiempo de los encuentros.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><h4>Análisis diferencial</h4><p>Con otras condiciones: ansiedad, depresión, trastornos del sueño, TEA, deterioro cognitivo, entre otras.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral.</p></div></div>
+      <div class="step"><div class="step-num">05</div><div><h4>Devolución diagnóstica</h4><p>Con orientación personalizada, recomendaciones terapéuticas e informe diagnóstico final.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DURACIÓN + NEUROCOGNITIVA -->
+<section id="logistica">
+  <div class="container">
+    <div class="two-col">
+      <div class="info-card">
+        <div class="ic-icon">⏱️</div>
+        <h3>Duración y modalidad</h3>
+        <ul>
+          <li>3 a 5 encuentros según cada caso</li>
+          <li>Sesiones de 45–50 minutos, semanales</li>
+          <li>100% virtual por Google Meet</li>
+          <li>Se recomienda estar en un espacio privado y tranquilo con buena conexión</li>
+        </ul>
+        <div class="note">📋 Antes de la primera entrevista, te envío cuestionarios online para completar. Esto permite una primera sesión más enfocada y personalizada.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">🧠</div>
+        <h3>Sobre la evaluación neurocognitiva</h3>
+        <ul>
+          <li>La evaluación neurocognitiva permite analizar con mayor detalle atención, memoria y funciones ejecutivas</li>
+          <li>Incluida en el proceso diagnóstico integral</li>
+          <li>Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section id="valores">
+  <div class="container">
+    <div class="sec-label">Inversión</div>
+    <h2 class="sec-title">Valores y <span class="s">modalidades</span></h2>
+    <div class="valores-grid">
+      <div class="val-card">
+        <div class="vc-label">Consulta de orientación diagnóstica</div>
+        <div class="vc-price">$70.000</div>
+        <div class="vc-desc">Entrevista inicial + screenings de TDAH y Autismo. Si se recomienda avanzar con la evaluación integral, este importe se descuenta del total.</div>
+      </div>
+      <div class="val-card featured">
+        <div class="vc-badge">Proceso completo</div>
+        <div class="vc-label">Evaluación diagnóstica integral</div>
+        <div class="vc-price">$420.000</div>
+        <div class="vc-desc">Incluye todos los encuentros clínicos, escalas y cuestionarios, evaluación neurocognitiva, informe escrito y devolución diagnóstica. Saldo luego de la consulta de orientación: $350.000.</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--mid);margin-top:1.2rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.<br>La consulta de orientación ($70.000) se abona para confirmar el turno y se descuenta del total si continuás con la evaluación integral.</p>
+  </div>
+</section>
+
+<!-- POLÍTICAS -->
+<section id="politicas">
+  <div class="container">
+    <div class="sec-label">Información importante</div>
+    <h2 class="sec-title">Antes de <span class="s">comenzar</span></h2>
+    <div class="pol-grid">
+      <div class="pol-card">
+        <h4>Cancelaciones</h4>
+        <p>Si necesitás cancelar o reprogramar, avisá con al menos 24 hs hábiles de anticipación para reorganizar la agenda.</p>
+      </div>
+      <div class="pol-card">
+        <h4>Reembolsos</h4>
+        <p>Los pagos no son reembolsables una vez iniciado el proceso, salvo cancelación con 24 hs hábiles de anticipación.</p>
+      </div>
+      <div class="pol-card">
+        <h4>Tolerancia</h4>
+        <p>El tiempo de tolerancia es de 15 minutos. Pasado ese tiempo, el turno se cancela sin reembolso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <h2>¿Querés dar el primer paso?</h2>
+  <span class="s2">Estoy para acompañarte</span>
+  <p>Dar el primer paso puede generar muchas dudas, y está bien. Escribime y te oriento en el inicio del proceso.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/541123902485" class="btn-wh">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar mi primera entrevista
+    </a>
+  </div>
+</section>
+
+
+
+<script>
+const animEls = document.querySelectorAll('.step, .val-card');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){
+      const idx = [...animEls].indexOf(e.target);
+      setTimeout(() => e.target.classList.add('visible'), (idx % 5) * 100);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+animEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
