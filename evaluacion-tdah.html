@@ -144,7 +144,7 @@ nav {
 
 /* VALORES */
 #valores { padding: 5rem 4rem; background: var(--rosa-pale); }
-.valores-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.2rem; margin-top: 2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+.valores-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
 .val-card {
   background: var(--white); border-radius: 16px;
   padding: 1.75rem; border: 1px solid var(--rosa-light);
@@ -163,9 +163,10 @@ nav {
 .val-card .vc-list li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
 .val-card.featured { border: 2px solid var(--celeste); }
 .val-card .vc-badge {
-  display: inline-block; background: var(--celeste-dark); color: white;
-  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem;
+  display: inline-block;
+  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--celeste-dark); border-bottom: 2px solid var(--celeste-dark);
+  padding-bottom: 2px; margin-bottom: 0.75rem;
 }
 .val-card .vc-saldo {
   display: inline-block; background: var(--celeste-light); color: var(--celeste-dark);
@@ -273,6 +274,7 @@ nav {
 }
 @media (min-width: 801px) and (max-width: 1024px) {
   .pol-grid { grid-template-columns: repeat(2,1fr); }
+  .valores-grid { grid-template-columns: repeat(2,1fr); }
 }
 </style>
 </head>
@@ -313,27 +315,16 @@ nav {
   <div class="container">
     <div class="sec-label">Modalidad de trabajo</div>
     <h2 class="sec-title">¿Cómo nos <span class="s">encontramos?</span></h2>
-    <div class="two-col">
-      <div class="info-card">
-        <div class="ic-icon">⏱️</div>
-        <h3>Duración y modalidad</h3>
-        <ul>
-          <li>3 a 6 encuentros según cada caso</li>
-          <li>Sesiones de 45–50 minutos, semanales</li>
-          <li>100% virtual por Google Meet</li>
-          <li>Se recomienda estar en un espacio privado y tranquilo con buena conexión</li>
-        </ul>
-        <div class="note">📋 Antes de la primera entrevista, te envío cuestionarios online para completar. Esto permite una primera sesión más enfocada y personalizada.</div>
-      </div>
-      <div class="info-card">
-        <div class="ic-icon">🧠</div>
-        <h3>Sobre la evaluación neurocognitiva</h3>
-        <ul>
-          <li>La evaluación neurocognitiva permite analizar con mayor detalle atención, memoria y funciones ejecutivas</li>
-          <li>Incluida en el proceso diagnóstico integral</li>
-          <li>Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA)</li>
-        </ul>
-      </div>
+    <div class="info-card" style="max-width:600px;">
+      <div class="ic-icon">⏱️</div>
+      <h3>Duración y modalidad</h3>
+      <ul>
+        <li>3 a 6 encuentros según cada caso</li>
+        <li>Sesiones de 45–50 minutos, semanales</li>
+        <li>100% virtual por Google Meet</li>
+        <li>Se recomienda estar en un espacio privado y tranquilo con buena conexión</li>
+      </ul>
+      <div class="note">📋 Antes de la primera entrevista, te envío cuestionarios online para completar. Esto permite una primera sesión más enfocada y personalizada.</div>
     </div>
   </div>
 </section>
@@ -344,12 +335,14 @@ nav {
     <div class="sec-label">Inversión</div>
     <h2 class="sec-title">Valores y <span class="s">modalidades</span></h2>
     <div class="valores-grid">
+      <!-- CARD 1 -->
       <div class="val-card featured">
         <div class="vc-badge">Por acá se empieza</div>
         <div class="vc-label">Consulta de orientación diagnóstica</div>
         <div class="vc-price">$70.000</div>
+        <div class="vc-price-note">24 hs hábiles antes del encuentro</div>
         <ul class="vc-list">
-          <li>Entrevista inicial</li>
+          <li>Entrevista clínica inicial</li>
           <li>Cuestionarios de cribado para TDAH y Autismo</li>
         </ul>
         <div class="vc-highlight">✓ Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
@@ -358,18 +351,35 @@ nav {
           Reservar consulta
         </a>
       </div>
+      <!-- CARD 2 -->
       <div class="val-card">
         <div class="vc-badge">Proceso completo</div>
-        <div class="vc-label">Evaluación diagnóstica integral</div>
+        <div class="vc-label">Pago único con descuento</div>
         <div class="vc-pricing">
           <span class="vc-price-old">$420.000</span>
           <span class="vc-discount-badge">10% off</span>
         </div>
         <div class="vc-price">$378.000</div>
-        <div class="vc-price-note">pago completo al confirmar la evaluación</div>
-        <div class="vc-saldo">✓ O en 3 pagos: $70.000 · $175.000 · $175.000</div>
+        <div class="vc-price-note">abonado 24 hs hábiles antes del 2.º encuentro · ahorrás $42.000</div>
         <ul class="vc-list">
-          <li>Consulta de orientación diagnóstica + todos los encuentros clínicos</li>
+          <li>Todos los encuentros clínicos</li>
+          <li>Administración de pruebas estandarizadas</li>
+          <li>Evaluación cognitiva, emocional y conductual</li>
+          <li>Análisis e integración de resultados</li>
+          <li>Informe detallado y completo</li>
+          <li>Sesión de devolución diagnóstica</li>
+        </ul>
+      </div>
+      <!-- CARD 3 -->
+      <div class="val-card">
+        <div class="vc-badge">Proceso completo</div>
+        <div class="vc-label">Pago en 3 cuotas</div>
+        <div class="vc-price">$420.000</div>
+        <div class="vc-price-note">total en tres pagos</div>
+        <ul class="vc-list">
+          <li>$175.000 · 24 hs hábiles antes del 2.º encuentro</li>
+          <li>$175.000 · 24 hs hábiles antes de la devolución</li>
+          <li>Todos los encuentros clínicos</li>
           <li>Administración de pruebas estandarizadas</li>
           <li>Evaluación cognitiva, emocional y conductual</li>
           <li>Análisis e integración de resultados</li>
@@ -394,7 +404,7 @@ nav {
       </div>
       <div class="pol-card">
         <h4>Pagos</h4>
-        <p>El proceso se abona en tres momentos:<br>— $70.000 al confirmar la consulta de orientación<br>— $175.000 con 24 hs hábiles de anticipación al segundo encuentro<br>— $175.000 con 24 hs hábiles de anticipación a la sesión de devolución<br><br>Opción pago completo: $378.000 al confirmar la evaluación diagnóstica integral (luego de la consulta de orientación) — ahorrás $42.000 (10% off).</p>
+        <p>Todos los pagos se realizan con 24 hs hábiles de anticipación al encuentro correspondiente.<br><br>— $70.000 antes de la consulta de orientación<br><br>Si avanzás con la evaluación integral, podés elegir:<br>— Pago único: $378.000 antes del 2.º encuentro (ahorrás $42.000)<br>— En cuotas: $175.000 antes del 2.º encuentro + $175.000 antes de la sesión de devolución</p>
       </div>
       <div class="pol-card">
         <h4>Tolerancia</h4>
