@@ -90,13 +90,6 @@ nav {
 .check-icon { flex-shrink: 0; margin-top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--celeste-light); border: 1.5px solid var(--celeste); display: flex; align-items: center; justify-content: center; color: var(--celeste-dark); font-size: 0.7rem; font-weight: 700; }
 .check-item p { font-size: 0.84rem; color: var(--mid); line-height: 1.6; }
 
-/* ¿QUÉ OBTENÉS? — banda */
-#que-obtenes { background: var(--celeste-dark); padding: 2.5rem 4rem; }
-.qo-label { font-family: var(--g); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); text-align: center; margin-bottom: 1.25rem; }
-.qo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 900px; margin: 0 auto; }
-.qo-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: white; line-height: 1.5; }
-.qo-check { flex-shrink: 0; color: var(--celeste); font-weight: 700; margin-top: 1px; font-size: 0.9rem; }
-
 /* ¿CÓMO FUNCIONA? — timeline */
 #incluye { padding: 5rem 4rem; background: var(--crema); }
 .steps { display: flex; flex-direction: column; position: relative; }
@@ -301,7 +294,7 @@ nav {
   <h1>Evaluación diagnóstica de TDAH y Autismo<br>
     <span class="s">en adultos</span>
   </h1>
-  <p>Comprendé tu perfil atencional, ejecutivo y emocional a través de un proceso de evaluación integral y basado en evidencia.</p>
+  <p>Evaluación especializada para personas adultas que desean comprender si sus dificultades pueden estar relacionadas con TDAH, Autismo u otras condiciones.</p>
   <div class="hero-btns">
     <a href="https://wa.me/541123902485" class="btn-white-hero">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="#4A7070"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
@@ -350,19 +343,6 @@ nav {
   </div>
 </section>
 
-<!-- ¿QUÉ VAS A OBTENER? — banda de transición -->
-<div id="que-obtenes">
-  <div class="container">
-    <p class="qo-label">¿Qué vas a obtener con esta evaluación?</p>
-    <div class="qo-grid">
-      <div class="qo-item"><span class="qo-check">✓</span> Comprender mejor tu forma de funcionar</div>
-      <div class="qo-item"><span class="qo-check">✓</span> Identificar fortalezas y dificultades concretas</div>
-      <div class="qo-item"><span class="qo-check">✓</span> Una explicación clara y basada en evidencia</div>
-      <div class="qo-item"><span class="qo-check">✓</span> Recomendaciones personalizadas para lo que sigue</div>
-    </div>
-  </div>
-</div>
-
 <!-- ¿CÓMO FUNCIONA EL PROCESO? -->
 <section id="incluye">
   <div class="container">
@@ -406,7 +386,7 @@ nav {
       </div>
     </div>
     <div class="modalidad-strip">
-      <div class="mod-item"><span class="mod-icon">🖥️</span> 100% virtual · Google Meet</div>
+      <div class="mod-item"><span class="mod-icon">📍</span> Modalidad online o presencial (según disponibilidad y necesidades del caso)</div>
       <div class="mod-item"><span class="mod-icon">⏱️</span> 1.ª sesión de 90 min · siguientes de 50 min, semanales</div>
     </div>
   </div>
@@ -422,8 +402,6 @@ nav {
       <li>Para la modalidad online se requiere computadora, cámara, micrófono y conexión estable.</li>
       <li>Es recomendable contar con antecedentes o información sobre la infancia y el desarrollo.</li>
       <li>El resultado puede confirmar o descartar una hipótesis diagnóstica.</li>
-      <li>Todas las evaluaciones incluyen devolución clínica e informe escrito.</li>
-      <li>Los informes se elaboran siguiendo criterios diagnósticos internacionales (DSM-5-TR).</li>
     </ul>
   </div>
 </section>
@@ -466,7 +444,7 @@ nav {
     <div class="val-stage-1">
       <div class="vc-badge">Por acá se empieza</div>
       <div class="vc-label">Consulta de orientación diagnóstica</div>
-      <div class="vc-price" data-counter data-target="70000">$70.000</div>
+      <div class="vc-price">$70.000</div>
       <ul class="vc-list">
         <li>Encuentro de 90 min</li>
         <li>Entrevista clínica inicial</li>
@@ -482,14 +460,14 @@ nav {
 
     <div class="val-funnel-sep">
       <span class="sep-arrow">↓</span>
-      <span class="sep-label">Si se recomienda avanzar con la evaluación integral</span>
+      <span class="sep-label">Si luego de la consulta decidimos que una evaluación integral puede ayudarte</span>
     </div>
 
     <div class="val-stage-2">
       <div class="val-s2-top">
         <div class="val-s2-title">Evaluación diagnóstica integral</div>
         <div class="val-s2-subtitle">Proceso de 5 a 6 encuentros</div>
-        <div class="val-s2-anchor-price" data-counter data-target="420000">$420.000</div>
+        <div class="val-s2-anchor-price">$420.000</div>
       </div>
       <div class="val-s2-includes">
         <div class="val-s2-inc">Evaluación clínica especializada</div>
@@ -503,7 +481,7 @@ nav {
       <div class="val-options">
         <div class="val-option opt-discount">
           <div class="val-opt-label">Pago único del saldo</div>
-          <div class="val-opt-price" data-counter data-target="315000">$315.000 <span class="val-opt-badge">10% off</span></div>
+          <div class="val-opt-price">$315.000 <span class="val-opt-badge">10% off</span></div>
           <div class="val-opt-note">Ahorrás $35.000 · se abona antes del 2.º encuentro</div>
         </div>
         <div class="val-option opt-cuotas">
@@ -519,7 +497,7 @@ nav {
 <!-- EVALUADORA -->
 <section id="quien-soy">
   <div class="container">
-    <div class="sec-label">Evaluadora</div>
+    <div class="sec-label">Quién te acompaña</div>
     <h2 class="sec-title">Sobre <span class="s">mí</span></h2>
     <div class="qs-card">
       <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="qs-avatar">
@@ -615,28 +593,6 @@ if (checkGrid) {
     }
   }, { threshold: 0.1 }).observe(checkGrid);
 }
-
-/* ── Price counters ────────────────────────────────── */
-document.querySelectorAll('[data-counter]').forEach(el => {
-  new IntersectionObserver(([entry]) => {
-    if (!entry.isIntersecting) return;
-    const target = parseInt(el.dataset.target);
-    const suffix = el.innerHTML.includes('val-opt-badge')
-      ? ' <span class="val-opt-badge">10% off</span>' : '';
-    let start = null;
-    const dur = 1000;
-    const tick = (ts) => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 4);
-      const val = Math.round(eased * target);
-      el.innerHTML = '$​' + val.toLocaleString('es-AR') + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-    entry.target._obs && entry.target._obs.unobserve(el);
-  }, { threshold: 0.7 }).observe(el);
-});
 
 /* ── Accordion ─────────────────────────────────────── */
 document.querySelectorAll('.acc-trigger').forEach(btn => {
