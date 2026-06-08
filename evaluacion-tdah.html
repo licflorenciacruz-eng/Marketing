@@ -211,9 +211,52 @@ nav {
 
 
 
+/* QUIÉN SOY */
+#quien-soy { padding: 5rem 4rem; background: var(--crema); }
+.qs-card {
+  max-width: 680px; margin: 2rem auto 0;
+  background: var(--white); border-radius: 20px;
+  padding: 2rem 2.5rem; border: 1px solid var(--crema-dark);
+  display: flex; align-items: flex-start; gap: 2rem;
+}
+.qs-avatar {
+  width: 100px; height: 100px; border-radius: 50%;
+  object-fit: cover; object-position: center 20%;
+  border: 3px solid var(--rosa-light); flex-shrink: 0;
+}
+.qs-zona {
+  display: inline-block; background: var(--rosa-light); color: var(--rosa);
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.5rem;
+}
+.qs-card h3 { font-family: var(--g); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.15rem; }
+.qs-mn { font-size: 0.75rem; color: var(--mid); margin-bottom: 0.4rem; }
+.qs-esp { font-size: 0.82rem; color: var(--mid); margin-bottom: 0.9rem; line-height: 1.5; font-style: italic; }
+.qs-bio { font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
+
+/* QUÉ SIGUE */
+#siguiente { padding: 5rem 4rem; background: var(--rosa-pale); }
+.siguiente-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
+.sig-card {
+  background: var(--white); border-radius: 16px;
+  padding: 1.75rem; border: 1px solid var(--rosa-light);
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.sig-card .sig-icon { font-size: 1.6rem; }
+.sig-card h4 { font-family: var(--g); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--celeste-dark); }
+.sig-card p { font-size: 0.82rem; color: var(--mid); line-height: 1.65; flex: 1; }
+.sig-card a, .sig-card span.sig-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--g); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--celeste-dark); margin-top: 0.5rem; border-bottom: 1px solid var(--celeste);
+  padding-bottom: 1px; width: fit-content;
+}
+.sig-card span.sig-link { color: var(--mid); border-color: var(--crema-dark); cursor: default; }
+
 @media (max-width: 800px) {
   #hero, #incluye, #logistica, #valores, #politicas, #cta { padding: 3.5rem 1.5rem; }
-  .two-col, .valores-grid, .pol-grid { grid-template-columns: 1fr; }
+  .two-col, .valores-grid, .pol-grid, .siguiente-grid { grid-template-columns: 1fr; }
+  .qs-card { flex-direction: column; align-items: center; text-align: center; }
   nav { padding: 0 1.5rem; }
 }
 @media (min-width: 801px) and (max-width: 1024px) {
@@ -244,7 +287,7 @@ nav {
     <div class="sec-label">El proceso</div>
     <h2 class="sec-title">¿Qué <span class="s">incluye?</span></h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><h4>Entrevista clínica detallada</h4><p>Sobre tus antecedentes, historia personal, académica, laboral y emocional. En algunos casos, y si el paciente lo desea, puede incluirse una entrevista con familiar, pareja o persona cercana como información complementaria.</p></div></div>
+      <div class="step"><div class="step-num">01</div><div><h4>Consulta de orientación diagnóstica</h4><p>Primera entrevista para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y Autismo enviados previamente.</p></div></div>
       <div class="step"><div class="step-num">02</div><div><h4>Tests y cuestionarios validados</h4><p>Aplicación de escalas y cuestionarios validados para TDAH y Autismo en adultos, enviados previamente.</p></div></div>
       <div class="step"><div class="step-num">03</div><div><h4>Análisis diferencial</h4><p>Con otras condiciones: ansiedad, depresión, rasgos de personalidad, entre otras.</p></div></div>
       <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral.</p></div></div>
@@ -256,6 +299,8 @@ nav {
 <!-- DURACIÓN + NEUROCOGNITIVA -->
 <section id="logistica">
   <div class="container">
+    <div class="sec-label">Modalidad de trabajo</div>
+    <h2 class="sec-title">¿Cómo nos <span class="s">encontramos?</span></h2>
     <div class="two-col">
       <div class="info-card">
         <div class="ic-icon">⏱️</div>
@@ -341,6 +386,53 @@ nav {
       <div class="pol-card">
         <h4>Medios de pago</h4>
         <p>Los pagos se realizan por transferencia bancaria, con anticipación mínima de 24 hs hábiles antes de cada encuentro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉN SOY -->
+<section id="quien-soy">
+  <div class="container">
+    <div class="sec-label">Quién te acompaña</div>
+    <h2 class="sec-title">Sobre <span class="s">Florencia</span></h2>
+    <div class="qs-card">
+      <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="qs-avatar">
+      <div>
+        <div class="qs-zona">Coordinación de equipo terapéutico</div>
+        <h3>Lic. Florencia Cruz</h3>
+        <div class="qs-mn">MN 68840</div>
+        <div class="qs-esp">Psicoterapeuta TCC, DBT, ACT · Especializada en Neuropsicología Clínica (UBA)</div>
+        <p class="qs-bio">Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica TCC. Formación de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en adultos. Experiencia en INECO, INBA, CRIBE y Fundación AlunCo. Docente universitaria en Neurociencias (USAL).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ SIGUE -->
+<section id="siguiente">
+  <div class="container">
+    <div class="sec-label">Después del diagnóstico</div>
+    <h2 class="sec-title">¿Qué sigue <span class="s">a partir de acá?</span></h2>
+    <p style="font-size:0.9rem;color:var(--mid);max-width:600px;margin-top:0.5rem;">El diagnóstico es el punto de partida. A partir de ahí, podemos acompañarte en el proceso que mejor se adapte a lo que necesitás.</p>
+    <div class="siguiente-grid">
+      <div class="sig-card">
+        <div class="sig-icon">🧠</div>
+        <h4>Psicoterapia</h4>
+        <p>Un espacio para trabajar en profundidad las áreas que el diagnóstico iluminó.</p>
+        <a href="https://florenciacruz.com/page/psicoterapia-online" target="_blank">Ver más →</a>
+      </div>
+      <div class="sig-card">
+        <div class="sig-icon">🎯</div>
+        <h4>Entrenamiento ejecutivo</h4>
+        <p>Para desarrollar estrategias concretas de organización, planificación y regulación.</p>
+        <span class="sig-link">Próximamente</span>
+      </div>
+      <div class="sig-card">
+        <div class="sig-icon">📚</div>
+        <h4>Curso de regulación emocional</h4>
+        <p>Un recurso grabado para empezar a trabajar la regulación a tu ritmo, cuando quieras.</p>
+        <a href="https://florenciacruz.com/curso/comprender-y-regular-tus-emociones" target="_blank">Ver más →</a>
       </div>
     </div>
   </div>
