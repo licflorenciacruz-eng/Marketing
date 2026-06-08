@@ -183,7 +183,7 @@ nav {
 
 /* POLITICAS */
 #politicas { padding: 5rem 4rem; background: var(--white); }
-.pol-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
+.pol-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2rem; }
 .pol-card { border-top: 3px solid var(--celeste); padding: 1.5rem 0.5rem; }
 .pol-card h4 { font-family: var(--g); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.75rem; }
 .pol-card p { font-size: 0.83rem; color: var(--mid); line-height: 1.7; }
@@ -208,6 +208,9 @@ nav {
   #hero, #incluye, #logistica, #valores, #politicas, #cta { padding: 3.5rem 1.5rem; }
   .two-col, .valores-grid, .pol-grid { grid-template-columns: 1fr; }
   nav { padding: 0 1.5rem; }
+}
+@media (min-width: 801px) and (max-width: 1024px) {
+  .pol-grid { grid-template-columns: repeat(2,1fr); }
 }
 </style>
 </head>
@@ -324,6 +327,10 @@ nav {
       <div class="pol-card">
         <h4>Tolerancia</h4>
         <p>El tiempo de tolerancia es de 15 minutos. Pasado ese tiempo, el turno se cancela sin reembolso.</p>
+      </div>
+      <div class="pol-card">
+        <h4>Medios de pago</h4>
+        <p>Los pagos se realizan por transferencia bancaria, con anticipación mínima de 24 hs hábiles antes de cada encuentro.</p>
       </div>
     </div>
   </div>
