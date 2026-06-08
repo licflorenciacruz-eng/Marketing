@@ -77,7 +77,7 @@ nav {
 
 /* ¿ESTA EVALUACIÓN PUEDE AYUDARTE? */
 #para-ti { padding: 4rem 4rem; background: var(--white); }
-.sec-intro { font-size: 0.92rem; color: var(--mid); max-width: 600px; line-height: 1.7; margin-bottom: 1.75rem; }
+.sec-intro { font-size: 1.1rem; color: var(--celeste-dark); max-width: 100%; line-height: 1.75; margin-bottom: 2rem; font-family: var(--body); }
 .check-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
 .check-item {
   display: flex; align-items: flex-start; gap: 0.65rem;
@@ -86,7 +86,7 @@ nav {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .check-item.visible { opacity: 1; transform: translateY(0); }
-.check-icon { flex-shrink: 0; margin-top: 3px; color: var(--celeste-dark); font-size: 0.75rem; font-weight: 700; }
+.check-icon { flex-shrink: 0; margin-top: 3px; color: var(--rosa); font-size: 0.85rem; font-weight: 700; }
 .check-item p { font-size: 0.83rem; color: var(--mid); line-height: 1.55; }
 
 /* ¿CÓMO FUNCIONA? — timeline colapsable */
@@ -142,11 +142,9 @@ nav {
 .mod-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--celeste-dark); }
 .mod-item .mod-icon { font-size: 1rem; }
 
-/* INFORMACIÓN GENERAL — banda compacta */
-#info-general { padding: 1.75rem 4rem; background: var(--rosa-pale); }
-#info-general .sec-label { margin-bottom: 0.4rem; }
-#info-general .sec-title { font-size: 0.82rem; font-family: var(--body); font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--mid); margin-bottom: 0.75rem; }
-.ig-list { list-style: none; display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.4rem 1.5rem; max-width: 900px; margin: 0 auto; }
+/* INFORMACIÓN GENERAL */
+#info-general { padding: 3rem 4rem; background: var(--rosa-pale); }
+.ig-list { list-style: none; display: flex; flex-direction: row; flex-wrap: wrap; gap: 0.4rem 1.5rem; max-width: 900px; margin: 1.25rem auto 0; }
 .ig-list li { font-size: 0.78rem; color: var(--mid); line-height: 1.5; padding-left: 0.9rem; position: relative; opacity: 0.85; }
 .ig-list li::before { content: '·'; position: absolute; left: 0; color: var(--celeste-dark); font-size: 1rem; line-height: 1.3; }
 
@@ -203,7 +201,7 @@ nav {
 .val-s2-subtitle { font-size: 0.75rem; color: var(--mid); font-style: italic; margin-bottom: 0; }
 .val-s2-anchor-price { font-family: var(--g); font-weight: 700; font-size: 1.8rem; color: var(--celeste-dark); }
 
-.val-s2-includes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1rem; margin: 1.25rem 0; padding: 1.1rem 1.25rem; background: var(--crema); border-radius: 10px; }
+.val-s2-includes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.4rem 1rem; margin: 1rem 0; padding: 1rem; background: var(--crema); border-radius: 10px; text-align: left; }
 .val-s2-inc { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: var(--celeste-dark); font-weight: 600; }
 .val-s2-inc::before { content: '✓'; flex-shrink: 0; color: var(--rosa); font-size: 0.75rem; }
 
@@ -372,7 +370,7 @@ nav {
         <div class="step-num">01</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Consulta de orientación diagnóstica</h4><span class="step-hint">Ver detalle</span></div>
+            <div><h4>Consulta de orientación diagnóstica</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
           <div class="step-body"><p>Encuentro de 90 minutos. Entrevista clínica inicial para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y Autismo enviados previamente.</p></div>
@@ -382,7 +380,7 @@ nav {
         <div class="step-num">02</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Evaluación clínica especializada</h4><span class="step-hint">Ver detalle</span></div>
+            <div><h4>Evaluación clínica especializada</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
           <div class="step-body"><p>Entrevistas para comprender en profundidad tu historia y funcionamiento actual, junto con tests y cuestionarios validados para TDAH y Autismo en adultos.</p></div>
@@ -392,7 +390,7 @@ nav {
         <div class="step-num">03</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Evaluación clínica y diagnóstico diferencial</h4><span class="step-hint">Ver detalle</span></div>
+            <div><h4>Evaluación clínica y diagnóstico diferencial</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
           <div class="step-body"><p>Para comprender si los síntomas se explican por TDAH, Autismo u otras condiciones que pueden presentar manifestaciones similares, como ansiedad, depresión o dificultades emocionales.</p></div>
@@ -402,7 +400,7 @@ nav {
         <div class="step-num">04</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Evaluación neurocognitiva</h4><span class="step-hint">Ver detalle</span></div>
+            <div><h4>Evaluación neurocognitiva</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
           <div class="step-body"><p>Permite analizar atención, memoria, funciones ejecutivas y otros procesos cognitivos relevantes para la comprensión integral del caso. Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA).</p></div>
@@ -412,7 +410,7 @@ nav {
         <div class="step-num">05</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Informe y devolución diagnóstica</h4><span class="step-hint">Ver detalle</span></div>
+            <div><h4>Informe y devolución diagnóstica</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
           <div class="step-body"><p>Explicación de resultados, conclusiones clínicas y recomendaciones personalizadas. Incluye informe diagnóstico escrito.</p></div>
@@ -425,6 +423,8 @@ nav {
 <!-- INFORMACIÓN GENERAL -->
 <section id="info-general">
   <div class="container">
+    <div class="sec-label">Antes de empezar</div>
+    <h2 class="sec-title">Información <span class="s">general</span></h2>
     <ul class="ig-list">
       <li>Las evaluaciones pueden realizarse de forma online o presencial, según disponibilidad y las necesidades de cada caso.</li>
       <li>Para la modalidad online se requiere computadora, cámara, micrófono y conexión estable.</li>
@@ -464,13 +464,13 @@ nav {
     <div class="val-stage-2">
       <div class="vc-badge">Evaluación diagnóstica integral</div>
       <div class="vc-label">Proceso de 5 a 6 encuentros</div>
-      <ul class="vc-list" style="margin: 0.75rem auto 0;">
-        <li>Evaluación clínica especializada</li>
-        <li>Tests y cuestionarios validados</li>
-        <li>Evaluación neurocognitiva</li>
-        <li>Informe diagnóstico completo</li>
-        <li>Devolución diagnóstica personalizada</li>
-      </ul>
+      <div class="val-s2-includes">
+        <div class="val-s2-inc">Evaluación clínica especializada</div>
+        <div class="val-s2-inc">Tests y cuestionarios validados</div>
+        <div class="val-s2-inc">Evaluación neurocognitiva</div>
+        <div class="val-s2-inc">Informe diagnóstico completo</div>
+        <div class="val-s2-inc" style="grid-column:1/-1;">Devolución diagnóstica personalizada</div>
+      </div>
       <div class="val-s2-divider" style="margin: 1.25rem 0;"></div>
       <div class="val-options">
         <div class="val-option opt-discount">
