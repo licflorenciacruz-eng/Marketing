@@ -233,6 +233,14 @@ nav {
 .qs-mn { font-size: 0.75rem; color: var(--mid); margin-bottom: 0.4rem; }
 .qs-esp { font-size: 0.82rem; color: var(--mid); margin-bottom: 0.9rem; line-height: 1.5; font-style: italic; }
 .qs-bio { font-size: 0.82rem; color: var(--mid); line-height: 1.75; }
+.qs-toggle {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 0.75rem; padding: 6px 14px; border-radius: 20px;
+  background: transparent; border: 1px solid var(--celeste);
+  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--celeste-dark); cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.qs-toggle:hover { background: var(--celeste-light); }
 
 /* QUÉ SIGUE */
 #siguiente { padding: 5rem 4rem; background: var(--rosa-pale); }
@@ -287,10 +295,10 @@ nav {
     <div class="sec-label">El proceso</div>
     <h2 class="sec-title">¿Qué <span class="s">incluye?</span></h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><h4>Consulta de orientación diagnóstica</h4><p>Primera entrevista para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y Autismo enviados previamente.</p></div></div>
+      <div class="step"><div class="step-num">01</div><div><h4>Consulta de orientación diagnóstica</h4><p>Primera entrevista clínica exhaustiva para conocer tu historia personal, académica, laboral y emocional, y evaluar si se recomienda avanzar con la evaluación integral. Incluye cuestionarios de cribado para TDAH y autismo enviados previamente.</p></div></div>
       <div class="step"><div class="step-num">02</div><div><h4>Tests y cuestionarios validados</h4><p>Aplicación de escalas y cuestionarios validados para TDAH y Autismo en adultos, enviados previamente.</p></div></div>
-      <div class="step"><div class="step-num">03</div><div><h4>Análisis diferencial</h4><p>Con otras condiciones: ansiedad, depresión, rasgos de personalidad, entre otras.</p></div></div>
-      <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div><h4>Administración de pruebas estandarizadas</h4><p>Con el objetivo de realizar un diagnóstico diferencial con otras condiciones: ansiedad, depresión, rasgos de personalidad, entre otras.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div><h4>Evaluación neurocognitiva, emocional y conductual</h4><p>Permite analizar en detalle atención, memoria y funciones ejecutivas. Incluida en el proceso integral. Puede realizarse de forma virtual o presencial en consultorio (Villa Devoto, CABA).</p></div></div>
       <div class="step"><div class="step-num">05</div><div><h4>Devolución diagnóstica</h4><p>Con orientación personalizada, recomendaciones terapéuticas e informe diagnóstico final.</p></div></div>
     </div>
   </div>
@@ -373,11 +381,11 @@ nav {
     <div class="pol-grid">
       <div class="pol-card">
         <h4>Cancelaciones</h4>
-        <p>Si necesitás cancelar o reprogramar, avisá con al menos 24 hs hábiles de anticipación para reorganizar la agenda.</p>
+        <p>Si necesitás cancelar o reprogramar, avisá con al menos 24 hs hábiles de anticipación. En caso de no avisar con esa anticipación, el encuentro se considerará realizado y no será recuperable dentro del proceso. Si se requieren encuentros adicionales, se abonan por separado ($70.000).</p>
       </div>
       <div class="pol-card">
-        <h4>Reembolsos</h4>
-        <p>Los pagos no son reembolsables una vez iniciado el proceso, salvo cancelación con 24 hs hábiles de anticipación.</p>
+        <h4>Pagos</h4>
+        <p>El proceso se abona en tres momentos:<br>— $70.000 para confirmar la consulta de orientación diagnóstica<br>— $175.000 con 24 hs hábiles de anticipación al segundo encuentro<br>— $175.000 con 24 hs hábiles de anticipación a la sesión de devolución final</p>
       </div>
       <div class="pol-card">
         <h4>Tolerancia</h4>
@@ -385,7 +393,7 @@ nav {
       </div>
       <div class="pol-card">
         <h4>Medios de pago</h4>
-        <p>Los pagos se realizan por transferencia bancaria, con anticipación mínima de 24 hs hábiles antes de cada encuentro.</p>
+        <p>Los pagos se realizan por transferencia bancaria. Realizamos factura para reintegros a prepagas y obras sociales.</p>
       </div>
     </div>
   </div>
@@ -403,7 +411,10 @@ nav {
         <h3>Lic. Florencia Cruz</h3>
         <div class="qs-mn">MN 68840</div>
         <div class="qs-esp">Psicoterapeuta TCC, DBT, ACT · Especializada en Neuropsicología Clínica (UBA)</div>
-        <p class="qs-bio">Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica TCC. Formación de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en adultos. Experiencia en INECO, INBA, CRIBE y Fundación AlunCo. Docente universitaria en Neurociencias (USAL).</p>
+        <div id="bio-extra" style="display:none;">
+          <p class="qs-bio">Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA) y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
+        </div>
+        <button class="qs-toggle" onclick="var el=document.getElementById('bio-extra');var open=el.style.display!=='none';el.style.display=open?'none':'block';this.textContent=open?'Más info →':'Menos info ↑';">Más info →</button>
       </div>
     </div>
   </div>
@@ -441,7 +452,7 @@ nav {
 <!-- CTA FINAL -->
 <section id="cta">
   <h2>¿Querés dar el primer paso?</h2>
-  <span class="s2">Estoy para acompañarte</span>
+  <span class="s2">Estamos para acompañarte</span>
   <p>Dar el primer paso puede generar muchas dudas, y está bien. Escribime y te oriento en el inicio del proceso.</p>
   <div class="cta-btns">
     <a href="https://wa.me/541123902485" class="btn-wh">
