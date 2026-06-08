@@ -86,7 +86,7 @@ nav {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .check-item.visible { opacity: 1; transform: translateY(0); }
-.check-icon { flex-shrink: 0; margin-top: 1px; width: 20px; height: 20px; border: 2px solid var(--rosa); border-radius: 4px; color: var(--rosa); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; background: transparent; }
+.check-icon { flex-shrink: 0; margin-top: 2px; width: 20px; height: 20px; border: 2px solid var(--rosa); border-radius: 4px; color: var(--rosa); font-size: 0.65rem; font-weight: 700; display: flex; align-items: center; justify-content: center; background: transparent; line-height: 1; }
 .check-item p { font-size: 0.83rem; color: var(--mid); line-height: 1.55; }
 
 /* ¿CÓMO FUNCIONA? — timeline colapsable */
@@ -144,8 +144,19 @@ nav {
 
 /* INFORMACIÓN GENERAL */
 #info-general { padding: 3rem 4rem; background: var(--white); }
-.ig-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; max-width: 760px; margin: 1.25rem auto 0; }
-.ig-list li { font-size: 0.82rem; color: var(--mid); line-height: 1.6; padding: 0.6rem 1rem; border: 1.5px solid var(--celeste); border-radius: 8px; background: transparent; }
+.ig-list {
+  list-style: none; max-width: 760px; margin: 1.25rem auto 0;
+  border: 1.5px solid var(--celeste); border-radius: 12px; overflow: hidden;
+}
+.ig-list li {
+  font-size: 0.82rem; color: var(--mid); line-height: 1.6;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--celeste-light);
+  background: transparent;
+  display: flex; align-items: flex-start; gap: 0.6rem;
+}
+.ig-list li:last-child { border-bottom: none; }
+.ig-list li::before { content: '·'; color: var(--celeste-dark); font-size: 1.1rem; line-height: 1.4; flex-shrink: 0; }
 
 /* ¿QUÉ SUCEDE DESPUÉS? */
 #siguiente { padding: 5rem 4rem; background: var(--white); }
@@ -217,8 +228,8 @@ nav {
 .val-options { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .val-option { border-radius: 12px; padding: 1.25rem 1.5rem; text-align: center; transition: transform 0.25s, box-shadow 0.25s; }
 .val-option:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-.val-option.opt-discount { background: var(--celeste-light); border: 1px solid var(--celeste); }
-.val-option.opt-cuotas { background: var(--crema); border: 1px solid var(--crema-dark); }
+.val-option.opt-discount { background: var(--celeste-light); border: 2px solid var(--celeste-dark); }
+.val-option.opt-cuotas { background: var(--celeste-light); border: 1px solid var(--celeste); }
 .val-opt-label { font-family: var(--g); font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.6rem; }
 .val-opt-price { font-family: var(--g); font-weight: 700; font-size: 1.35rem; color: var(--celeste-dark); display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap; }
 .val-opt-badge { background: var(--rosa); color: white; font-family: var(--g); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 8px; }
@@ -336,6 +347,7 @@ nav {
 .btn-wh:hover { opacity: 0.9; }
 
 /* BOTÓN FLOTANTE WHATSAPP */
+.wa-float .wa-icon-mobile { display: none; }
 .wa-float {
   position: fixed; bottom: 24px; right: 24px; z-index: 500;
   background: #25D366; color: white;
@@ -362,7 +374,8 @@ nav {
   .qs-card { flex-direction: column; align-items: center; text-align: center; }
   .steps::before { display: none; }
   nav { padding: 0 1.5rem; }
-  .wa-float span.wa-label { display: none; }
+  .wa-float .wa-label { display: none; }
+  .wa-float .wa-icon-mobile { display: flex; }
   .wa-float { padding: 14px; border-radius: 50%; }
 }
 @media (min-width: 801px) and (max-width: 1024px) {
@@ -765,8 +778,10 @@ nav {
 
 <!-- BOTÓN FLOTANTE WHATSAPP -->
 <a href="https://wa.me/541123902485" class="wa-float" id="waFloat">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-  <span class="wa-label">Reservar consulta</span>
+  <span class="wa-icon-mobile">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+  </span>
+  <span class="wa-label">💬 Reservar consulta</span>
 </a>
 
 <script>
