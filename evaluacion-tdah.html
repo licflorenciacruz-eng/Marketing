@@ -187,6 +187,10 @@ nav {
   transition: opacity 0.2s;
 }
 .val-card .vc-cta:hover { opacity: 0.85; }
+.val-card .vc-pricing { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.15rem; }
+.val-card .vc-price-old { font-family: var(--g); font-size: 1rem; color: var(--mid); text-decoration: line-through; opacity: 0.6; }
+.val-card .vc-discount-badge { background: var(--rosa); color: white; font-family: var(--g); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 8px; }
+.val-card .vc-price-note { font-size: 0.72rem; color: var(--mid); margin-bottom: 0.75rem; font-style: italic; }
 
 /* POLITICAS */
 #politicas { padding: 5rem 4rem; background: var(--white); }
@@ -357,9 +361,13 @@ nav {
       <div class="val-card">
         <div class="vc-badge">Proceso completo</div>
         <div class="vc-label">Evaluación diagnóstica integral</div>
-        <div class="vc-price">$420.000</div>
-        <div class="vc-saldo">✓ Se abona en 3 pagos: $70.000 · $175.000 · $175.000</div>
-        <div class="vc-saldo" style="margin-top:0.4rem;">✦ Pago completo al confirmar: $378.000 — ahorrás $42.000 (10% off)</div>
+        <div class="vc-pricing">
+          <span class="vc-price-old">$420.000</span>
+          <span class="vc-discount-badge">10% off</span>
+        </div>
+        <div class="vc-price">$378.000</div>
+        <div class="vc-price-note">pago completo al confirmar la evaluación</div>
+        <div class="vc-saldo">✓ O en 3 pagos: $70.000 · $175.000 · $175.000</div>
         <ul class="vc-list">
           <li>Consulta de orientación diagnóstica + todos los encuentros clínicos</li>
           <li>Administración de pruebas estandarizadas</li>
