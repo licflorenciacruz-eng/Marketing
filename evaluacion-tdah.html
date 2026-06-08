@@ -363,24 +363,32 @@ nav {
 .wa-float:hover { box-shadow: 0 6px 28px rgba(37,211,102,0.45); transform: translateY(-2px) scale(1); }
 
 @media (max-width: 800px) {
-  #hero, #para-ti, #que-obtenes, #incluye, #info-general, #siguiente, #valores, #quien-soy, #politicas, #cta { padding: 3.5rem 1.5rem; }
+  #hero, #para-ti, #incluye, #info-general, #siguiente, #valores, #quien-soy, #politicas, #resenas, #cta { padding: 3.5rem 1.25rem; }
   .hero-btns { flex-direction: column; align-items: center; }
+  .btn-white-hero, .btn-ghost-hero { width: 100%; justify-content: center; text-align: center; }
   .check-grid { grid-template-columns: 1fr; }
-  .qo-grid { grid-template-columns: repeat(2, 1fr); }
+  .check-item[style] { max-width: 100% !important; }
   .modalidad-strip { flex-direction: column; align-items: flex-start; }
   .siguiente-grid { grid-template-columns: 1fr; }
+  .val-stage-1, .val-stage-2 { padding: 1.5rem 1.25rem; }
   .val-options { grid-template-columns: 1fr; }
   .val-s2-includes { grid-template-columns: 1fr; }
-  .qs-card { flex-direction: column; align-items: center; text-align: center; }
+  .val-funnel-sep .sep-label { font-size: 0.78rem; padding: 0 1rem; }
+  .qs-card { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 1.25rem; }
+  .accordion { max-width: 100%; }
   .steps::before { display: none; }
-  nav { padding: 0 1.5rem; }
+  nav { padding: 0 1.25rem; }
   .wa-float .wa-label { display: none; }
   .wa-float .wa-icon-mobile { display: flex; }
   .wa-float { padding: 14px; border-radius: 50%; }
+  .carousel-wrap { padding: 0; }
+  #resenas .sec-label, #resenas .sec-title { text-align: center; }
 }
 @media (min-width: 801px) and (max-width: 1024px) {
+  #hero, #para-ti, #incluye, #info-general, #siguiente, #valores, #quien-soy, #politicas, #resenas, #cta { padding: 4rem 2.5rem; }
   .check-grid { grid-template-columns: 1fr; }
-  .qo-grid { grid-template-columns: repeat(2, 1fr); }
+  .siguiente-grid { grid-template-columns: repeat(2, 1fr); }
+  .val-stage-1, .val-stage-2 { max-width: 100%; }
 }
 </style>
 </head>
