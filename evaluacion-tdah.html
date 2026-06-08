@@ -148,21 +148,33 @@ nav {
 .val-card {
   background: var(--white); border-radius: 16px;
   padding: 1.75rem; border: 1px solid var(--rosa-light);
-  text-align: center;
+  text-align: center; display: flex; flex-direction: column;
   opacity: 0; transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
 }
 .val-card.visible { opacity: 1; transform: translateY(0); }
 .val-card:hover { box-shadow: 0 8px 24px rgba(201,107,122,0.1); }
 .val-card .vc-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
-.val-card .vc-price { font-family: var(--g); font-weight: 700; font-size: 1.4rem; color: var(--celeste-dark); margin-bottom: 0.5rem; }
-.val-card .vc-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.6; }
+.val-card .vc-price { font-family: var(--g); font-weight: 700; font-size: 1.4rem; color: var(--celeste-dark); margin-bottom: 0.25rem; }
+.val-card .vc-context { font-size: 0.72rem; color: var(--celeste-dark); opacity: 0.7; margin-bottom: 0.75rem; font-style: italic; }
+.val-card .vc-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.6; flex: 1; }
+.val-card .vc-list { list-style: none; text-align: left; margin: 0.5rem 0 0; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
+.val-card .vc-list li { font-size: 0.78rem; color: var(--mid); padding-left: 1.1rem; position: relative; line-height: 1.5; }
+.val-card .vc-list li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
 .val-card.featured { border: 2px solid var(--celeste); }
 .val-card .vc-badge {
   display: inline-block; background: var(--celeste-dark); color: white;
   font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
   padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem;
 }
+.val-card .vc-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 1.25rem; padding: 10px 20px; border-radius: 24px;
+  background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+.val-card .vc-cta:hover { opacity: 0.85; }
 
 /* POLITICAS */
 #politicas { padding: 5rem 4rem; background: var(--white); }
@@ -264,15 +276,27 @@ nav {
         <div class="vc-badge">Por acá se empieza</div>
         <div class="vc-label">Consulta de orientación diagnóstica</div>
         <div class="vc-price">$70.000</div>
-        <div class="vc-desc">Entrevista inicial + screenings de TDAH y Autismo. Si se recomienda avanzar con la evaluación integral, este importe se descuenta del total.</div>
+        <div class="vc-desc">Entrevista inicial + screenings de TDAH y Autismo.<br>Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
+        <a href="https://wa.me/541123902485" class="vc-cta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Reservar consulta
+        </a>
       </div>
       <div class="val-card">
+        <div class="vc-badge">Proceso completo</div>
         <div class="vc-label">Evaluación diagnóstica integral</div>
         <div class="vc-price">$420.000</div>
-        <div class="vc-desc">Incluye todos los encuentros clínicos, escalas y cuestionarios, evaluación neurocognitiva, informe escrito y devolución diagnóstica. Saldo luego de la consulta de orientación: $350.000.</div>
+        <div class="vc-context">Proceso completo en 4–6 semanas</div>
+        <ul class="vc-list">
+          <li>Todos los encuentros clínicos</li>
+          <li>Escalas, cuestionarios e informe escrito</li>
+          <li>Evaluación neurocognitiva incluida</li>
+          <li>Devolución diagnóstica personalizada</li>
+          <li>Saldo tras la consulta de orientación: $350.000</li>
+        </ul>
       </div>
     </div>
-    <p style="font-size:0.78rem;color:var(--mid);margin-top:1.2rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.<br>La consulta de orientación ($70.000) se abona para confirmar el turno y se descuenta del total si continuás con la evaluación integral.</p>
+    <p style="font-size:0.78rem;color:var(--mid);margin-top:1.2rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.</p>
   </div>
 </section>
 
