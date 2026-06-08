@@ -142,59 +142,84 @@ nav {
 .ig-list li { font-size: 0.84rem; color: var(--mid); padding-left: 1.4rem; position: relative; line-height: 1.7; }
 .ig-list li::before { content: '·'; position: absolute; left: 0; color: var(--celeste-dark); font-size: 1.2rem; line-height: 1.2; }
 
-/* VALORES */
+/* VALORES — funnel de 2 etapas */
 #valores { padding: 5rem 4rem; background: var(--rosa-pale); }
-.valores-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem; }
-.val-card {
+
+/* Etapa 1: orientación */
+.val-stage-1 {
+  max-width: 460px; margin: 2rem auto 0;
   background: var(--white); border-radius: 16px;
-  padding: 1.75rem; border: 1px solid var(--rosa-light);
-  text-align: center; display: flex; flex-direction: column;
+  padding: 2rem 2.5rem; border: 2px solid var(--celeste);
+  text-align: center;
   opacity: 0; transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
 }
-.val-card.visible { opacity: 1; transform: translateY(0); }
-.val-card:hover { box-shadow: 0 8px 24px rgba(201,107,122,0.1); }
-.val-card .vc-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
-.val-card .vc-price { font-family: var(--g); font-weight: 700; font-size: 1.4rem; color: var(--celeste-dark); margin-bottom: 0.25rem; }
-.val-card .vc-context { font-size: 0.72rem; color: var(--celeste-dark); opacity: 0.7; margin-bottom: 0.75rem; font-style: italic; }
-.val-card .vc-desc { font-size: 0.78rem; color: var(--mid); line-height: 1.6; flex: 1; }
-.val-card .vc-list { list-style: none; text-align: left; margin: 0.5rem 0 0; display: flex; flex-direction: column; gap: 0.45rem; flex: 1; }
-.val-card .vc-list li { font-size: 0.78rem; color: var(--mid); padding-left: 1.1rem; position: relative; line-height: 1.5; }
-.val-card .vc-list li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
-.val-card.featured { border: 2px solid var(--celeste); }
-.val-card .vc-badge {
-  display: inline-block; background: var(--celeste-dark); color: white;
-  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem;
+.val-stage-1.visible { opacity: 1; transform: translateY(0); }
+.val-stage-1:hover { box-shadow: 0 8px 24px rgba(74,112,112,0.12); }
+
+/* Separador entre etapas */
+.val-funnel-sep {
+  text-align: center; margin: 2rem 0 0.75rem;
 }
-.val-card .vc-saldo {
-  display: inline-block; background: var(--celeste-light); color: var(--celeste-dark);
-  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.06em;
-  padding: 5px 12px; border-radius: 10px; margin-bottom: 0.75rem;
-  border: 1px solid var(--celeste);
+.val-funnel-sep .sep-arrow {
+  display: inline-block; color: var(--celeste-dark);
+  font-size: 1.5rem; opacity: 0.45; line-height: 1;
 }
-.val-card .vc-highlight {
-  margin-top: 0.9rem;
-  font-size: 0.74rem; color: var(--mid); line-height: 1.6;
-  font-style: italic; text-align: center;
+.val-funnel-sep .sep-label {
+  display: block; margin-top: 0.5rem;
+  font-family: var(--g); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--mid);
 }
-.val-card .vc-badge-plain {
-  display: inline-block;
-  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--mid); margin-bottom: 0.75rem;
+
+/* Etapa 2: evaluación integral */
+.val-stage-2 {
+  max-width: 700px; margin: 0 auto;
+  background: var(--white); border-radius: 16px;
+  padding: 2rem 2.5rem; border: 1px solid var(--rosa-light);
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
 }
-.val-card .vc-cta {
+.val-stage-2.visible { opacity: 1; transform: translateY(0); }
+.val-stage-2:hover { box-shadow: 0 8px 24px rgba(201,107,122,0.08); }
+
+.val-s2-header { text-align: center; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rosa-light); margin-bottom: 1.25rem; }
+.val-s2-title { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+.val-s2-anchor-price { font-family: var(--g); font-weight: 700; font-size: 1.6rem; color: var(--celeste-dark); }
+.val-s2-includes { font-size: 0.75rem; color: var(--mid); margin-top: 0.35rem; font-style: italic; }
+.val-s2-saldo-note { margin-top: 0.75rem; font-size: 0.78rem; color: var(--mid); }
+.val-s2-saldo-note strong { color: var(--celeste-dark); font-family: var(--g); }
+
+.val-options { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.val-option { border-radius: 12px; padding: 1.25rem 1.5rem; text-align: center; }
+.val-option.opt-discount { background: var(--celeste-light); border: 1px solid var(--celeste); }
+.val-option.opt-cuotas { background: var(--crema); border: 1px solid var(--crema-dark); }
+.val-opt-label { font-family: var(--g); font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.6rem; }
+.val-opt-price { font-family: var(--g); font-weight: 700; font-size: 1.35rem; color: var(--celeste-dark); display: flex; align-items: center; justify-content: center; gap: 0.4rem; flex-wrap: wrap; }
+.val-opt-badge { background: var(--rosa); color: white; font-family: var(--g); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 8px; }
+.val-opt-note { font-size: 0.72rem; color: var(--mid); margin-top: 0.4rem; font-style: italic; line-height: 1.5; }
+
+/* CTA compartido de valores */
+.val-cta-wrap { text-align: center; margin-top: 2rem; }
+.vc-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  margin-top: 1.25rem; padding: 10px 20px; border-radius: 24px;
+  padding: 10px 24px; border-radius: 24px;
   background: var(--celeste-dark); color: white;
   font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
   transition: opacity 0.2s;
 }
-.val-card .vc-cta:hover { opacity: 0.85; }
-.val-card .vc-pricing { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.15rem; }
-.val-card .vc-price-old { font-family: var(--g); font-size: 1rem; color: var(--mid); text-decoration: line-through; opacity: 0.6; }
-.val-card .vc-discount-badge { background: var(--rosa); color: white; font-family: var(--g); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 8px; }
-.val-card .vc-price-note { font-size: 0.72rem; color: var(--mid); margin-bottom: 0.75rem; font-style: italic; }
+.vc-cta:hover { opacity: 0.85; }
+
+/* elementos compartidos val-card (usados en etapa 1) */
+.vc-badge {
+  display: inline-block; background: var(--celeste-dark); color: white;
+  font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem;
+}
+.vc-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+.vc-price { font-family: var(--g); font-weight: 700; font-size: 1.5rem; color: var(--celeste-dark); margin-bottom: 0.25rem; }
+.vc-list { list-style: none; text-align: left; margin: 0.75rem auto 0; max-width: 280px; display: flex; flex-direction: column; gap: 0.45rem; }
+.vc-list li { font-size: 0.78rem; color: var(--mid); padding-left: 1.1rem; position: relative; line-height: 1.5; }
+.vc-list li::before { content: '·'; position: absolute; left: 0; color: var(--rosa); font-size: 1.2rem; line-height: 1.2; }
 
 /* POLITICAS */
 #politicas { padding: 5rem 4rem; background: var(--white); }
@@ -272,13 +297,13 @@ nav {
 @media (max-width: 800px) {
   #hero, #incluye, #valores, #info-general, #politicas, #cta { padding: 3.5rem 1.5rem; }
   .modalidad-strip { flex-direction: column; align-items: flex-start; }
-  .two-col, .valores-grid, .pol-grid, .siguiente-grid { grid-template-columns: 1fr; }
+  .two-col, .pol-grid, .siguiente-grid { grid-template-columns: 1fr; }
+  .val-options { grid-template-columns: 1fr; }
   .qs-card { flex-direction: column; align-items: center; text-align: center; }
   nav { padding: 0 1.5rem; }
 }
 @media (min-width: 801px) and (max-width: 1024px) {
   .pol-grid { grid-template-columns: repeat(2,1fr); }
-  .valores-grid { grid-template-columns: repeat(2,1fr); }
 }
 </style>
 </head>
@@ -323,52 +348,54 @@ nav {
   <div class="container">
     <div class="sec-label">Inversión</div>
     <h2 class="sec-title">Valores y <span class="s">modalidades</span></h2>
-    <div class="valores-grid">
-      <!-- CARD 1 -->
-      <div class="val-card featured">
-        <div class="vc-badge">Por acá se empieza</div>
-        <div class="vc-label">Consulta de orientación diagnóstica</div>
-        <div class="vc-price">$70.000</div>
-        <ul class="vc-list">
-          <li>Entrevista clínica inicial</li>
-          <li>Cuestionarios de cribado para TDAH y Autismo</li>
-        </ul>
-        <div class="vc-highlight">Si avanzás con la evaluación integral, este importe se descuenta del total.</div>
+
+    <!-- ETAPA 1: orientación -->
+    <div class="val-stage-1">
+      <div class="vc-badge">Por acá se empieza</div>
+      <div class="vc-label">Consulta de orientación diagnóstica</div>
+      <div class="vc-price">$70.000</div>
+      <ul class="vc-list">
+        <li>Encuentro de 90 min</li>
+        <li>Entrevista clínica inicial</li>
+        <li>Cuestionarios de cribado para TDAH y Autismo</li>
+      </ul>
+      <div style="margin-top:1.5rem;">
+        <a href="https://wa.me/541123902485" class="vc-cta">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Reservar consulta de orientación
+        </a>
       </div>
-      <!-- CARD 2 -->
-      <div class="val-card">
-        <div class="vc-badge">Proceso completo</div>
-        <div class="vc-label">Pago único con descuento</div>
-        <div class="vc-pricing">
-          <span class="vc-price-old">$420.000</span>
-          <span class="vc-discount-badge">10% off</span>
+    </div>
+
+    <!-- Separador -->
+    <div class="val-funnel-sep">
+      <span class="sep-arrow">↓</span>
+      <span class="sep-label">Si se recomienda avanzar con la evaluación integral</span>
+    </div>
+
+    <!-- ETAPA 2: evaluación integral -->
+    <div class="val-stage-2">
+      <div class="val-s2-header">
+        <div class="val-s2-title">Evaluación diagnóstica integral</div>
+        <div class="val-s2-anchor-price">$420.000</div>
+        <div class="val-s2-includes">5 a 6 encuentros · evaluación neurocognitiva · informe diagnóstico</div>
+        <div class="val-s2-saldo-note">Luego de la consulta de orientación, el saldo es de <strong>$350.000</strong>. Podés elegir:</div>
+      </div>
+      <div class="val-options">
+        <div class="val-option opt-discount">
+          <div class="val-opt-label">Pago único del saldo</div>
+          <div class="val-opt-price">$315.000 <span class="val-opt-badge">10% off</span></div>
+          <div class="val-opt-note">Ahorrás $35.000 · se abona antes del 2.º encuentro</div>
         </div>
-        <div class="vc-price">$378.000</div>
-        <ul class="vc-list">
-          <li>5 a 6 encuentros</li>
-          <li>Evaluación neurocognitiva</li>
-          <li>Devolución con informe</li>
-        </ul>
-      </div>
-      <!-- CARD 3 -->
-      <div class="val-card">
-        <div class="vc-badge-plain">Proceso completo</div>
-        <div class="vc-label">Pago en 3 cuotas</div>
-        <div class="vc-price">$420.000</div>
-        <ul class="vc-list">
-          <li>5 a 6 encuentros</li>
-          <li>Evaluación neurocognitiva</li>
-          <li>Devolución con informe</li>
-        </ul>
+        <div class="val-option opt-cuotas">
+          <div class="val-opt-label">Financiación en 2 pagos</div>
+          <div class="val-opt-price">$350.000</div>
+          <div class="val-opt-note">$175.000 antes del 2.º encuentro<br>$175.000 antes de la devolución</div>
+        </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="https://wa.me/541123902485" class="vc-cta" style="display:inline-flex;">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-        Reservar consulta de orientación
-      </a>
-    </div>
-    <p style="font-size:0.78rem;color:var(--mid);margin-top:1.2rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.</p>
+
+    <p style="font-size:0.78rem;color:var(--mid);margin-top:1.5rem;text-align:center;">El valor se actualiza trimestralmente. Una vez iniciado el proceso, el valor se mantiene sin modificaciones.</p>
   </div>
 </section>
 
@@ -399,7 +426,11 @@ nav {
       </div>
       <div class="pol-card">
         <h4>Pagos</h4>
-        <p>Todos los pagos se realizan con 24 hs hábiles de anticipación al encuentro correspondiente.<br><br>— $70.000 antes de la consulta de orientación<br><br>Si avanzás con la evaluación integral, podés elegir:<br>— Pago único: $378.000 antes del 2.º encuentro (ahorrás $42.000)<br>— En cuotas: $175.000 antes del 2.º encuentro + $175.000 antes de la sesión de devolución</p>
+        <p>Todos los pagos se realizan con 24 hs hábiles de anticipación al encuentro correspondiente.<br><br>
+        — $70.000 antes de la consulta de orientación<br><br>
+        Si avanzás con la evaluación integral (valor: $420.000), el saldo es de $350.000. Podés elegir:<br>
+        — Pago único: $315.000 antes del 2.º encuentro (10% de descuento · ahorrás $35.000)<br>
+        — En 2 pagos: $175.000 antes del 2.º encuentro + $175.000 antes de la devolución</p>
       </div>
       <div class="pol-card">
         <h4>Tolerancia</h4>
@@ -416,8 +447,8 @@ nav {
 <!-- QUIÉN SOY -->
 <section id="quien-soy">
   <div class="container">
-    <div class="sec-label">Quién te acompaña</div>
-    <h2 class="sec-title">Sobre <span class="s">Florencia</span></h2>
+    <div class="sec-label">Evaluadora</div>
+    <h2 class="sec-title">Sobre <span class="s">mí</span></h2>
     <div class="qs-card">
       <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="qs-avatar">
       <div>
@@ -479,7 +510,7 @@ nav {
 
 
 <script>
-const animEls = document.querySelectorAll('.step, .val-card');
+const animEls = document.querySelectorAll('.step, .val-stage-1, .val-stage-2');
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if(e.isIntersecting){
