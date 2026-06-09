@@ -262,18 +262,37 @@ a { color: inherit; text-decoration: none; }
 
 /* RESEÑAS */
 #resenas { padding: 5rem 4rem; background: var(--crema); }
-.resenas-inner {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
+.resenas-header { text-align: center; margin-bottom: 3rem; }
+.resenas-header .estrellas { color: #F5B942; font-size: 1.5rem; letter-spacing: 3px; margin-bottom: 0.5rem; }
+.resenas-header p { font-size: 0.88rem; color: var(--mid); }
+.estrellas { color: #F5B942; font-size: 1rem; letter-spacing: 1px; }
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
 }
-.resenas-inner .resenas-icon {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+.testimonio-card {
+  background: var(--white); border-radius: 16px; padding: 1.5rem;
+  border: 1px solid var(--crema-dark);
+  display: flex; flex-direction: column; gap: 0.8rem;
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
 }
-.resenas-inner p {
-  font-size: 0.92rem; color: var(--mid); line-height: 1.8; margin-bottom: 2rem;
+.testimonio-card.visible { opacity: 1; transform: translateY(0); }
+.testimonio-card:hover { box-shadow: 0 6px 22px rgba(201,107,122,0.1); }
+.tc-header { display: flex; align-items: center; gap: 0.75rem; }
+.tc-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--celeste-dark); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--g); font-weight: 700; font-size: 1rem;
+  flex-shrink: 0;
 }
+.tc-name { font-family: var(--g); font-size: 0.82rem; font-weight: 700; color: var(--celeste-dark); letter-spacing: 0.03em; }
+.tc-date { font-size: 0.74rem; color: var(--mid); margin-top: 1px; }
+.tc-text { font-size: 0.83rem; color: var(--mid); line-height: 1.75; flex: 1; }
+.resenas-cta { text-align: center; }
 .btn-resenas {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--rosa); color: white;
@@ -282,7 +301,9 @@ a { color: inherit; text-decoration: none; }
   transition: opacity 0.2s;
 }
 .btn-resenas:hover { opacity: 0.88; }
-.estrellas { color: #F5B942; font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+@media (max-width: 800px) {
+  .testimonios-grid { grid-template-columns: 1fr; }
+}
 
 /* EQUIPO */
 #equipo { padding: 5rem 4rem; background: var(--rosa-pale); }
@@ -565,12 +586,72 @@ a { color: inherit; text-decoration: none; }
   <div class="container">
     <div class="sec-label">Experiencias de pacientes</div>
     <h2 class="sec-title" style="text-align:center;">Lo que dicen <span class="s">quienes nos eligieron</span></h2>
-    <div class="resenas-inner">
+    <div class="resenas-header">
       <div class="estrellas">★★★★★</div>
-      <p>La experiencia terapéutica es única para cada persona.<br>Si querés conocer opiniones y experiencias de pacientes que trabajaron con nosotras, podés ver nuestras reseñas acá.</p>
+      <p>Opiniones reales de Google de pacientes que trabajaron con nosotras.</p>
+    </div>
+    <div class="testimonios-grid">
+
+      <div class="testimonio-card">
+        <div class="tc-header">
+          <div class="tc-avatar">L</div>
+          <div>
+            <div class="tc-name">Luna Churin</div>
+            <div class="estrellas">★★★★★</div>
+          </div>
+        </div>
+        <p class="tc-text">Excelente profesional. Me cambió la vida completamente. No solo mi experiencia en el tratamiento fue buenísima y gané miles de herramientas, sino que además aprendí un montón. Eternamente agradecida ✨🤍</p>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="tc-header">
+          <div class="tc-avatar">L</div>
+          <div>
+            <div class="tc-name">Lucila Cordoba</div>
+            <div class="estrellas">★★★★★</div>
+          </div>
+        </div>
+        <p class="tc-text">Flor, excelente profesional, muy buena experiencia, súper prácticas las herramientas que me dio en las consultas para aplicar en mis días. Terminé contenta con nuestro tratamiento, sin dudas la vuelvo a elegir o recomendar a alguien que necesite 😊</p>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="tc-header">
+          <div class="tc-avatar">L</div>
+          <div>
+            <div class="tc-name">Luciana Vescovo</div>
+            <div class="estrellas">★★★★★</div>
+          </div>
+        </div>
+        <p class="tc-text">Cada vez que miro para atrás y me observo desde el momento cero en que empecé con Flor hasta hoy, me sorprendo gratamente de todo lo que aprendí de mí misma y de las herramientas que ella me brindó y supe incorporar. El camino fue progresivo y constante, siempre con mucho cariño y contención de su parte, y mucha humanidad por sobre todo. La recomendé a tanta gente de mi entorno que no podía no recomendarla por acá! jeje</p>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="tc-header">
+          <div class="tc-avatar">S</div>
+          <div>
+            <div class="tc-name">Stella Acevedo</div>
+            <div class="estrellas">★★★★★</div>
+          </div>
+        </div>
+        <p class="tc-text">El tiempo mejor invertido fue tomar el paso de que un profesional me ayude a pensar mejor! Flor, gran profesional con una ayuda súper activa y me ha brindado herramientas que a pesar de los años que no sigo con ella, la sigo utilizando. ¡Gracias!</p>
+      </div>
+
+      <div class="testimonio-card">
+        <div class="tc-header">
+          <div class="tc-avatar">P</div>
+          <div>
+            <div class="tc-name">Patty Fretes</div>
+            <div class="estrellas">★★★★★</div>
+          </div>
+        </div>
+        <p class="tc-text">Hace un año que empecé la terapia por primera vez y puedo decir con certeza que gracias a Flor pude mejorar un montón de cosas de mi vida cotidiana que me tenían muy mal, saber manejar mis emociones, a calmar mi ansiedad. Jamás pensé que en tan poco tiempo podría cambiar tanto mi vida. La súper recomiendo, una persona súper paciente y confiable. ¡La mejor! ❤️</p>
+      </div>
+
+    </div>
+    <div class="resenas-cta">
       <a href="https://share.google/1GzNCixfM8BGbwuw9" target="_blank" rel="noopener" class="btn-resenas">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-        Ver reseñas en Google
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Ver más reseñas en Google
       </a>
     </div>
   </div>
