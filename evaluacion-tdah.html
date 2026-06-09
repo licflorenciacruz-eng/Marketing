@@ -88,10 +88,10 @@ nav {
 .check-item.visible { opacity: 1; transform: translateY(0); }
 .check-icon {
   flex-shrink: 0;
-  margin-top: 0.15em;
+  margin-top: 3px;
   width: 18px; height: 18px;
   border: 2px solid var(--rosa); border-radius: 3px;
-  color: var(--rosa); font-size: 0.6rem; font-weight: 900;
+  color: var(--rosa); font-size: 0.7rem; font-weight: 900;
   display: flex; align-items: center; justify-content: center;
   background: transparent; line-height: 1;
 }
@@ -180,8 +180,12 @@ nav {
 /* INVERSIÓN */
 #valores { padding: 5rem 4rem; background: var(--rosa-pale); }
 
+.val-flow { display: flex; flex-direction: column; align-items: center; max-width: 480px; margin: 2rem auto 0; width: 100%; }
+
+.val-step-badge { display: inline-block; background: var(--rosa); color: white; font-family: var(--g); font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 0.75rem; font-weight: 700; }
+
 .val-stage-1 {
-  max-width: 460px; margin: 2rem auto 0;
+  width: 100%;
   background: var(--white); border-radius: 16px;
   padding: 2rem 2.5rem; border: 2px solid var(--celeste);
   text-align: center;
@@ -191,20 +195,12 @@ nav {
 .val-stage-1.visible { opacity: 1; transform: translateY(0); }
 .val-stage-1:hover { box-shadow: 0 8px 28px rgba(74,112,112,0.13); }
 
-.val-funnel-sep { text-align: center; margin: 2rem 0 0.75rem; }
-.val-funnel-sep .sep-arrow {
-  display: inline-block; color: var(--celeste-dark); font-size: 1.6rem; opacity: 0.5; line-height: 1;
-  animation: bounceArrow 2s ease-in-out infinite;
-}
-@keyframes bounceArrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
-}
-.val-funnel-sep .sep-label { display: block; margin-top: 0.6rem; font-family: var(--g); font-weight: 700; font-size: 0.88rem; letter-spacing: 0.01em; text-transform: none; color: var(--celeste-dark); }
+.val-connector { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0.25rem 0; }
+.val-connector-line { width: 2px; height: 1.75rem; background: var(--celeste-dark); opacity: 0.3; }
+.val-connector-text { background: var(--celeste-light); border: 1.5px solid var(--celeste); border-radius: 14px; padding: 0.9rem 1.5rem; text-align: center; font-size: 0.82rem; color: var(--celeste-dark); font-family: var(--g); letter-spacing: 0.01em; line-height: 1.55; margin: 0.25rem 0; width: 100%; }
 
-/* Evaluación integral — igual a val-stage-1 */
 .val-stage-2 {
-  max-width: 460px; margin: 0 auto;
+  width: 100%;
   background: var(--white); border-radius: 16px;
   padding: 2rem 2.5rem; border: 2px solid var(--celeste);
   text-align: center;
@@ -244,7 +240,10 @@ nav {
 .val-opt-note { font-size: 0.72rem; color: var(--mid); margin-top: 0.4rem; font-style: italic; line-height: 1.5; }
 
 .vc-badge { display: inline-block; background: var(--celeste-dark); color: white; font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; margin-bottom: 0.75rem; }
-.vc-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--celeste-dark); font-weight: 700; margin-bottom: 0.5rem; }
+.vc-label { font-family: var(--g); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); font-weight: 400; margin-bottom: 0.5rem; }
+.val-stage-1 .vc-label { color: var(--celeste-dark); font-weight: 700; }
+.val-stage-2 .vc-label { font-size: 0.88rem; color: var(--celeste-dark); font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.2rem; }
+.vc-sub { font-family: var(--g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); font-weight: 400; margin-bottom: 0.75rem; }
 .vc-price { font-family: var(--g); font-weight: 700; font-size: 1.5rem; color: var(--celeste-dark); margin-bottom: 0.25rem; }
 .vc-list { list-style: none; text-align: left; margin: 0.75rem auto 0; max-width: 280px; display: flex; flex-direction: column; gap: 0.45rem; }
 .vc-list li { font-size: 0.78rem; color: var(--mid); padding-left: 1.1rem; position: relative; line-height: 1.5; }
@@ -379,9 +378,9 @@ nav {
   .modalidad-strip { flex-direction: column; align-items: flex-start; }
   .siguiente-grid { grid-template-columns: 1fr; }
   .val-stage-1, .val-stage-2 { padding: 1.5rem 1.25rem; }
+  .val-flow { max-width: 100%; }
   .val-options { grid-template-columns: 1fr; }
   .val-s2-includes { grid-template-columns: 1fr; }
-  .val-funnel-sep .sep-label { font-size: 0.78rem; padding: 0 1rem; }
   .qs-card { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 1.25rem; }
   .accordion { max-width: 100%; }
   .steps::before { display: none; }
@@ -396,7 +395,7 @@ nav {
   #hero, #para-ti, #incluye, #info-general, #siguiente, #valores, #quien-soy, #politicas, #resenas, #cta { padding: 4rem 2.5rem; }
   .check-grid { grid-template-columns: 1fr; }
   .siguiente-grid { grid-template-columns: repeat(2, 1fr); }
-  .val-stage-1, .val-stage-2 { max-width: 100%; }
+  .val-flow { max-width: 100%; }
 }
 </style>
 </head>
@@ -461,7 +460,7 @@ nav {
 <section id="incluye">
   <div class="container">
     <div class="sec-label">El proceso</div>
-    <h2 class="sec-title">¿Cómo funciona <span class="s">el proceso?</span></h2>
+    <h2 class="sec-title">¿Cómo se <span class="s">desarrolla?</span></h2>
     <div class="steps">
       <div class="step open">
         <div class="step-num">01</div>
@@ -477,20 +476,20 @@ nav {
         <div class="step-num">02</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Evaluación clínica especializada</h4></div>
+            <div><h4>Evaluación diagnóstica integral</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
-          <div class="step-body"><p>Entrevistas para comprender en profundidad tu historia y funcionamiento actual, junto con tests y cuestionarios validados para TDAH y Autismo en adultos.</p></div>
+          <div class="step-body"><p>Administración de escalas, tests y cuestionarios validados para profundizar la evaluación de TDAH, autismo y otras áreas relevantes.</p></div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">03</div>
         <div class="step-inner">
           <button class="step-toggle" onclick="toggleStep(this)">
-            <div><h4>Evaluación clínica y diagnóstico diferencial</h4></div>
+            <div><h4>Integración clínica y diagnóstico diferencial</h4></div>
             <div class="step-toggle-right"><span class="step-arrow">+</span></div>
           </button>
-          <div class="step-body"><p>Para comprender si los síntomas se explican por TDAH, Autismo u otras condiciones que pueden presentar manifestaciones similares, como ansiedad, depresión o dificultades emocionales.</p></div>
+          <div class="step-body"><p>Análisis de toda la información obtenida para comprender si los síntomas son compatibles con TDAH, autismo u otras condiciones que pueden presentar características similares, como ansiedad, depresión, bipolaridad o rasgos de personalidad.</p></div>
         </div>
       </div>
       <div class="step">
@@ -535,53 +534,57 @@ nav {
 <section id="valores">
   <div class="container">
     <div class="sec-label">Inversión</div>
-    <h2 class="sec-title">Valores y <span class="s">modalidades</span></h2>
+    <h2 class="sec-title">Valores y <span class="s">formas de pago</span></h2>
 
-    <div class="val-stage-1">
-      <div class="vc-badge">Por acá se empieza</div>
-      <div class="vc-label">Consulta de orientación diagnóstica</div>
-      <div class="vc-price">$70.000</div>
-      <ul class="vc-list">
-        <li>Primera entrevista clínica (90 min)</li>
-        <li>Cuestionarios de cribado para TDAH y Autismo</li>
-      </ul>
-      <div style="margin-top:1.5rem;">
-        <a href="https://wa.me/541123902485" class="vc-cta">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-          Comenzar el proceso
-        </a>
-      </div>
-    </div>
-
-    <div class="val-funnel-sep">
-      <span class="sep-arrow">↓</span>
-      <span class="sep-label">Si luego de la consulta decidimos que una evaluación integral puede ayudarte</span>
-    </div>
-
-    <div class="val-stage-2">
-      <div class="vc-badge">Evaluación diagnóstica integral</div>
-      <div class="vc-label">Proceso de 5 a 6 encuentros</div>
-      <div class="val-s2-includes">
-        <div class="val-s2-inc">Evaluación clínica especializada</div>
-        <div class="val-s2-inc">Tests y cuestionarios validados</div>
-        <div class="val-s2-inc">Evaluación neurocognitiva</div>
-        <div class="val-s2-inc">Informe diagnóstico completo</div>
-        <div class="val-s2-inc" style="grid-column:1/-1;">Devolución diagnóstica personalizada</div>
-      </div>
-      <div class="val-s2-divider" style="margin: 1.25rem 0;"></div>
-      <div class="val-options">
-        <div class="val-option opt-discount">
-          <div class="val-opt-label">Pago único</div>
-          <div class="val-opt-price">$315.000 <span class="val-opt-badge">10% off</span></div>
-          <div class="val-opt-note">Se abona antes del 2.º encuentro</div>
-        </div>
-        <div class="val-option opt-cuotas">
-          <div class="val-opt-label">Financiación</div>
-          <div class="val-opt-price" style="font-size:1.1rem;">2 pagos de $175.000</div>
-          <div class="val-opt-note">Antes del 2.º encuentro y antes de la devolución</div>
+    <div class="val-flow">
+      <div class="val-stage-1">
+        <div class="val-step-badge">Paso 1</div>
+        <div class="vc-label">Consulta de orientación diagnóstica</div>
+        <div class="vc-price">$70.000</div>
+        <ul class="vc-list">
+          <li>Primera entrevista clínica (90 min)</li>
+          <li>Cuestionarios de cribado para TDAH y Autismo</li>
+        </ul>
+        <div style="margin-top:1.5rem;">
+          <a href="https://wa.me/541123902485" class="vc-cta">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+            Comenzar el proceso
+          </a>
         </div>
       </div>
-    </div>
+
+      <div class="val-connector">
+        <div class="val-connector-line"></div>
+        <div class="val-connector-text">Luego de esta consulta, evaluamos juntos si una evaluación diagnóstica integral puede ayudarte</div>
+        <div class="val-connector-line"></div>
+      </div>
+
+      <div class="val-stage-2">
+        <div class="val-step-badge">Paso 2</div>
+        <div class="vc-label">Evaluación diagnóstica integral</div>
+        <div class="vc-sub">Proceso de 5 a 6 encuentros</div>
+        <div class="val-s2-includes">
+          <div class="val-s2-inc">Evaluación clínica especializada</div>
+          <div class="val-s2-inc">Tests y cuestionarios validados</div>
+          <div class="val-s2-inc">Evaluación neurocognitiva</div>
+          <div class="val-s2-inc">Informe diagnóstico completo</div>
+          <div class="val-s2-inc" style="grid-column:1/-1;">Devolución diagnóstica personalizada</div>
+        </div>
+        <div class="val-s2-divider" style="margin: 1.25rem 0;"></div>
+        <div class="val-options">
+          <div class="val-option opt-discount">
+            <div class="val-opt-label">Pago único</div>
+            <div class="val-opt-price">$315.000 <span class="val-opt-badge">10% off</span></div>
+            <div class="val-opt-note">Se abona antes del 2.º encuentro</div>
+          </div>
+          <div class="val-option opt-cuotas">
+            <div class="val-opt-label">Financiación</div>
+            <div class="val-opt-price" style="font-size:1.1rem;">2 pagos de $175.000</div>
+            <div class="val-opt-note">Antes del 2.º encuentro y antes de la devolución</div>
+          </div>
+        </div>
+      </div><!-- /val-stage-2 -->
+    </div><!-- /val-flow -->
   </div>
 </section>
 
@@ -589,7 +592,7 @@ nav {
 <section id="quien-soy">
   <div class="container">
     <div class="sec-label">Quién te acompaña</div>
-    <h2 class="sec-title">Sobre <span class="s">mí</span></h2>
+    <h2 class="sec-title">Sobre mí</h2>
     <div class="qs-card">
       <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="qs-avatar">
       <div>
@@ -610,7 +613,7 @@ nav {
 <section id="siguiente">
   <div class="container">
     <div class="sec-label">Después del diagnóstico</div>
-    <h2 class="sec-title">¿Qué sucede después <span class="s">del diagnóstico?</span></h2>
+    <h2 class="sec-title">Cómo podemos <span class="s">acompañarte</span></h2>
     <p style="font-size:0.9rem;color:var(--mid);max-width:600px;margin-top:0.5rem;">El diagnóstico es el punto de partida. A partir de ahí, podemos acompañarte en el proceso que mejor se adapte a lo que necesitás.</p>
     <div class="siguiente-grid">
       <div class="sig-card">
