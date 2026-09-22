@@ -275,6 +275,31 @@ a { color: inherit; text-decoration: none; }
 .cancel-item h4 { font-family: var(--g); font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--celeste-dark); margin-bottom: 0.3rem; }
 .cancel-item p { font-size: 0.82rem; color: var(--mid); line-height: 1.6; }
 
+/* PREGUNTAS FRECUENTES */
+#faq { padding: 5rem 4rem; background: var(--white); }
+.faq-list { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 2rem; max-width: 800px; }
+.faq-item {
+  background: var(--crema); border-radius: 12px;
+  border: 1px solid var(--crema-dark); overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer; list-style: none;
+  padding: 1.1rem 1.4rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  font-family: var(--g); font-size: 0.85rem; letter-spacing: 0.01em;
+  color: var(--celeste-dark); font-weight: 700;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; font-size: 1.2rem; line-height: 1; flex-shrink: 0;
+  color: var(--celeste-dark); transition: transform 0.2s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 1.4rem 1.2rem; margin: 0;
+  font-size: 0.85rem; color: var(--mid); line-height: 1.7;
+}
+
 /* CTA */
 #cta { padding: 6rem 4rem; background: var(--rosa); text-align: center; }
 #cta h2 { font-family: var(--g); font-weight: 700; text-transform: uppercase; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: 0.04em; color: white; margin-bottom: 0.5rem; }
@@ -290,7 +315,7 @@ a { color: inherit; text-decoration: none; }
 .btn-wh:hover { opacity: 0.9; }
 
 @media (max-width: 800px) {
-  #hero, #que-es, #para-quien, #areas, #proceso, #equipo, #valores, #cancelacion, #cta { padding: 3.5rem 1.5rem; }
+  #hero, #que-es, #para-quien, #areas, #proceso, #equipo, #valores, #cancelacion, #faq, #cta { padding: 3.5rem 1.5rem; }
   .areas-grid, .sedes-grid, .tipos-grid-2, .cancel-grid, .quien-grid { grid-template-columns: 1fr; }
   .tipos-grid-2 { max-width: 100%; }
 }
@@ -300,7 +325,7 @@ a { color: inherit; text-decoration: none; }
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag">Entrenamiento ejecutivo · Online y presencial</div>
+  <div class="hero-tag">Entrenamiento ejecutivo · Modalidad online</div>
   <h1>Entrenamiento
     <span class="s">ejecutivo</span>
   </h1>
@@ -322,9 +347,9 @@ a { color: inherit; text-decoration: none; }
 
     <div class="enfoques-wrap">
       <div class="enfoque-pill">Funciones ejecutivas</div>
-      <div class="enfoque-pill">Vida cotidiana</div>
       <div class="enfoque-pill">Organización y planificación</div>
-      <div class="enfoque-pill">Autonomía funcional</div>
+      <div class="enfoque-pill">Manejo y gestión del tiempo</div>
+      <div class="enfoque-pill">Procrastinación</div>
     </div>
 
     <div class="diff-box">
@@ -358,7 +383,7 @@ a { color: inherit; text-decoration: none; }
         <div class="qi-icon">💡</div>
         <div>
           <h4>Sentís que "nunca llegás" a todo</h4>
-          <p>Postergación, inicio difícil de tareas, sensación de caos constante: si te identificás con esto, el entrenamiento ejecutivo puede darte estructura y claridad.</p>
+          <p>Postergación, inicio difícil de tareas, sensación de caos constante: si te identificás con esto, el entrenamiento ejecutivo puede darte estructura y orden.</p>
         </div>
       </div>
       <div class="quien-item">
@@ -427,13 +452,13 @@ a { color: inherit; text-decoration: none; }
       <div class="tl-step">
         <div class="tl-num">2</div>
         <h4>Sesión inicial de evaluación</h4>
-        <p>En la primera sesión evaluamos tu perfil de funcionamiento ejecutivo con instrumentos validados, conocemos tus rutinas actuales, tus objetivos y el contexto de tu vida diaria. A partir de ahí, diseñamos un plan de trabajo personalizado.</p>
+        <p>En la primera sesión evaluamos tu perfil de funcionamiento ejecutivo con instrumentos validados, conocemos tus rutinas actuales, tus objetivos y el contexto de tu vida diaria. También evaluamos si te conviene sumar una evaluación neurocognitiva, para identificar tus fortalezas y diseñar mejores estrategias en función de tu perfil. A partir de ahí, diseñamos un plan de trabajo personalizado.</p>
         <div class="tl-note">Cada plan es único: no existe un protocolo genérico. Las estrategias se adaptan a tu perfil, diagnóstico (si lo tenés) y objetivos concretos.</div>
       </div>
       <div class="tl-step">
         <div class="tl-num">3</div>
         <h4>Sesiones de entrenamiento</h4>
-        <p>Trabajamos de forma sistemática sobre las áreas identificadas, incorporando herramientas y revisando su aplicación semana a semana. La frecuencia habitual es semanal.</p>
+        <p>Trabajamos de forma sistemática sobre las áreas identificadas, incorporando herramientas y revisando su aplicación sesión a sesión. Se sugiere una frecuencia semanal; si estás en proceso de psicoterapia, puede espaciarse a quincenal para complementar ambos espacios.</p>
       </div>
       <div class="tl-step">
         <div class="tl-num">4</div>
@@ -460,37 +485,37 @@ a { color: inherit; text-decoration: none; }
         <div class="sede-zona">Coordinación</div>
         <h3>Lic. Florencia Cruz</h3>
         <div class="sede-mn">MN 68840</div>
-        <div class="sede-esp">Neuropsicología clínica · TCC · Entrenamiento ejecutivo</div>
+        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA) · Experiencia en diagnóstico de TDAH y autismo en personas adultas · Psicoterapeuta TCC, DBT, ACT</div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
         </button>
         <div class="sede-cv">
-          <p>Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Experiencia en instituciones como INECO, INBA, CRIBE y Fundación AlunCo.</p>
+          <p>Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA), y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
         </div>
       </div>
 
       <div class="sede-card">
         <img src="https://5v5uhz4w7w.ucarecd.net/d8c65c2c-852d-45a1-a418-162087778436/Natifoto.png" alt="Lic. Natalia Alberto" class="sede-avatar" style="object-position: center top;">
-        <div class="sede-zona">Entrenadora ejecutiva</div>
+        <div class="sede-zona">Neuropsicóloga</div>
         <h3>Lic. Natalia Alberto</h3>
         <div class="sede-mn">MN 77584</div>
-        <div class="sede-esp">TCC · DBT · Entrenamiento ejecutivo</div>
+        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>TCC · DBT · EMDR</div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
         </button>
         <div class="sede-cv">
-          <p>Licenciada en Psicología (UBA). Formación clínica especializada en Neuropsicología (Fundación Foro e INECO), TCC y DBT. Experiencia en acompañamiento de infancias, adolescencias y adultos. Docente universitaria en Universidad CAECE. Práctica clínica especializada en población adulta-joven neurodivergente.</p>
+          <p>Licenciada en Psicología (UBA) y Acompañante Terapéutico (Hospital Infanto-juvenil "Carolina T. García"). Cuenta con formación clínica especializada en Neuropsicología (Fundación Foro e INECO), Terapia Cognitivo-Conductual y Terapia Dialéctico Conductual (DBT). Actualmente se encuentra realizando el entrenamiento en EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares), un abordaje diseñado para el tratamiento de traumas mediante estimulación bilateral. Posee experiencia en el acompañamiento de infancias, adolescencias y adultos mayores. Se desempeña como docente universitaria en la Universidad CAECE y como perito auxiliar de la justicia. Integra el equipo de inclusión de la Escuela Arlene Fern y desarrolla su práctica clínica privada, especializándose en la atención de población adulta-joven neurodivergente.</p>
         </div>
       </div>
 
       <div class="sede-card">
         <div class="sede-avatar" style="background:var(--celeste-light);display:flex;align-items:center;justify-content:center;font-family:var(--g);font-weight:700;font-size:1.6rem;color:var(--celeste-dark);">CD</div>
-        <div class="sede-zona">Entrenadora ejecutiva</div>
+        <div class="sede-zona">Neuropsicóloga</div>
         <h3>Lic. Camila Diven</h3>
         <div class="sede-mn">MN 72967 · MP 63190</div>
-        <div class="sede-esp">Neuropsicología clínica · Entrenamiento ejecutivo</div>
+        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong></div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
@@ -537,7 +562,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
     <div class="pago-note">
-      💳 <strong>Medio de pago:</strong> Mercado Pago. El horario se confirma abonando una sesión por adelantado.
+      💳 <strong>Medio de pago:</strong> Transferencia bancaria o Mercado Pago. El horario se confirma abonando una sesión por adelantado.
     </div>
   </div>
 </section>
@@ -562,8 +587,42 @@ a { color: inherit; text-decoration: none; }
       </div>
       <div class="cancel-item">
         <div class="ci-icon">🧾</div>
-        <div><h4>Medio de pago</h4><p>Mercado Pago. El pack se abona de forma completa o en cuotas según se acuerde al momento de la inscripción.</p></div>
+        <div><h4>Medio de pago</h4><p>Transferencia bancaria o Mercado Pago. El pack se abona de forma completa o en cuotas según se acuerde al momento de la inscripción.</p></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-label">Dudas frecuentes</div>
+    <h2 class="sec-title">Preguntas <span class="s">frecuentes</span></h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Necesito tener un diagnóstico de TDAH o autismo para empezar?</summary>
+        <p>No. También trabajamos con personas sin diagnóstico cerrado que buscan mejorar su organización, gestión del tiempo y autonomía en el día a día.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Las sesiones son online?</summary>
+        <p>Sí, todas las sesiones se realizan de forma online.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Con qué frecuencia son las sesiones?</summary>
+        <p>Se sugiere una frecuencia semanal. Si estás en proceso de psicoterapia, puede espaciarse a quincenal para complementar ambos espacios.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Tengo que hacerme una evaluación neurocognitiva antes de empezar?</summary>
+        <p>No es un requisito excluyente. En la primera sesión evaluamos junto con vos si te conviene sumarla, ya que ayuda a identificar tus fortalezas y a diseñar mejores estrategias según tu perfil.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo empezar con una sesión suelta sin comprometerme al proceso completo?</summary>
+        <p>Sí, podés arrancar con sesiones individuales y pasar al pack de 10 sesiones cuando quieras.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo se paga?</summary>
+        <p>Por transferencia bancaria o Mercado Pago.</p>
+      </details>
     </div>
   </div>
 </section>
