@@ -1,242 +1,219 @@
 <style>
+@font-face {
+  font-family: 'FceeGlacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/c2f1f705-bbba-4eeb-92ae-d231ad415aff/GlacialIndifferenceRegular.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FceeGlacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/f7b4da21-46d8-4d7d-a522-b1fb08c37bdc/GlacialIndifferenceBold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FceeGlacial';
+  src: url('https://5v5uhz4w7w.ucarecd.net/5f6d7081-614a-454c-84f0-155e75d63836/GlacialIndifferenceItalic.otf') format('opentype');
+  font-style: italic;
+  font-display: swap;
+}
 .fcee-tj9, .fcee-tj9 *, .fcee-tj9 *::before, .fcee-tj9 *::after { box-sizing: border-box; }
 .fcee-tj9 {
   background: transparent;
   color: inherit;
   font-family: inherit;
-  --fcee-radius: var(--global-border-rounded-radius, var(--default-border-rounded-radius, 16px));
-  --fcee-radius-pill: var(--global-border-rounded-radius, var(--default-border-rounded-radius, 999px));
+  --fcee-g: 'FceeGlacial', inherit;
+  --fcee-rosa: #C96B7A;
+  --fcee-rosa-light: #F2DDE1;
+  --fcee-celeste: #B8CCCC;
+  --fcee-celeste-light: #E8F0F0;
+  --fcee-celeste-dark: #4A7070;
+  --fcee-crema: #F0EDE8;
+  --fcee-crema-dark: #E0DBD3;
+  --fcee-dark: #2C2826;
+  --fcee-mid: #6B6560;
+  --fcee-white: #FFFFFF;
+  line-height: 1.7;
 }
 .fcee-tj9 p, .fcee-tj9 ul, .fcee-tj9 ol { margin: 0; }
 .fcee-tj9 ul, .fcee-tj9 ol { padding: 0; list-style: none; }
 .fcee-tj9 img { max-width: 100%; height: auto; display: block; }
-.fcee-tj9 button { font: inherit; background: none; border: none; }
+.fcee-tj9 button { font: inherit; background: none; border: none; cursor: pointer; }
 .fcee-tj9 a:focus-visible,
 .fcee-tj9 button:focus-visible,
-.fcee-tj9 summary:focus-visible { outline: 2px solid var(--brand-color, #C96B7A); outline-offset: 3px; border-radius: 4px; }
+.fcee-tj9 summary:focus-visible { outline: 2px solid var(--fcee-celeste-dark); outline-offset: 3px; border-radius: 4px; }
 
 .fcee-tj9__inner { max-width: 760px; margin: 0 auto; }
 .fcee-tj9__inner--wide { max-width: 1080px; }
 
-.fcee-tj9__eyebrow {
-  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
-  margin-bottom: 0.6rem;
+.fcee-tj9__eyebrow { font-family: var(--fcee-g); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--fcee-rosa); margin-bottom: 0.8rem; }
+.fcee-tj9__eyebrow--cel { color: var(--fcee-celeste-dark); }
+.fcee-tj9 h2.fcee-tj9__title, .fcee-tj9 h3.fcee-tj9__title {
+  font-family: var(--fcee-g) !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.2; color: var(--fcee-celeste-dark); margin-bottom: 1.5rem;
 }
-.fcee-tj9__panel--muted .fcee-tj9__eyebrow { color: var(--secondary-color, #4A7070); }
-.fcee-tj9 h2.fcee-tj9__title,
-.fcee-tj9 h3.fcee-tj9__title {
-  font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.25; margin-bottom: 1.3rem;
-}
-.fcee-tj9__text { font-size: 0.95rem; line-height: 1.8; color: var(--text-muted-color, #666); max-width: 720px; }
-.fcee-tj9__text + .fcee-tj9__text { margin-top: 0.9rem; }
+.fcee-tj9__accent { font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--fcee-rosa); display: inline; }
+.fcee-tj9__text { font-size: 0.95rem; line-height: 1.85; color: var(--fcee-mid); max-width: 800px; }
+.fcee-tj9__text + .fcee-tj9__text { margin-top: 0.6rem; }
 
 /* panels */
-.fcee-tj9__panel { padding: clamp(2.4rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem); }
-.fcee-tj9__panel--muted { background: var(--background-muted-color, #F3EFEA); color: var(--text-color, #2C2826); }
-.fcee-tj9 .fcee-tj9__panel--muted h3.fcee-tj9__title { color: var(--heading-color, var(--text-color, #2C2826)); }
+.fcee-tj9__panel { padding: clamp(2.5rem, 5vw, 5rem) clamp(1rem, 4vw, 4rem); }
+.fcee-tj9__panel--crema { background: var(--fcee-crema); color: var(--fcee-dark); }
+.fcee-tj9__panel--white { background: var(--fcee-white); color: var(--fcee-dark); }
+.fcee-tj9__panel--celeste { background: var(--fcee-celeste-light); color: var(--fcee-dark); }
 
 /* hero */
-.fcee-tj9__hero {
-  background: var(--secondary-color, #4A7070);
-  color: var(--on-secondary-color, #fff);
-  padding: clamp(2.8rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2rem);
-  text-align: center;
-}
+.fcee-tj9__hero { background: var(--fcee-celeste-dark); color: var(--fcee-white); padding: clamp(2.8rem, 6vw, 5rem) clamp(1rem, 4vw, 4rem); text-align: center; }
 .fcee-tj9__hero-inner { display: flex; flex-direction: column; align-items: center; }
 .fcee-tj9__tag {
-  display: inline-block; background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.28); border-radius: var(--fcee-radius-pill);
-  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
-  padding: 6px 16px; margin-bottom: 1.3rem;
+  display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px; font-family: var(--fcee-g); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;
+  padding: 6px 16px; margin-bottom: 1.5rem;
 }
 .fcee-tj9 h2.fcee-tj9__hero-title {
-  color: var(--on-secondary-color, #fff);
-  font-size: clamp(1.7rem, 4.2vw, 2.7rem); line-height: 1.15; margin-bottom: 0.8rem;
+  font-family: var(--fcee-g) !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--fcee-white);
+  font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.2; margin-bottom: 0.5rem;
 }
-.fcee-tj9__hero-text { font-size: 1rem; line-height: 1.7; max-width: 560px; margin-bottom: 1.8rem; color: rgba(255,255,255,0.85); }
+.fcee-tj9__hero-title .fcee-tj9__accent { color: var(--fcee-celeste-light); display: block; font-size: 1.1em; line-height: 1.3; }
+.fcee-tj9__hero-text { font-size: 1rem; line-height: 1.7; max-width: 600px; margin: 1rem 0 2rem; color: rgba(255,255,255,0.75); }
 
 /* buttons */
 .fcee-tj9__btn {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 13px 28px; border-radius: var(--fcee-radius-pill);
-  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  padding: 14px 30px; border-radius: 32px;
+  font-family: var(--fcee-g); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
   text-decoration: none; min-height: 44px; transition: opacity 0.2s;
 }
-.fcee-tj9__btn:hover { opacity: 0.88; }
-.fcee-tj9__btn--inverse-secondary { background: var(--background-color, #fff); color: var(--secondary-color, #4A7070); }
-.fcee-tj9__btn--inverse-brand { background: var(--background-color, #fff); color: var(--brand-color, #C96B7A); }
-.fcee-tj9__btn--solid {
-  background: var(--button-background-color, var(--secondary-color, #4A7070));
-  color: var(--button-text-color, var(--on-secondary-color, #fff));
-  font-weight: var(--global-button-font-weight, var(--default-button-font-weight, 700));
-  text-transform: var(--global-button-text-transform, var(--default-button-text-transform, uppercase));
-}
+.fcee-tj9__btn:hover { opacity: 0.9; }
+.fcee-tj9__btn--onceleste { background: var(--fcee-white); color: var(--fcee-celeste-dark); }
+.fcee-tj9__btn--onrosa { background: var(--fcee-white); color: var(--fcee-rosa); }
+.fcee-tj9__btn--celeste { background: var(--fcee-celeste-dark); color: var(--fcee-white); }
 
 /* pills / diff box */
-.fcee-tj9__pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.3rem 0 1.8rem; }
+.fcee-tj9__pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 1rem 0 2rem; }
 .fcee-tj9__pill {
-  background: var(--background-color, #fff); border: 2px solid var(--border-color, rgba(74,112,112,.3));
-  border-radius: var(--fcee-radius-pill); padding: 8px 18px;
-  font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;
-  color: var(--secondary-color, #4A7070);
+  background: var(--fcee-white); border: 2px solid var(--fcee-celeste-light); border-radius: 28px; padding: 9px 20px;
+  font-family: var(--fcee-g); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--fcee-celeste-dark);
 }
-.fcee-tj9__diffbox {
-  background: var(--background-color, #fff); border-left: 4px solid var(--secondary-color, #4A7070);
-  border-radius: 0 var(--fcee-radius) var(--fcee-radius) 0; padding: 1rem 1.4rem;
-}
-.fcee-tj9__diffbox-label {
-  display: block; color: var(--secondary-color, #4A7070); font-size: 0.78rem;
-  letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.4rem;
-}
-.fcee-tj9__diffbox p { font-size: 0.85rem; line-height: 1.75; color: var(--text-muted-color, #666); }
+.fcee-tj9__diffbox { background: var(--fcee-celeste-light); border-left: 4px solid var(--fcee-celeste-dark); border-radius: 0 12px 12px 0; padding: 1rem 1.4rem; margin-top: 1.5rem; }
+.fcee-tj9__diffbox-label { display: block; font-family: var(--fcee-g); color: var(--fcee-celeste-dark); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.3rem; }
+.fcee-tj9__diffbox p { font-size: 0.85rem; line-height: 1.75; color: var(--fcee-mid); }
 
 /* generic grids */
-.fcee-tj9__grid { display: grid; gap: 1rem; margin-top: 1.6rem; }
+.fcee-tj9__grid { display: grid; gap: 1rem; margin-top: 2rem; }
 .fcee-tj9__grid--2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.fcee-tj9__grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.fcee-tj9__grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
 
-/* icon + text items (para quién / antes de empezar) */
-.fcee-tj9__item {
-  background: var(--background-color, #fff); border-left: 3px solid var(--secondary-color, #4A7070);
-  border-radius: var(--fcee-radius); padding: 1.2rem 1.4rem;
-  display: flex; gap: 0.9rem; align-items: flex-start;
-}
-.fcee-tj9__item-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
-.fcee-tj9 h4.fcee-tj9__item-title {
-  color: var(--secondary-color, #4A7070); font-size: 0.82rem; letter-spacing: 0.04em;
-  text-transform: uppercase; margin-bottom: 0.35rem;
-}
-.fcee-tj9__item-text { font-size: 0.83rem; line-height: 1.65; color: var(--text-muted-color, #666); }
+/* icon + text items */
+.fcee-tj9__item { background: var(--fcee-crema); border-radius: 14px; border-left: 3px solid var(--fcee-celeste); padding: 1.3rem 1.5rem; display: flex; gap: 0.9rem; align-items: flex-start; }
+.fcee-tj9__panel--white .fcee-tj9__item { background: var(--fcee-crema); }
+.fcee-tj9__item-icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.fcee-tj9 h4.fcee-tj9__item-title { font-family: var(--fcee-g) !important; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--fcee-celeste-dark); margin-bottom: 0.3rem; }
+.fcee-tj9__item-text { font-size: 0.82rem; line-height: 1.6; color: var(--fcee-mid); }
 
 /* área de trabajo cards */
 .fcee-tj9__card {
-  background: var(--background-color, #fff); border: 1px solid var(--border-color, rgba(0,0,0,.1));
-  border-radius: var(--fcee-radius); padding: 1.5rem;
-  display: flex; flex-direction: column; gap: 0.6rem;
+  background: var(--fcee-white); border: 1px solid var(--fcee-celeste); border-radius: 16px; padding: 1.6rem;
+  display: flex; flex-direction: column; gap: 0.7rem;
+  opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
 }
-.fcee-tj9__card-icon { font-size: 1.6rem; line-height: 1; }
-.fcee-tj9 h4.fcee-tj9__card-title { color: var(--secondary-color, #4A7070); font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
-.fcee-tj9__card-text { font-size: 0.82rem; line-height: 1.65; color: var(--text-muted-color, #666); }
+.fcee-tj9__card.fcee-tj9__visible { opacity: 1; transform: translateY(0); }
+.fcee-tj9__card:hover { box-shadow: 0 6px 20px rgba(74,112,112,0.12); }
+.fcee-tj9__card-icon { font-size: 1.7rem; line-height: 1; }
+.fcee-tj9 h4.fcee-tj9__card-title { font-family: var(--fcee-g) !important; font-size: 0.8rem; letter-spacing: 0.07em; text-transform: uppercase; font-weight: 700; color: var(--fcee-celeste-dark); line-height: 1.4; }
+.fcee-tj9__card-text { font-size: 0.81rem; line-height: 1.65; color: var(--fcee-mid); }
 
 /* timeline */
-.fcee-tj9__timeline { position: relative; padding-left: 3.2rem; display: flex; flex-direction: column; gap: 1.8rem; }
+.fcee-tj9__timeline { position: relative; margin: 2rem 0; padding-left: 3.5rem; display: flex; flex-direction: column; gap: 0; }
 .fcee-tj9__timeline::before {
-  content: ''; position: absolute; left: 1rem; top: 0.3rem; bottom: 0.3rem; width: 2px;
-  background: linear-gradient(to bottom, var(--secondary-color, #4A7070), var(--brand-color, #C96B7A));
-  opacity: 0.5;
+  content: ''; position: absolute; left: 1.05rem; top: 1rem; bottom: 1rem; width: 2px;
+  background: linear-gradient(to bottom, var(--fcee-celeste), var(--fcee-rosa-light));
 }
-.fcee-tj9__tl-step { position: relative; }
+.fcee-tj9__tl-step {
+  position: relative; padding-bottom: 2.2rem;
+  opacity: 0; transform: translateX(-24px); transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fcee-tj9__tl-step:last-child { padding-bottom: 0; }
+.fcee-tj9__tl-step.fcee-tj9__visible { opacity: 1; transform: translateX(0); }
 .fcee-tj9__tl-num {
-  position: absolute; left: -3.2rem; top: 0; width: 2rem; height: 2rem; z-index: 1;
-  background: var(--secondary-color, #4A7070); color: var(--on-secondary-color, #fff);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.85rem;
+  position: absolute; left: -3.5rem; top: 0.1rem; width: 2.1rem; height: 2.1rem; z-index: 1;
+  background: var(--fcee-celeste-dark); color: var(--fcee-white); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem;
+  box-shadow: 0 0 0 4px var(--fcee-white), 0 0 0 5px var(--fcee-celeste-light);
 }
-.fcee-tj9__tl-title { font-size: 0.86rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.35rem; }
-.fcee-tj9__tl-text { font-size: 0.84rem; line-height: 1.7; color: var(--text-muted-color, #666); }
-.fcee-tj9__tl-note {
-  background: var(--background-color, #fff); border-left: 3px solid var(--secondary-color, #4A7070);
-  border-radius: 0 10px 10px 0; padding: 0.7rem 1rem; margin-top: 0.7rem;
-  font-size: 0.8rem; line-height: 1.6; color: var(--text-muted-color, #666);
-}
-.fcee-tj9__closing-note {
-  background: var(--background-muted-color, #F3EFEA); border: 1px solid var(--border-color, rgba(0,0,0,.1));
-  border-radius: var(--fcee-radius); padding: 1rem 1.4rem; margin-top: 2rem;
-  font-size: 0.83rem; line-height: 1.7; font-style: italic; color: var(--text-muted-color, #666);
-}
+.fcee-tj9 h4.fcee-tj9__tl-title { font-family: var(--fcee-g) !important; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: var(--fcee-celeste-dark); margin-bottom: 0.4rem; }
+.fcee-tj9__tl-text { font-size: 0.84rem; line-height: 1.7; color: var(--fcee-mid); }
+.fcee-tj9__tl-note { background: var(--fcee-crema); border-left: 3px solid var(--fcee-celeste); border-radius: 0 10px 10px 0; padding: 0.7rem 1rem; margin-top: 0.7rem; font-size: 0.81rem; line-height: 1.65; color: var(--fcee-mid); }
+.fcee-tj9__closing-note { background: var(--fcee-celeste-light); border: 1px solid var(--fcee-celeste); border-radius: 12px; padding: 1rem 1.4rem; margin-top: 1.5rem; font-size: 0.82rem; line-height: 1.7; font-style: italic; color: var(--fcee-mid); }
 
 /* equipo */
-.fcee-tj9__team-card {
-  background: var(--background-color, #fff); border: 1px solid var(--border-color, rgba(0,0,0,.1));
-  border-radius: var(--fcee-radius); padding: 1.8rem;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
+.fcee-tj9__team-card { background: var(--fcee-white); border: 1px solid var(--fcee-celeste-light); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.fcee-tj9__team-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 1.2rem; border: 3px solid var(--fcee-celeste-light); }
+.fcee-tj9__team-role { display: inline-block; background: var(--fcee-celeste-light); color: var(--fcee-celeste-dark); border-radius: 12px; padding: 4px 12px; font-family: var(--fcee-g); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.75rem; }
+.fcee-tj9 h4.fcee-tj9__team-name { font-family: var(--fcee-g) !important; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fcee-celeste-dark); margin-bottom: 0.2rem; }
+.fcee-tj9__team-mn { font-size: 0.75rem; color: var(--fcee-mid); margin-bottom: 0.5rem; }
+.fcee-tj9__team-spec { font-size: 0.79rem; line-height: 1.5; color: var(--fcee-mid); margin-bottom: 1.2rem; }
+.fcee-tj9__team-spec strong { color: var(--fcee-dark); }
+.fcee-tj9__team-divider { width: 100%; height: 1px; background: var(--fcee-crema-dark); margin-bottom: 1.2rem; }
+.fcee-tj9__team-toggle {
+  width: 100%; padding: 11px; border-radius: 28px; background: var(--fcee-celeste-dark); color: var(--fcee-white);
+  font-family: var(--fcee-g); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; transition: background 0.2s;
 }
-.fcee-tj9__team-avatar {
-  width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
-  border: 3px solid var(--background-muted-color, #F3EFEA); margin-bottom: 1rem;
-}
-.fcee-tj9__team-role {
-  display: inline-block; background: var(--background-muted-color, #F3EFEA); color: var(--secondary-color, #4A7070);
-  border-radius: var(--fcee-radius-pill); padding: 4px 12px; font-size: 0.66rem;
-  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.7rem;
-}
-.fcee-tj9 h4.fcee-tj9__team-name { font-size: 0.88rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--heading-color, var(--text-color, #2C2826)); margin-bottom: 0.15rem; }
-.fcee-tj9__team-mn { font-size: 0.74rem; color: var(--text-muted-color, #666); margin-bottom: 0.5rem; }
-.fcee-tj9__team-spec { font-size: 0.78rem; line-height: 1.55; color: var(--text-muted-color, #666); margin-bottom: 1rem; }
-.fcee-tj9__team-spec strong { color: var(--text-color, #2C2826); }
-.fcee-tj9__team-cv { width: 100%; border-top: 1px solid var(--border-color, rgba(0,0,0,.1)); padding-top: 1rem; text-align: left; }
-.fcee-tj9__team-cv-toggle {
-  cursor: pointer; list-style: none; text-align: center;
-  font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
-  color: var(--secondary-color, #4A7070); min-height: 44px; display: flex; align-items: center; justify-content: center;
-}
-.fcee-tj9__team-cv-toggle::-webkit-details-marker { display: none; }
-.fcee-tj9__team-cv[open] .fcee-tj9__team-cv-toggle { margin-bottom: 0.5rem; }
-.fcee-tj9__team-cv p { font-size: 0.8rem; line-height: 1.75; color: var(--text-muted-color, #666); }
+.fcee-tj9__team-toggle:hover { background: #3a5f5f; }
+.fcee-tj9__team-toggle--open { background: var(--fcee-crema-dark); color: var(--fcee-dark); }
+.fcee-tj9__team-cv { max-height: 0; overflow: hidden; width: 100%; text-align: left; transition: max-height 0.4s ease, padding 0.3s; }
+.fcee-tj9__team-cv--open { max-height: 700px; padding-top: 1rem; }
+.fcee-tj9__team-cv p { font-size: 0.82rem; line-height: 1.75; color: var(--fcee-mid); }
 
 /* valores */
 .fcee-tj9__price-card {
-  background: var(--background-muted-color, #F3EFEA); color: var(--text-color, #2C2826);
-  border: 1px solid var(--border-color, rgba(0,0,0,.1)); border-radius: var(--fcee-radius);
-  padding: 1.8rem; display: flex; flex-direction: column;
+  background: var(--fcee-crema); color: var(--fcee-dark); border: 1px solid var(--fcee-crema-dark); border-radius: 18px; padding: 2rem;
+  display: flex; flex-direction: column;
+  opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
 }
-.fcee-tj9__price-card--featured { border: 2px solid var(--secondary-color, #4A7070); }
-.fcee-tj9__price-flag {
-  display: block; text-align: center; background: var(--secondary-color, #4A7070); color: var(--on-secondary-color, #fff);
-  border-radius: var(--fcee-radius-pill); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase;
-  font-weight: 700; padding: 4px 12px; margin-bottom: 0.9rem;
-}
-.fcee-tj9__price-icon { font-size: 1.7rem; margin-bottom: 0.8rem; }
-.fcee-tj9 h4.fcee-tj9__price-title { color: var(--heading-color, var(--text-color, #2C2826)); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.7rem; }
-.fcee-tj9__price-text { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted-color, #666); flex: 1; margin-bottom: 1.1rem; }
-.fcee-tj9__price-footer { border-top: 1px solid var(--border-color, rgba(0,0,0,.1)); padding-top: 1rem; text-align: center; }
-.fcee-tj9__price-box {
-  background: var(--background-color, #fff); border: 2px solid var(--border-color, rgba(0,0,0,.1));
-  border-radius: var(--fcee-radius); padding: 0.8rem 1rem; margin-bottom: 0.7rem;
-}
-.fcee-tj9__price-card--featured .fcee-tj9__price-box { background: var(--secondary-color, #4A7070); border-color: var(--secondary-color, #4A7070); }
-.fcee-tj9__price-amount { display: block; font-weight: 700; font-size: 1.4rem; color: var(--secondary-color, #4A7070); }
-.fcee-tj9__price-card--featured .fcee-tj9__price-amount { color: var(--on-secondary-color, #fff); }
-.fcee-tj9__price-sub { display: block; font-size: 0.72rem; margin-top: 3px; color: var(--text-muted-color, #666); }
+.fcee-tj9__price-card.fcee-tj9__visible { opacity: 1; transform: translateY(0); }
+.fcee-tj9__price-card:hover { box-shadow: 0 8px 28px rgba(74,112,112,0.1); }
+.fcee-tj9__price-card--featured { background: var(--fcee-celeste-light); border: 2px solid var(--fcee-celeste-dark); box-shadow: 0 4px 20px rgba(74,112,112,0.15); }
+.fcee-tj9__price-flag { display: block; text-align: center; background: var(--fcee-celeste-dark); color: var(--fcee-white); border-radius: 20px; font-family: var(--fcee-g); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 4px 12px; margin-bottom: 0.8rem; }
+.fcee-tj9__price-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.fcee-tj9 h4.fcee-tj9__price-title { font-family: var(--fcee-g) !important; font-weight: 700; text-transform: uppercase; font-size: 0.82rem; letter-spacing: 0.08em; color: var(--fcee-celeste-dark); margin-bottom: 0.75rem; line-height: 1.4; }
+.fcee-tj9__price-text { font-size: 0.83rem; line-height: 1.65; color: var(--fcee-mid); flex: 1; margin-bottom: 1.2rem; }
+.fcee-tj9__price-footer { border-top: 1px solid var(--fcee-crema-dark); padding-top: 1rem; margin-top: auto; text-align: center; }
+.fcee-tj9__price-box { background: var(--fcee-white); border: 2px solid var(--fcee-crema-dark); border-radius: 12px; padding: 0.85rem 1rem; margin-bottom: 0.75rem; }
+.fcee-tj9__price-card--featured .fcee-tj9__price-box { background: var(--fcee-celeste-dark); border-color: var(--fcee-celeste-dark); }
+.fcee-tj9__price-amount { font-family: var(--fcee-g); font-weight: 700; font-size: 1.5rem; color: var(--fcee-celeste-dark); display: block; }
+.fcee-tj9__price-card--featured .fcee-tj9__price-amount { color: var(--fcee-white); }
+.fcee-tj9__price-sub { font-size: 0.74rem; color: var(--fcee-mid); margin-top: 3px; display: block; }
 .fcee-tj9__price-card--featured .fcee-tj9__price-sub { color: rgba(255,255,255,0.85); }
-.fcee-tj9__price-badge {
-  display: inline-block; background: var(--background-color, #fff); color: var(--secondary-color, #4A7070);
-  border: 1.5px solid var(--secondary-color, #4A7070); border-radius: var(--fcee-radius-pill);
-  font-size: 0.7rem; letter-spacing: 0.05em; padding: 4px 12px;
-}
-.fcee-tj9__payment-note {
-  background: var(--background-muted-color, #F3EFEA); border-left: 3px solid var(--secondary-color, #4A7070);
-  border-radius: 0 10px 10px 0; padding: 0.9rem 1.2rem; margin-top: 1.6rem;
-  font-size: 0.81rem; line-height: 1.6; color: var(--text-muted-color, #666);
-}
-.fcee-tj9__payment-note strong { color: var(--text-color, #2C2826); }
+.fcee-tj9__price-badge { display: inline-block; background: var(--fcee-white); color: var(--fcee-celeste-dark); border: 1.5px solid var(--fcee-celeste-dark); border-radius: 20px; font-family: var(--fcee-g); font-size: 0.72rem; letter-spacing: 0.08em; padding: 4px 14px; }
+.fcee-tj9__payment-note { background: var(--fcee-crema); border-left: 3px solid var(--fcee-celeste); border-radius: 0 10px 10px 0; padding: 0.9rem 1.2rem; margin-top: 1.5rem; font-size: 0.81rem; line-height: 1.65; color: var(--fcee-mid); }
+.fcee-tj9__payment-note strong { color: var(--fcee-dark); }
 
 /* faq */
-.fcee-tj9__faq-list { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.6rem; }
-.fcee-tj9__faq-item { background: var(--background-muted-color, #F3EFEA); border: 1px solid var(--border-color, rgba(0,0,0,.1)); border-radius: var(--fcee-radius); overflow: hidden; }
+.fcee-tj9__faq-list { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 2rem; max-width: 800px; }
+.fcee-tj9__faq-item { background: var(--fcee-crema); border-radius: 12px; border: 1px solid var(--fcee-crema-dark); overflow: hidden; }
 .fcee-tj9__faq-item summary {
-  cursor: pointer; list-style: none; padding: 1rem 1.3rem; min-height: 44px;
+  cursor: pointer; list-style: none; padding: 1.1rem 1.4rem; min-height: 44px;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  font-size: 0.85rem; font-weight: 700; color: var(--text-color, #2C2826);
+  font-family: var(--fcee-g); font-size: 0.85rem; font-weight: 700; color: var(--fcee-dark);
 }
 .fcee-tj9__faq-item summary::-webkit-details-marker { display: none; }
-.fcee-tj9__faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--secondary-color, #4A7070); flex-shrink: 0; transition: transform 0.2s; }
+.fcee-tj9__faq-item summary::after { content: '+'; font-size: 1.2rem; line-height: 1; flex-shrink: 0; color: var(--fcee-celeste-dark); transition: transform 0.2s; }
 .fcee-tj9__faq-item[open] summary::after { transform: rotate(45deg); }
-.fcee-tj9__faq-item p { padding: 0 1.3rem 1.1rem; font-size: 0.84rem; line-height: 1.7; color: var(--text-muted-color, #666); }
-.fcee-tj9__faq-cta { margin-top: 1.8rem; }
-.fcee-tj9__faq-cta p { font-size: 0.85rem; color: var(--text-muted-color, #666); margin-bottom: 0.9rem; }
+.fcee-tj9__faq-item p { padding: 0 1.4rem 1.2rem; font-size: 0.85rem; line-height: 1.7; color: var(--fcee-mid); }
+.fcee-tj9__faq-cta { margin-top: 2rem; max-width: 800px; }
+.fcee-tj9__faq-cta p { font-size: 0.85rem; color: var(--fcee-mid); margin-bottom: 0.9rem; }
 
 /* cta final */
-.fcee-tj9__cta {
-  background: var(--brand-color, #C96B7A); color: var(--on-brand-primary-color, #fff);
-  padding: clamp(3rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2rem); text-align: center;
-}
-.fcee-tj9 h3.fcee-tj9__cta-title { color: var(--on-brand-primary-color, #fff); font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 0.4rem; }
-.fcee-tj9__cta-sub { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 0.9rem; }
-.fcee-tj9__cta-text { font-size: 0.9rem; color: rgba(255,255,255,0.75); max-width: 460px; margin: 0 auto 2rem; }
+.fcee-tj9__cta { background: var(--fcee-rosa); color: var(--fcee-white); padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem); text-align: center; }
+.fcee-tj9 h3.fcee-tj9__cta-title { font-family: var(--fcee-g) !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--fcee-white); margin-bottom: 0.5rem; }
+.fcee-tj9__cta-sub { font-style: italic; font-size: 1.3rem; color: rgba(255,255,255,0.85); display: block; margin-bottom: 1rem; }
+.fcee-tj9__cta-text { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 2.5rem; }
 
 @media (prefers-reduced-motion: reduce) {
-  .fcee-tj9 *, .fcee-tj9 *::before, .fcee-tj9 *::after { transition: none; }
+  .fcee-tj9__card, .fcee-tj9__tl-step, .fcee-tj9__price-card { transition: none; }
+  .fcee-tj9__team-cv, .fcee-tj9__team-toggle, .fcee-tj9__faq-item summary::after { transition: none; }
 }
 @media (min-width: 640px) {
   .fcee-tj9__grid--2 { grid-template-columns: repeat(2, 1fr); }
@@ -251,19 +228,19 @@
   <section class="fcee-tj9__hero" aria-label="Entrenamiento ejecutivo">
     <div class="fcee-tj9__inner fcee-tj9__hero-inner">
       <span class="fcee-tj9__tag">Entrenamiento ejecutivo · Modalidad online</span>
-      <h2 class="fcee-tj9__hero-title">Entrenamiento ejecutivo</h2>
+      <h2 class="fcee-tj9__hero-title">Entrenamiento<span class="fcee-tj9__accent">ejecutivo</span></h2>
       <p class="fcee-tj9__hero-text">Acompañamiento práctico y funcional para desarrollar habilidades de organización, planificación y autonomía en la vida cotidiana.</p>
-      <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--inverse-secondary">
+      <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--onceleste">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
         Consultar disponibilidad
       </a>
     </div>
   </section>
 
-  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-que-es">
+  <section class="fcee-tj9__panel fcee-tj9__panel--crema" aria-labelledby="fcee-tj9-que-es">
     <div class="fcee-tj9__inner">
       <p class="fcee-tj9__eyebrow">¿Qué es?</p>
-      <h3 id="fcee-tj9-que-es" class="fcee-tj9__title">Un abordaje práctico orientado a la autonomía</h3>
+      <h3 id="fcee-tj9-que-es" class="fcee-tj9__title">Un abordaje práctico <span class="fcee-tj9__accent">orientado a la autonomía</span></h3>
       <p class="fcee-tj9__text">El entrenamiento ejecutivo es un acompañamiento especializado que trabaja sobre las funciones ejecutivas: las habilidades cognitivas que nos permiten organizarnos, planificar, iniciar y completar tareas, y gestionar nuestra vida cotidiana de manera funcional y autónoma.</p>
       <p class="fcee-tj9__text">No es psicoterapia clínica, sino un espacio de trabajo concreto y orientado a objetivos, donde se aprenden y entrenan herramientas que pueden aplicarse de forma inmediata en el día a día.</p>
       <p class="fcee-tj9__text">Es un protocolo flexible de aproximadamente 10 sesiones: se evalúa al inicio con instrumentos validados y, al finalizar el proceso, se vuelve a evaluar para decidir en conjunto si corresponde continuar, ajustar el enfoque o si el trabajo está cumplido.</p>
@@ -280,10 +257,10 @@
     </div>
   </section>
 
-  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-para-quien">
+  <section class="fcee-tj9__panel fcee-tj9__panel--white" aria-labelledby="fcee-tj9-para-quien">
     <div class="fcee-tj9__inner">
       <p class="fcee-tj9__eyebrow">¿Para quién es?</p>
-      <h3 id="fcee-tj9-para-quien" class="fcee-tj9__title">Especialmente pensado para vos si…</h3>
+      <h3 id="fcee-tj9-para-quien" class="fcee-tj9__title">Especialmente pensado <span class="fcee-tj9__accent">para vos si…</span></h3>
       <div class="fcee-tj9__grid fcee-tj9__grid--2">
         <div class="fcee-tj9__item">
           <span class="fcee-tj9__item-icon" aria-hidden="true">🧠</span>
@@ -317,10 +294,10 @@
     </div>
   </section>
 
-  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-areas">
+  <section class="fcee-tj9__panel fcee-tj9__panel--celeste" aria-labelledby="fcee-tj9-areas">
     <div class="fcee-tj9__inner fcee-tj9__inner--wide">
-      <p class="fcee-tj9__eyebrow">Áreas de trabajo</p>
-      <h3 id="fcee-tj9-areas" class="fcee-tj9__title">¿Sobre qué trabajamos?</h3>
+      <p class="fcee-tj9__eyebrow fcee-tj9__eyebrow--cel">Áreas de trabajo</p>
+      <h3 id="fcee-tj9-areas" class="fcee-tj9__title">¿Sobre qué <span class="fcee-tj9__accent">trabajamos?</span></h3>
       <div class="fcee-tj9__grid fcee-tj9__grid--3">
         <div class="fcee-tj9__card">
           <span class="fcee-tj9__card-icon" aria-hidden="true">📅</span>
@@ -356,10 +333,10 @@
     </div>
   </section>
 
-  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-proceso">
+  <section class="fcee-tj9__panel fcee-tj9__panel--white" aria-labelledby="fcee-tj9-proceso">
     <div class="fcee-tj9__inner">
       <p class="fcee-tj9__eyebrow">Cómo funciona</p>
-      <h3 id="fcee-tj9-proceso" class="fcee-tj9__title">El proceso de entrenamiento</h3>
+      <h3 id="fcee-tj9-proceso" class="fcee-tj9__title">El proceso de <span class="fcee-tj9__accent">entrenamiento</span></h3>
       <ol class="fcee-tj9__timeline">
         <li class="fcee-tj9__tl-step">
           <span class="fcee-tj9__tl-num" aria-hidden="true">1</span>
@@ -387,10 +364,10 @@
     </div>
   </section>
 
-  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-equipo">
+  <section class="fcee-tj9__panel fcee-tj9__panel--crema" aria-labelledby="fcee-tj9-equipo">
     <div class="fcee-tj9__inner fcee-tj9__inner--wide">
       <p class="fcee-tj9__eyebrow">Quiénes somos</p>
-      <h3 id="fcee-tj9-equipo" class="fcee-tj9__title">Nuestro equipo</h3>
+      <h3 id="fcee-tj9-equipo" class="fcee-tj9__title">Nuestro <span class="fcee-tj9__accent">equipo</span></h3>
       <div class="fcee-tj9__grid fcee-tj9__grid--3">
 
         <article class="fcee-tj9__team-card">
@@ -399,10 +376,13 @@
           <h4 class="fcee-tj9__team-name">Lic. Florencia Cruz</h4>
           <p class="fcee-tj9__team-mn">MN 68840</p>
           <p class="fcee-tj9__team-spec"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA)</p>
-          <details class="fcee-tj9__team-cv">
-            <summary class="fcee-tj9__team-cv-toggle">Más información</summary>
+          <div class="fcee-tj9__team-divider"></div>
+          <button type="button" class="fcee-tj9__team-toggle" aria-expanded="false">
+            <span class="fcee-tj9__team-toggle-label">+ Más información</span>
+          </button>
+          <div class="fcee-tj9__team-cv">
             <p>Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA), y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
-          </details>
+          </div>
         </article>
 
         <article class="fcee-tj9__team-card">
@@ -411,10 +391,13 @@
           <h4 class="fcee-tj9__team-name">Lic. Natalia Alberto</h4>
           <p class="fcee-tj9__team-mn">MN 77584</p>
           <p class="fcee-tj9__team-spec"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>TCC · DBT · EMDR</p>
-          <details class="fcee-tj9__team-cv">
-            <summary class="fcee-tj9__team-cv-toggle">Más información</summary>
+          <div class="fcee-tj9__team-divider"></div>
+          <button type="button" class="fcee-tj9__team-toggle" aria-expanded="false">
+            <span class="fcee-tj9__team-toggle-label">+ Más información</span>
+          </button>
+          <div class="fcee-tj9__team-cv">
             <p>Licenciada en Psicología (UBA) y Acompañante Terapéutico (Hospital Infanto-juvenil "Carolina T. García"). Cuenta con formación clínica especializada en Neuropsicología (Fundación Foro e INECO), Terapia Cognitivo-Conductual y Terapia Dialéctico Conductual (DBT). Actualmente se encuentra realizando el entrenamiento en EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares), un abordaje diseñado para el tratamiento de traumas mediante estimulación bilateral. Posee experiencia en el acompañamiento de infancias, adolescencias y adultos mayores. Se desempeña como docente universitaria en la Universidad CAECE y como perito auxiliar de la justicia. Integra el equipo de inclusión de la Escuela Arlene Fern y desarrolla su práctica clínica privada, especializándose en la atención de población adulta-joven neurodivergente.</p>
-          </details>
+          </div>
         </article>
 
         <article class="fcee-tj9__team-card">
@@ -423,21 +406,24 @@
           <h4 class="fcee-tj9__team-name">Lic. Camila Diven</h4>
           <p class="fcee-tj9__team-mn">MN 72967 · MP 63190</p>
           <p class="fcee-tj9__team-spec"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA)</p>
-          <details class="fcee-tj9__team-cv">
-            <summary class="fcee-tj9__team-cv-toggle">Más información</summary>
+          <div class="fcee-tj9__team-divider"></div>
+          <button type="button" class="fcee-tj9__team-toggle" aria-expanded="false">
+            <span class="fcee-tj9__team-toggle-label">+ Más información</span>
+          </button>
+          <div class="fcee-tj9__team-cv">
             <p>Licenciada en Psicología (UBA). Realizó la Especialización en Neuropsicología Clínica (UBA) y una Beca de Perfeccionamiento en Neurología y Neuropsicología del Adulto en el Hospital Italiano de Buenos Aires. Cuenta además con Actualización en Trastornos Alimentarios (UBA). Se dedica a la evaluación y rehabilitación neuropsicológica en adultos. Se desempeñó como Jefa del Área de Neuropsicología en Adultos en INBA y como docente universitaria en UAI y Universidad CAECE. Actualmente es docente de Neurofisiología en la UBA y en Universidad CAECE. Ha formado parte de equipos de investigación, con presentaciones en congresos nacionales e internacionales en el área de neuropsicología.</p>
-          </details>
+          </div>
         </article>
 
       </div>
     </div>
   </section>
 
-  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-valores">
+  <section class="fcee-tj9__panel fcee-tj9__panel--white" aria-labelledby="fcee-tj9-valores">
     <div class="fcee-tj9__inner fcee-tj9__inner--wide">
       <p class="fcee-tj9__eyebrow">Aranceles</p>
-      <h3 id="fcee-tj9-valores" class="fcee-tj9__title">Valores del servicio</h3>
-      <p class="fcee-tj9__text">Contamos con distintas modalidades según el momento del proceso en el que te encuentres: sesiones individuales, el pack de proceso completo, o la posibilidad de sumar una evaluación neurocognitiva para empezar con un perfil más preciso de tus fortalezas y áreas de trabajo.</p>
+      <h3 id="fcee-tj9-valores" class="fcee-tj9__title">Valores <span class="fcee-tj9__accent">del servicio</span></h3>
+      <p class="fcee-tj9__text" style="margin-bottom:1rem;">Contamos con distintas modalidades según el momento del proceso en el que te encuentres: sesiones individuales, el pack de proceso completo, o la posibilidad de sumar una evaluación neurocognitiva para empezar con un perfil más preciso de tus fortalezas y áreas de trabajo.</p>
       <div class="fcee-tj9__grid fcee-tj9__grid--3">
         <div class="fcee-tj9__price-card">
           <span class="fcee-tj9__price-icon" aria-hidden="true">🗓️</span>
@@ -481,33 +467,33 @@
     </div>
   </section>
 
-  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-antes">
+  <section class="fcee-tj9__panel fcee-tj9__panel--crema" aria-labelledby="fcee-tj9-antes">
     <div class="fcee-tj9__inner">
       <p class="fcee-tj9__eyebrow">Información administrativa</p>
-      <h3 id="fcee-tj9-antes" class="fcee-tj9__title">Antes de empezar</h3>
+      <h3 id="fcee-tj9-antes" class="fcee-tj9__title">Antes de <span class="fcee-tj9__accent">empezar</span></h3>
       <div class="fcee-tj9__grid fcee-tj9__grid--2">
-        <div class="fcee-tj9__item">
+        <div class="fcee-tj9__item" style="background:var(--fcee-white);">
           <span class="fcee-tj9__item-icon" aria-hidden="true">✅</span>
           <div>
             <h4 class="fcee-tj9__item-title">Confirmación del turno</h4>
             <p class="fcee-tj9__item-text">El horario queda reservado una vez abonada la primera sesión o el pack correspondiente.</p>
           </div>
         </div>
-        <div class="fcee-tj9__item">
+        <div class="fcee-tj9__item" style="background:var(--fcee-white);">
           <span class="fcee-tj9__item-icon" aria-hidden="true">🔔</span>
           <div>
             <h4 class="fcee-tj9__item-title">Cancelaciones y cambios</h4>
             <p class="fcee-tj9__item-text">Los cambios o cancelaciones pueden realizarse con hasta 24 hs hábiles de anticipación vía WhatsApp. Pasado ese plazo, la sesión se considera realizada.</p>
           </div>
         </div>
-        <div class="fcee-tj9__item">
+        <div class="fcee-tj9__item" style="background:var(--fcee-white);">
           <span class="fcee-tj9__item-icon" aria-hidden="true">⚠️</span>
           <div>
             <h4 class="fcee-tj9__item-title">Continuidad del proceso</h4>
             <p class="fcee-tj9__item-text">Si se registran dos inasistencias consecutivas sin aviso previo, el espacio podrá darse de baja para priorizar la organización de turnos.</p>
           </div>
         </div>
-        <div class="fcee-tj9__item">
+        <div class="fcee-tj9__item" style="background:var(--fcee-white);">
           <span class="fcee-tj9__item-icon" aria-hidden="true">🧾</span>
           <div>
             <h4 class="fcee-tj9__item-title">Medio de pago</h4>
@@ -518,10 +504,10 @@
     </div>
   </section>
 
-  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-faq">
+  <section class="fcee-tj9__panel fcee-tj9__panel--white" aria-labelledby="fcee-tj9-faq">
     <div class="fcee-tj9__inner">
       <p class="fcee-tj9__eyebrow">Dudas frecuentes</p>
-      <h3 id="fcee-tj9-faq" class="fcee-tj9__title">Preguntas frecuentes</h3>
+      <h3 id="fcee-tj9-faq" class="fcee-tj9__title">Preguntas <span class="fcee-tj9__accent">frecuentes</span></h3>
       <div class="fcee-tj9__faq-list">
         <details class="fcee-tj9__faq-item">
           <summary>¿Necesito tener un diagnóstico de TDAH o autismo para empezar?</summary>
@@ -558,7 +544,7 @@
       </div>
       <div class="fcee-tj9__faq-cta">
         <p>¿Te quedó alguna duda?</p>
-        <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--solid">
+        <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--celeste">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
           Escribinos tu pregunta
         </a>
@@ -569,9 +555,9 @@
   <section class="fcee-tj9__cta" aria-labelledby="fcee-tj9-cta-title">
     <div class="fcee-tj9__inner fcee-tj9__hero-inner">
       <h3 id="fcee-tj9-cta-title" class="fcee-tj9__cta-title">¿Querés empezar?</h3>
-      <span class="fcee-tj9__cta-sub">Estamos para acompañarte</span>
+      <span class="fcee-tj9__cta-sub">estamos para acompañarte</span>
       <p class="fcee-tj9__cta-text">Escribinos para contarnos qué área querés trabajar y coordinamos una primera sesión.</p>
-      <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--inverse-brand">
+      <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--onrosa">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
         Escribinos por WhatsApp
       </a>
@@ -579,3 +565,52 @@
   </section>
 
 </div>
+
+<script>
+(function () {
+  'use strict';
+  function init() {
+    try {
+      var roots = document.querySelectorAll('.fcee-tj9');
+      roots.forEach(function (root) {
+        if (root.dataset.fceeInit) return;
+        root.dataset.fceeInit = '1';
+
+        var toggles = root.querySelectorAll('.fcee-tj9__team-toggle');
+        toggles.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var cv = btn.nextElementSibling;
+            var label = btn.querySelector('.fcee-tj9__team-toggle-label');
+            var isOpen = cv.classList.contains('fcee-tj9__team-cv--open');
+            cv.classList.toggle('fcee-tj9__team-cv--open');
+            btn.classList.toggle('fcee-tj9__team-toggle--open');
+            btn.setAttribute('aria-expanded', String(!isOpen));
+            if (label) label.textContent = isOpen ? '+ Más información' : '× Cerrar';
+          });
+        });
+
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var animEls = root.querySelectorAll('.fcee-tj9__card, .fcee-tj9__tl-step, .fcee-tj9__price-card');
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+          animEls.forEach(function (el) { el.classList.add('fcee-tj9__visible'); });
+        } else {
+          var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('fcee-tj9__visible');
+                obs.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          animEls.forEach(function (el) { obs.observe(el); });
+        }
+      });
+    } catch (e) {}
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
+})();
+</script>
