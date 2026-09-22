@@ -300,6 +300,15 @@ a { color: inherit; text-decoration: none; }
   padding: 0 1.4rem 1.2rem; margin: 0;
   font-size: 0.85rem; color: var(--mid); line-height: 1.7;
 }
+.faq-cta { margin-top: 2rem; max-width: 800px; }
+.faq-cta p { font-size: 0.85rem; color: var(--mid); margin-bottom: 0.9rem; }
+.btn-faq {
+  background: var(--celeste-dark); color: white;
+  padding: 12px 26px; border-radius: 28px;
+  font-family: var(--g); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s;
+}
+.btn-faq:hover { opacity: 0.9; }
 
 /* CTA */
 #cta { padding: 6rem 4rem; background: var(--rosa); text-align: center; }
@@ -453,7 +462,7 @@ a { color: inherit; text-decoration: none; }
       <div class="tl-step">
         <div class="tl-num">2</div>
         <h4>Sesión inicial de evaluación</h4>
-        <p>En la primera sesión evaluamos tu perfil de funcionamiento ejecutivo con instrumentos validados, conocemos tus rutinas actuales, tus objetivos y el contexto de tu vida diaria. También evaluamos si te conviene sumar una evaluación neurocognitiva, para identificar tus fortalezas y diseñar mejores estrategias en función de tu perfil. A partir de ahí, diseñamos un plan de trabajo personalizado.</p>
+        <p>En la primera sesión evaluamos tu perfil de funcionamiento ejecutivo con instrumentos validados, conocemos tus rutinas actuales, tus objetivos y el contexto de tu vida diaria. También definimos si te conviene sumar una evaluación neurocognitiva, para identificar tus fortalezas y diseñar mejores estrategias en función de tu perfil. A partir de ahí, diseñamos un plan de trabajo personalizado.</p>
         <div class="tl-note">Cada plan es único: no existe un protocolo genérico. Las estrategias se adaptan a tu perfil, diagnóstico (si lo tenés) y objetivos concretos.</div>
       </div>
       <div class="tl-step">
@@ -486,7 +495,7 @@ a { color: inherit; text-decoration: none; }
         <div class="sede-zona">Coordinación</div>
         <h3>Lic. Florencia Cruz</h3>
         <div class="sede-mn">MN 68840</div>
-        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA) · Experiencia en diagnóstico de TDAH y autismo en personas adultas · Psicoterapeuta TCC, DBT, ACT</div>
+        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA)</div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
@@ -516,7 +525,7 @@ a { color: inherit; text-decoration: none; }
         <div class="sede-zona">Neuropsicóloga</div>
         <h3>Lic. Camila Diven</h3>
         <div class="sede-mn">MN 72967 · MP 63190</div>
-        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong></div>
+        <div class="sede-esp"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA)</div>
         <div class="sede-divider"></div>
         <button class="btn-masinfo" onclick="toggleCV(this)">
           <span class="btn-label">+ Más info</span>
@@ -535,7 +544,7 @@ a { color: inherit; text-decoration: none; }
   <div class="container">
     <div class="sec-label">Aranceles</div>
     <h2 class="sec-title">Valores <span class="s">del servicio</span></h2>
-    <p class="intro-text" style="margin-bottom:0;">Podés empezar con sesiones sueltas, con el pack completo, o sumar de entrada una evaluación neurocognitiva para arrancar con un diagnóstico más preciso de tus fortalezas.</p>
+    <p class="intro-text" style="margin-bottom:0;">Contamos con distintas modalidades según el momento del proceso en el que te encuentres: sesiones individuales, el pack de proceso completo, o la posibilidad de sumar una evaluación neurocognitiva para empezar con un perfil más preciso de tus fortalezas y áreas de trabajo.</p>
     <div class="tipos-grid-3">
       <div class="tipo-card">
         <div class="tc-icon">🗓️</div>
@@ -550,7 +559,7 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
       <div class="tipo-card featured">
-        <div class="featured-badge">Recomendado</div>
+        <div class="featured-badge">El más elegido</div>
         <div class="tc-icon">📦</div>
         <h3>Pack proceso completo</h3>
         <p>Para quienes se comprometen con el proceso. El pack te asegura continuidad y un valor preferencial por sesión.</p>
@@ -559,7 +568,7 @@ a { color: inherit; text-decoration: none; }
             <span class="tc-price">$495.000</span>
             <span class="tc-price-sub">pack de 10 sesiones · 10% de descuento</span>
           </div>
-          <span class="tc-dur-badge">🎯 Evaluación inicial y de cierre incluida</span>
+          <span class="tc-dur-badge">📈 Seguimiento de tu progreso</span>
         </div>
       </div>
       <div class="tipo-card">
@@ -615,11 +624,11 @@ a { color: inherit; text-decoration: none; }
     <div class="faq-list">
       <details class="faq-item">
         <summary>¿Necesito tener un diagnóstico de TDAH o autismo para empezar?</summary>
-        <p>No. También trabajamos con personas sin diagnóstico cerrado que buscan mejorar su organización, gestión del tiempo y autonomía en el día a día.</p>
+        <p>No. También trabajamos con personas sin diagnóstico formal que buscan mejorar su organización, gestión del tiempo y autonomía en el día a día. Sin embargo, evaluamos en la primera sesión si sería adecuado realizar primero una evaluación diagnóstica y/o neurocognitiva.</p>
       </details>
       <details class="faq-item">
         <summary>¿Las sesiones son online?</summary>
-        <p>Sí, todas las sesiones se realizan de forma online.</p>
+        <p>Sí, todas las sesiones se realizan de forma online. Contamos con atención online desde cualquier lugar. Todos nuestros servicios pueden realizarse bajo esta modalidad, siempre que resulte adecuada para el proceso.</p>
       </details>
       <details class="faq-item">
         <summary>¿Con qué frecuencia son las sesiones?</summary>
@@ -631,12 +640,27 @@ a { color: inherit; text-decoration: none; }
       </details>
       <details class="faq-item">
         <summary>¿Puedo empezar con una sesión suelta sin comprometerme al proceso completo?</summary>
-        <p>Sí, podés arrancar con sesiones individuales y pasar al pack de 10 sesiones cuando quieras.</p>
+        <p>Sí, podés empezar con sesiones individuales y pasar al pack de 10 sesiones cuando quieras.</p>
       </details>
       <details class="faq-item">
-        <summary>¿Cómo se paga?</summary>
-        <p>Por transferencia bancaria o Mercado Pago.</p>
+        <summary>¿Cómo se abona la sesión?</summary>
+        <p>Al momento de coordinar la sesión, se abona por adelantado la sesión o el pack elegido para confirmar el turno. Podés abonar por transferencia bancaria o Mercado Pago.</p>
       </details>
+      <details class="faq-item">
+        <summary>¿Cómo se define quién me atiende?</summary>
+        <p>Contanos qué área querés trabajar, si tenés un diagnóstico y qué días y horarios tenés disponibles. En función de esta información, pensamos qué profesional del equipo puede acompañarte y ella te escribe para coordinar.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Trabajan con obras sociales?</summary>
+        <p>Trabajamos únicamente de manera particular. Si tu plan contempla la posibilidad de reintegro, la profesional puede emitir la factura correspondiente para que puedas gestionarlo con tu obra social o prepaga.</p>
+      </details>
+    </div>
+    <div class="faq-cta">
+      <p>¿Te quedó alguna duda?</p>
+      <a href="https://wa.me/5491123902485" class="btn-faq">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Escribinos tu pregunta
+      </a>
     </div>
   </div>
 </section>
