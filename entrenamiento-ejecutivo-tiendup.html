@@ -19,16 +19,35 @@
 }
 @font-face {
   font-family: 'FceeOpenSans';
-  src: url('https://5v5uhz4w7w.ucarecd.net/e2d980e1-6b26-4aec-a743-307a50c4d711/OpenSansVariableFont_wdthwght.ttf') format('truetype');
-  font-weight: 300 800;
+  src: url('https://5v5uhz4w7w.ucarecd.net/b74d6280-2b33-4fe0-826e-5e410f4d0da1/OpenSansRegular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'FceeOpenSans';
-  src: url('https://5v5uhz4w7w.ucarecd.net/b9dcca01-c2a6-48ea-a0af-e78813b91332/OpenSansItalicVariableFont_wdthwght.ttf') format('truetype');
-  font-weight: 300 800;
+  src: url('https://5v5uhz4w7w.ucarecd.net/63e3c9ef-ffde-43c8-9722-e5459292f108/OpenSansBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FceeOpenSans';
+  src: url('https://5v5uhz4w7w.ucarecd.net/06827dfe-85f4-4083-9632-8038b2b83bd4/OpenSansItalic.ttf') format('truetype');
+  font-weight: 400;
   font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FceeDancingScript';
+  src: url('https://5v5uhz4w7w.ucarecd.net/33cf3d67-3ed6-4224-a9b4-1fbbeaad461c/DancingScriptMedium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FceeDancingScript';
+  src: url('https://5v5uhz4w7w.ucarecd.net/01408f5e-2c1b-4b6e-8c4c-5a926e81d970/DancingScriptSemiBold.ttf') format('truetype');
+  font-weight: 600;
   font-display: swap;
 }
 .fcee-tj9, .fcee-tj9 *, .fcee-tj9 *::before, .fcee-tj9 *::after { box-sizing: border-box; }
@@ -38,6 +57,7 @@
   font-family: var(--fcee-body);
   --fcee-g: 'FceeGlacial', sans-serif;
   --fcee-body: 'FceeOpenSans', sans-serif;
+  --fcee-script: 'FceeDancingScript', cursive;
   --fcee-rosa: #C96B7A;
   --fcee-rosa-light: #F2DDE1;
   --fcee-celeste: #B8CCCC;
@@ -67,7 +87,7 @@
   font-family: var(--fcee-g) !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
   font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.2; color: var(--fcee-celeste-dark); margin-bottom: 1.5rem;
 }
-.fcee-tj9__accent { font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--fcee-rosa); display: inline; }
+.fcee-tj9__accent { font-family: var(--fcee-script); font-style: normal; font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--fcee-rosa); display: inline; }
 .fcee-tj9__text { font-size: 0.95rem; line-height: 1.85; color: var(--fcee-mid); max-width: 800px; }
 .fcee-tj9__text + .fcee-tj9__text { margin-top: 0.6rem; }
 
@@ -223,7 +243,7 @@
 /* cta final */
 .fcee-tj9__cta { background: var(--fcee-rosa); color: var(--fcee-white); padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem); text-align: center; }
 .fcee-tj9 h3.fcee-tj9__cta-title { font-family: var(--fcee-g) !important; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--fcee-white); margin-bottom: 0.5rem; }
-.fcee-tj9__cta-sub { font-style: italic; font-size: 1.3rem; color: rgba(255,255,255,0.85); display: block; margin-bottom: 1rem; }
+.fcee-tj9__cta-sub { font-family: var(--fcee-script); font-weight: 500; font-size: 1.8rem; color: rgba(255,255,255,0.85); display: block; margin-bottom: 1rem; }
 .fcee-tj9__cta-text { font-size: 0.9rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 2.5rem; }
 
 @media (prefers-reduced-motion: reduce) {
