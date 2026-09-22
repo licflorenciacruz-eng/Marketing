@@ -218,6 +218,7 @@ a { color: inherit; text-decoration: none; }
 /* ARANCELES */
 #valores { padding: 5rem 4rem; background: var(--white); }
 .tipos-grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem; margin-top: 2rem; max-width: 680px; }
+.tipos-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; margin-top: 2rem; }
 .tipo-card {
   background: var(--crema); border-radius: 18px;
   padding: 2rem; border: 1px solid var(--crema-dark);
@@ -316,7 +317,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 800px) {
   #hero, #que-es, #para-quien, #areas, #proceso, #equipo, #valores, #cancelacion, #faq, #cta { padding: 3.5rem 1.5rem; }
-  .areas-grid, .sedes-grid, .tipos-grid-2, .cancel-grid, .quien-grid { grid-template-columns: 1fr; }
+  .areas-grid, .sedes-grid, .tipos-grid-2, .tipos-grid-3, .cancel-grid, .quien-grid { grid-template-columns: 1fr; }
   .tipos-grid-2 { max-width: 100%; }
 }
 </style>
@@ -534,7 +535,8 @@ a { color: inherit; text-decoration: none; }
   <div class="container">
     <div class="sec-label">Aranceles</div>
     <h2 class="sec-title">Valores <span class="s">del servicio</span></h2>
-    <div class="tipos-grid-2">
+    <p class="intro-text" style="margin-bottom:0;">Podés empezar con sesiones sueltas, con el pack completo, o sumar de entrada una evaluación neurocognitiva para arrancar con un diagnóstico más preciso de tus fortalezas.</p>
+    <div class="tipos-grid-3">
       <div class="tipo-card">
         <div class="tc-icon">🗓️</div>
         <h3>Sesión individual</h3>
@@ -558,6 +560,18 @@ a { color: inherit; text-decoration: none; }
             <span class="tc-price-sub">pack de 10 sesiones · 10% de descuento</span>
           </div>
           <span class="tc-dur-badge">🎯 Evaluación inicial y de cierre incluida</span>
+        </div>
+      </div>
+      <div class="tipo-card">
+        <div class="tc-icon">🧩</div>
+        <h3>Evaluación neurocognitiva + Entrenamiento</h3>
+        <p>Empezás con una evaluación neurocognitiva completa y continuás el entrenamiento con la misma profesional, que diseña tu plan a partir de tus resultados.</p>
+        <div class="tc-footer">
+          <div class="precio-box">
+            <span class="tc-price">$589.500</span>
+            <span class="tc-price-sub">evaluación + pack de 10 sesiones · 10% de descuento</span>
+          </div>
+          <span class="tc-dur-badge">💰 Ahorrás $65.500</span>
         </div>
       </div>
     </div>
@@ -613,7 +627,7 @@ a { color: inherit; text-decoration: none; }
       </details>
       <details class="faq-item">
         <summary>¿Tengo que hacerme una evaluación neurocognitiva antes de empezar?</summary>
-        <p>No es un requisito excluyente. En la primera sesión evaluamos junto con vos si te conviene sumarla, ya que ayuda a identificar tus fortalezas y a diseñar mejores estrategias según tu perfil.</p>
+        <p>No es un requisito excluyente. En la primera sesión evaluamos junto con vos si te conviene sumarla, ya que ayuda a identificar tus fortalezas y a diseñar mejores estrategias según tu perfil. Si la sumás, la realiza la misma profesional que después te acompaña en el entrenamiento ejecutivo, así el plan de trabajo parte directamente de tus resultados.</p>
       </details>
       <details class="faq-item">
         <summary>¿Puedo empezar con una sesión suelta sin comprometerme al proceso completo?</summary>
