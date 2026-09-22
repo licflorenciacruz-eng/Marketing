@@ -17,12 +17,27 @@
   font-style: italic;
   font-display: swap;
 }
+@font-face {
+  font-family: 'FceeOpenSans';
+  src: url('https://5v5uhz4w7w.ucarecd.net/e2d980e1-6b26-4aec-a743-307a50c4d711/OpenSansVariableFont_wdthwght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FceeOpenSans';
+  src: url('https://5v5uhz4w7w.ucarecd.net/b9dcca01-c2a6-48ea-a0af-e78813b91332/OpenSansItalicVariableFont_wdthwght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
 .fcee-tj9, .fcee-tj9 *, .fcee-tj9 *::before, .fcee-tj9 *::after { box-sizing: border-box; }
 .fcee-tj9 {
   background: transparent;
   color: inherit;
-  font-family: inherit;
-  --fcee-g: 'FceeGlacial', inherit;
+  font-family: var(--fcee-body);
+  --fcee-g: 'FceeGlacial', sans-serif;
+  --fcee-body: 'FceeOpenSans', sans-serif;
   --fcee-rosa: #C96B7A;
   --fcee-rosa-light: #F2DDE1;
   --fcee-celeste: #B8CCCC;
