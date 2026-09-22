@@ -1,0 +1,581 @@
+<style>
+.fcee-tj9, .fcee-tj9 *, .fcee-tj9 *::before, .fcee-tj9 *::after { box-sizing: border-box; }
+.fcee-tj9 {
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  --fcee-radius: var(--global-border-rounded-radius, var(--default-border-rounded-radius, 16px));
+  --fcee-radius-pill: var(--global-border-rounded-radius, var(--default-border-rounded-radius, 999px));
+}
+.fcee-tj9 p, .fcee-tj9 ul, .fcee-tj9 ol { margin: 0; }
+.fcee-tj9 ul, .fcee-tj9 ol { padding: 0; list-style: none; }
+.fcee-tj9 img { max-width: 100%; height: auto; display: block; }
+.fcee-tj9 button { font: inherit; background: none; border: none; }
+.fcee-tj9 a:focus-visible,
+.fcee-tj9 button:focus-visible,
+.fcee-tj9 summary:focus-visible { outline: 2px solid var(--brand-color, #C96B7A); outline-offset: 3px; border-radius: 4px; }
+
+.fcee-tj9__inner { max-width: 760px; margin: 0 auto; }
+.fcee-tj9__inner--wide { max-width: 1080px; }
+
+.fcee-tj9__eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.fcee-tj9__panel--muted .fcee-tj9__eyebrow { color: var(--secondary-color, #4A7070); }
+.fcee-tj9 h2.fcee-tj9__title,
+.fcee-tj9 h3.fcee-tj9__title {
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.25; margin-bottom: 1.3rem;
+}
+.fcee-tj9__text { font-size: 0.95rem; line-height: 1.8; color: var(--text-muted-color, #666); max-width: 720px; }
+.fcee-tj9__text + .fcee-tj9__text { margin-top: 0.9rem; }
+
+/* panels */
+.fcee-tj9__panel { padding: clamp(2.4rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem); }
+.fcee-tj9__panel--muted { background: var(--background-muted-color, #F3EFEA); color: var(--text-color, #2C2826); }
+.fcee-tj9 .fcee-tj9__panel--muted h3.fcee-tj9__title { color: var(--heading-color, var(--text-color, #2C2826)); }
+
+/* hero */
+.fcee-tj9__hero {
+  background: var(--secondary-color, #4A7070);
+  color: var(--on-secondary-color, #fff);
+  padding: clamp(2.8rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2rem);
+  text-align: center;
+}
+.fcee-tj9__hero-inner { display: flex; flex-direction: column; align-items: center; }
+.fcee-tj9__tag {
+  display: inline-block; background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28); border-radius: var(--fcee-radius-pill);
+  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+  padding: 6px 16px; margin-bottom: 1.3rem;
+}
+.fcee-tj9 h2.fcee-tj9__hero-title {
+  color: var(--on-secondary-color, #fff);
+  font-size: clamp(1.7rem, 4.2vw, 2.7rem); line-height: 1.15; margin-bottom: 0.8rem;
+}
+.fcee-tj9__hero-text { font-size: 1rem; line-height: 1.7; max-width: 560px; margin-bottom: 1.8rem; color: rgba(255,255,255,0.85); }
+
+/* buttons */
+.fcee-tj9__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--fcee-radius-pill);
+  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  text-decoration: none; min-height: 44px; transition: opacity 0.2s;
+}
+.fcee-tj9__btn:hover { opacity: 0.88; }
+.fcee-tj9__btn--inverse-secondary { background: var(--background-color, #fff); color: var(--secondary-color, #4A7070); }
+.fcee-tj9__btn--inverse-brand { background: var(--background-color, #fff); color: var(--brand-color, #C96B7A); }
+.fcee-tj9__btn--solid {
+  background: var(--button-background-color, var(--secondary-color, #4A7070));
+  color: var(--button-text-color, var(--on-secondary-color, #fff));
+  font-weight: var(--global-button-font-weight, var(--default-button-font-weight, 700));
+  text-transform: var(--global-button-text-transform, var(--default-button-text-transform, uppercase));
+}
+
+/* pills / diff box */
+.fcee-tj9__pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 1.3rem 0 1.8rem; }
+.fcee-tj9__pill {
+  background: var(--background-color, #fff); border: 2px solid var(--border-color, rgba(74,112,112,.3));
+  border-radius: var(--fcee-radius-pill); padding: 8px 18px;
+  font-size: 0.76rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;
+  color: var(--secondary-color, #4A7070);
+}
+.fcee-tj9__diffbox {
+  background: var(--background-color, #fff); border-left: 4px solid var(--secondary-color, #4A7070);
+  border-radius: 0 var(--fcee-radius) var(--fcee-radius) 0; padding: 1rem 1.4rem;
+}
+.fcee-tj9__diffbox-label {
+  display: block; color: var(--secondary-color, #4A7070); font-size: 0.78rem;
+  letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.4rem;
+}
+.fcee-tj9__diffbox p { font-size: 0.85rem; line-height: 1.75; color: var(--text-muted-color, #666); }
+
+/* generic grids */
+.fcee-tj9__grid { display: grid; gap: 1rem; margin-top: 1.6rem; }
+.fcee-tj9__grid--2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.fcee-tj9__grid--3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+/* icon + text items (para quién / antes de empezar) */
+.fcee-tj9__item {
+  background: var(--background-color, #fff); border-left: 3px solid var(--secondary-color, #4A7070);
+  border-radius: var(--fcee-radius); padding: 1.2rem 1.4rem;
+  display: flex; gap: 0.9rem; align-items: flex-start;
+}
+.fcee-tj9__item-icon { font-size: 1.3rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.fcee-tj9 h4.fcee-tj9__item-title {
+  color: var(--secondary-color, #4A7070); font-size: 0.82rem; letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 0.35rem;
+}
+.fcee-tj9__item-text { font-size: 0.83rem; line-height: 1.65; color: var(--text-muted-color, #666); }
+
+/* área de trabajo cards */
+.fcee-tj9__card {
+  background: var(--background-color, #fff); border: 1px solid var(--border-color, rgba(0,0,0,.1));
+  border-radius: var(--fcee-radius); padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.fcee-tj9__card-icon { font-size: 1.6rem; line-height: 1; }
+.fcee-tj9 h4.fcee-tj9__card-title { color: var(--secondary-color, #4A7070); font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.fcee-tj9__card-text { font-size: 0.82rem; line-height: 1.65; color: var(--text-muted-color, #666); }
+
+/* timeline */
+.fcee-tj9__timeline { position: relative; padding-left: 3.2rem; display: flex; flex-direction: column; gap: 1.8rem; }
+.fcee-tj9__timeline::before {
+  content: ''; position: absolute; left: 1rem; top: 0.3rem; bottom: 0.3rem; width: 2px;
+  background: linear-gradient(to bottom, var(--secondary-color, #4A7070), var(--brand-color, #C96B7A));
+  opacity: 0.5;
+}
+.fcee-tj9__tl-step { position: relative; }
+.fcee-tj9__tl-num {
+  position: absolute; left: -3.2rem; top: 0; width: 2rem; height: 2rem; z-index: 1;
+  background: var(--secondary-color, #4A7070); color: var(--on-secondary-color, #fff);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem;
+}
+.fcee-tj9__tl-title { font-size: 0.86rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.35rem; }
+.fcee-tj9__tl-text { font-size: 0.84rem; line-height: 1.7; color: var(--text-muted-color, #666); }
+.fcee-tj9__tl-note {
+  background: var(--background-color, #fff); border-left: 3px solid var(--secondary-color, #4A7070);
+  border-radius: 0 10px 10px 0; padding: 0.7rem 1rem; margin-top: 0.7rem;
+  font-size: 0.8rem; line-height: 1.6; color: var(--text-muted-color, #666);
+}
+.fcee-tj9__closing-note {
+  background: var(--background-muted-color, #F3EFEA); border: 1px solid var(--border-color, rgba(0,0,0,.1));
+  border-radius: var(--fcee-radius); padding: 1rem 1.4rem; margin-top: 2rem;
+  font-size: 0.83rem; line-height: 1.7; font-style: italic; color: var(--text-muted-color, #666);
+}
+
+/* equipo */
+.fcee-tj9__team-card {
+  background: var(--background-color, #fff); border: 1px solid var(--border-color, rgba(0,0,0,.1));
+  border-radius: var(--fcee-radius); padding: 1.8rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.fcee-tj9__team-avatar {
+  width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--background-muted-color, #F3EFEA); margin-bottom: 1rem;
+}
+.fcee-tj9__team-role {
+  display: inline-block; background: var(--background-muted-color, #F3EFEA); color: var(--secondary-color, #4A7070);
+  border-radius: var(--fcee-radius-pill); padding: 4px 12px; font-size: 0.66rem;
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 0.7rem;
+}
+.fcee-tj9 h4.fcee-tj9__team-name { font-size: 0.88rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--heading-color, var(--text-color, #2C2826)); margin-bottom: 0.15rem; }
+.fcee-tj9__team-mn { font-size: 0.74rem; color: var(--text-muted-color, #666); margin-bottom: 0.5rem; }
+.fcee-tj9__team-spec { font-size: 0.78rem; line-height: 1.55; color: var(--text-muted-color, #666); margin-bottom: 1rem; }
+.fcee-tj9__team-spec strong { color: var(--text-color, #2C2826); }
+.fcee-tj9__team-cv { width: 100%; border-top: 1px solid var(--border-color, rgba(0,0,0,.1)); padding-top: 1rem; text-align: left; }
+.fcee-tj9__team-cv-toggle {
+  cursor: pointer; list-style: none; text-align: center;
+  font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  color: var(--secondary-color, #4A7070); min-height: 44px; display: flex; align-items: center; justify-content: center;
+}
+.fcee-tj9__team-cv-toggle::-webkit-details-marker { display: none; }
+.fcee-tj9__team-cv[open] .fcee-tj9__team-cv-toggle { margin-bottom: 0.5rem; }
+.fcee-tj9__team-cv p { font-size: 0.8rem; line-height: 1.75; color: var(--text-muted-color, #666); }
+
+/* valores */
+.fcee-tj9__price-card {
+  background: var(--background-muted-color, #F3EFEA); color: var(--text-color, #2C2826);
+  border: 1px solid var(--border-color, rgba(0,0,0,.1)); border-radius: var(--fcee-radius);
+  padding: 1.8rem; display: flex; flex-direction: column;
+}
+.fcee-tj9__price-card--featured { border: 2px solid var(--secondary-color, #4A7070); }
+.fcee-tj9__price-flag {
+  display: block; text-align: center; background: var(--secondary-color, #4A7070); color: var(--on-secondary-color, #fff);
+  border-radius: var(--fcee-radius-pill); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 700; padding: 4px 12px; margin-bottom: 0.9rem;
+}
+.fcee-tj9__price-icon { font-size: 1.7rem; margin-bottom: 0.8rem; }
+.fcee-tj9 h4.fcee-tj9__price-title { color: var(--heading-color, var(--text-color, #2C2826)); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.7rem; }
+.fcee-tj9__price-text { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted-color, #666); flex: 1; margin-bottom: 1.1rem; }
+.fcee-tj9__price-footer { border-top: 1px solid var(--border-color, rgba(0,0,0,.1)); padding-top: 1rem; text-align: center; }
+.fcee-tj9__price-box {
+  background: var(--background-color, #fff); border: 2px solid var(--border-color, rgba(0,0,0,.1));
+  border-radius: var(--fcee-radius); padding: 0.8rem 1rem; margin-bottom: 0.7rem;
+}
+.fcee-tj9__price-card--featured .fcee-tj9__price-box { background: var(--secondary-color, #4A7070); border-color: var(--secondary-color, #4A7070); }
+.fcee-tj9__price-amount { display: block; font-weight: 700; font-size: 1.4rem; color: var(--secondary-color, #4A7070); }
+.fcee-tj9__price-card--featured .fcee-tj9__price-amount { color: var(--on-secondary-color, #fff); }
+.fcee-tj9__price-sub { display: block; font-size: 0.72rem; margin-top: 3px; color: var(--text-muted-color, #666); }
+.fcee-tj9__price-card--featured .fcee-tj9__price-sub { color: rgba(255,255,255,0.85); }
+.fcee-tj9__price-badge {
+  display: inline-block; background: var(--background-color, #fff); color: var(--secondary-color, #4A7070);
+  border: 1.5px solid var(--secondary-color, #4A7070); border-radius: var(--fcee-radius-pill);
+  font-size: 0.7rem; letter-spacing: 0.05em; padding: 4px 12px;
+}
+.fcee-tj9__payment-note {
+  background: var(--background-muted-color, #F3EFEA); border-left: 3px solid var(--secondary-color, #4A7070);
+  border-radius: 0 10px 10px 0; padding: 0.9rem 1.2rem; margin-top: 1.6rem;
+  font-size: 0.81rem; line-height: 1.6; color: var(--text-muted-color, #666);
+}
+.fcee-tj9__payment-note strong { color: var(--text-color, #2C2826); }
+
+/* faq */
+.fcee-tj9__faq-list { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1.6rem; }
+.fcee-tj9__faq-item { background: var(--background-muted-color, #F3EFEA); border: 1px solid var(--border-color, rgba(0,0,0,.1)); border-radius: var(--fcee-radius); overflow: hidden; }
+.fcee-tj9__faq-item summary {
+  cursor: pointer; list-style: none; padding: 1rem 1.3rem; min-height: 44px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  font-size: 0.85rem; font-weight: 700; color: var(--text-color, #2C2826);
+}
+.fcee-tj9__faq-item summary::-webkit-details-marker { display: none; }
+.fcee-tj9__faq-item summary::after { content: '+'; font-size: 1.2rem; color: var(--secondary-color, #4A7070); flex-shrink: 0; transition: transform 0.2s; }
+.fcee-tj9__faq-item[open] summary::after { transform: rotate(45deg); }
+.fcee-tj9__faq-item p { padding: 0 1.3rem 1.1rem; font-size: 0.84rem; line-height: 1.7; color: var(--text-muted-color, #666); }
+.fcee-tj9__faq-cta { margin-top: 1.8rem; }
+.fcee-tj9__faq-cta p { font-size: 0.85rem; color: var(--text-muted-color, #666); margin-bottom: 0.9rem; }
+
+/* cta final */
+.fcee-tj9__cta {
+  background: var(--brand-color, #C96B7A); color: var(--on-brand-primary-color, #fff);
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2rem); text-align: center;
+}
+.fcee-tj9 h3.fcee-tj9__cta-title { color: var(--on-brand-primary-color, #fff); font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 0.4rem; }
+.fcee-tj9__cta-sub { font-size: 1rem; color: rgba(255,255,255,0.85); margin-bottom: 0.9rem; }
+.fcee-tj9__cta-text { font-size: 0.9rem; color: rgba(255,255,255,0.75); max-width: 460px; margin: 0 auto 2rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fcee-tj9 *, .fcee-tj9 *::before, .fcee-tj9 *::after { transition: none; }
+}
+@media (min-width: 640px) {
+  .fcee-tj9__grid--2 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .fcee-tj9__grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+
+<div class="fcee-tj9" id="fcee-tj9">
+
+  <section class="fcee-tj9__hero" aria-label="Entrenamiento ejecutivo">
+    <div class="fcee-tj9__inner fcee-tj9__hero-inner">
+      <span class="fcee-tj9__tag">Entrenamiento ejecutivo · Modalidad online</span>
+      <h2 class="fcee-tj9__hero-title">Entrenamiento ejecutivo</h2>
+      <p class="fcee-tj9__hero-text">Acompañamiento práctico y funcional para desarrollar habilidades de organización, planificación y autonomía en la vida cotidiana.</p>
+      <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--inverse-secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Consultar disponibilidad
+      </a>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-que-es">
+    <div class="fcee-tj9__inner">
+      <p class="fcee-tj9__eyebrow">¿Qué es?</p>
+      <h3 id="fcee-tj9-que-es" class="fcee-tj9__title">Un abordaje práctico orientado a la autonomía</h3>
+      <p class="fcee-tj9__text">El entrenamiento ejecutivo es un acompañamiento especializado que trabaja sobre las funciones ejecutivas: las habilidades cognitivas que nos permiten organizarnos, planificar, iniciar y completar tareas, y gestionar nuestra vida cotidiana de manera funcional y autónoma.</p>
+      <p class="fcee-tj9__text">No es psicoterapia clínica, sino un espacio de trabajo concreto y orientado a objetivos, donde se aprenden y entrenan herramientas que pueden aplicarse de forma inmediata en el día a día.</p>
+      <p class="fcee-tj9__text">Es un protocolo flexible de aproximadamente 10 sesiones: se evalúa al inicio con instrumentos validados y, al finalizar el proceso, se vuelve a evaluar para decidir en conjunto si corresponde continuar, ajustar el enfoque o si el trabajo está cumplido.</p>
+      <ul class="fcee-tj9__pills">
+        <li class="fcee-tj9__pill">Funciones ejecutivas</li>
+        <li class="fcee-tj9__pill">Organización y planificación</li>
+        <li class="fcee-tj9__pill">Manejo y gestión del tiempo</li>
+        <li class="fcee-tj9__pill">Procrastinación</li>
+      </ul>
+      <div class="fcee-tj9__diffbox">
+        <strong class="fcee-tj9__diffbox-label">¿En qué se diferencia de la psicoterapia?</strong>
+        <p>La psicoterapia trabaja sobre el malestar emocional y los procesos psicológicos. El entrenamiento ejecutivo, en cambio, se enfoca en el desarrollo de habilidades prácticas para la gestión de la vida diaria. Ambos pueden complementarse, pero son servicios distintos con objetivos específicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-para-quien">
+    <div class="fcee-tj9__inner">
+      <p class="fcee-tj9__eyebrow">¿Para quién es?</p>
+      <h3 id="fcee-tj9-para-quien" class="fcee-tj9__title">Especialmente pensado para vos si…</h3>
+      <div class="fcee-tj9__grid fcee-tj9__grid--2">
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">🧠</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Tenés TDAH o sospecha diagnóstica</h4>
+            <p class="fcee-tj9__item-text">Las dificultades en funciones ejecutivas son centrales en el TDAH. Este espacio te da herramientas concretas para compensarlas y generar rutinas más funcionales.</p>
+          </div>
+        </div>
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">🔵</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Sos autista o tenés diagnóstico de TEA</h4>
+            <p class="fcee-tj9__item-text">Muchas personas autistas encuentran dificultades en la organización, flexibilidad y planificación. El entrenamiento adapta las estrategias a tu perfil y forma de procesar.</p>
+          </div>
+        </div>
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">💡</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Sentís que "nunca llegás" a todo</h4>
+            <p class="fcee-tj9__item-text">Postergación, inicio difícil de tareas, sensación de caos constante: si te identificás con esto, el entrenamiento ejecutivo puede darte estructura y orden.</p>
+          </div>
+        </div>
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">🌱</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Querés mejorar tu organización y autonomía</h4>
+            <p class="fcee-tj9__item-text">También está dirigido a adultos sin diagnóstico que buscan desarrollar hábitos, rutinas y estrategias para gestionar mejor sus responsabilidades y autocuidado.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-areas">
+    <div class="fcee-tj9__inner fcee-tj9__inner--wide">
+      <p class="fcee-tj9__eyebrow">Áreas de trabajo</p>
+      <h3 id="fcee-tj9-areas" class="fcee-tj9__title">¿Sobre qué trabajamos?</h3>
+      <div class="fcee-tj9__grid fcee-tj9__grid--3">
+        <div class="fcee-tj9__card">
+          <span class="fcee-tj9__card-icon" aria-hidden="true">📅</span>
+          <h4 class="fcee-tj9__card-title">Organización de la vida diaria</h4>
+          <p class="fcee-tj9__card-text">Desarrollamos estrategias personalizadas para estructurar el día a día, reducir el caos y aumentar la sensación de control sobre las actividades cotidianas.</p>
+        </div>
+        <div class="fcee-tj9__card">
+          <span class="fcee-tj9__card-icon" aria-hidden="true">🗂️</span>
+          <h4 class="fcee-tj9__card-title">Planificación semanal</h4>
+          <p class="fcee-tj9__card-text">Aprendemos a organizar la semana de forma realista, distribuyendo tareas, obligaciones y tiempo libre de manera equilibrada y sostenible.</p>
+        </div>
+        <div class="fcee-tj9__card">
+          <span class="fcee-tj9__card-icon" aria-hidden="true">⚡</span>
+          <h4 class="fcee-tj9__card-title">Iniciación y finalización de tareas</h4>
+          <p class="fcee-tj9__card-text">Trabajamos sobre las dificultades para empezar y completar actividades, con técnicas concretas para superar el bloqueo y sostener el foco hasta el cierre.</p>
+        </div>
+        <div class="fcee-tj9__card">
+          <span class="fcee-tj9__card-icon" aria-hidden="true">✅</span>
+          <h4 class="fcee-tj9__card-title">Gestión de responsabilidades</h4>
+          <p class="fcee-tj9__card-text">Entrenamos la capacidad de priorizar, delegar y administrar compromisos personales, laborales y académicos sin sentirse abrumado/a.</p>
+        </div>
+        <div class="fcee-tj9__card">
+          <span class="fcee-tj9__card-icon" aria-hidden="true">💆</span>
+          <h4 class="fcee-tj9__card-title">Rutinas de autocuidado</h4>
+          <p class="fcee-tj9__card-text">Construimos rutinas de sueño, alimentación, descanso y actividad física que sean funcionales, flexibles y adaptadas a las necesidades de cada persona.</p>
+        </div>
+        <div class="fcee-tj9__card">
+          <span class="fcee-tj9__card-icon" aria-hidden="true">📓</span>
+          <h4 class="fcee-tj9__card-title">Uso funcional de agendas y planificadores</h4>
+          <p class="fcee-tj9__card-text">Exploramos y adaptamos herramientas de organización (físicas o digitales) para que realmente funcionen en tu vida, en lugar de sumar más carga.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-proceso">
+    <div class="fcee-tj9__inner">
+      <p class="fcee-tj9__eyebrow">Cómo funciona</p>
+      <h3 id="fcee-tj9-proceso" class="fcee-tj9__title">El proceso de entrenamiento</h3>
+      <ol class="fcee-tj9__timeline">
+        <li class="fcee-tj9__tl-step">
+          <span class="fcee-tj9__tl-num" aria-hidden="true">1</span>
+          <h4 class="fcee-tj9__tl-title">Primer contacto</h4>
+          <p class="fcee-tj9__tl-text">Escribinos para contarnos qué área querés trabajar y qué dificultades estás experimentando. A partir de eso, te orientamos y confirmamos si el entrenamiento ejecutivo es lo que necesitás.</p>
+        </li>
+        <li class="fcee-tj9__tl-step">
+          <span class="fcee-tj9__tl-num" aria-hidden="true">2</span>
+          <h4 class="fcee-tj9__tl-title">Sesión inicial de evaluación</h4>
+          <p class="fcee-tj9__tl-text">En la primera sesión evaluamos tu perfil de funcionamiento ejecutivo con instrumentos validados, conocemos tus rutinas actuales, tus objetivos y el contexto de tu vida diaria. También definimos si te conviene sumar una evaluación neurocognitiva, para identificar tus fortalezas y diseñar mejores estrategias en función de tu perfil. A partir de ahí, diseñamos un plan de trabajo personalizado.</p>
+          <div class="fcee-tj9__tl-note">Cada plan es único: no existe un protocolo genérico. Las estrategias se adaptan a tu perfil, diagnóstico (si lo tenés) y objetivos concretos.</div>
+        </li>
+        <li class="fcee-tj9__tl-step">
+          <span class="fcee-tj9__tl-num" aria-hidden="true">3</span>
+          <h4 class="fcee-tj9__tl-title">Sesiones de entrenamiento</h4>
+          <p class="fcee-tj9__tl-text">Trabajamos de forma sistemática sobre las áreas identificadas, incorporando herramientas y revisando su aplicación sesión a sesión. Se sugiere una frecuencia semanal; si estás en proceso de psicoterapia, puede espaciarse a quincenal para complementar ambos espacios.</p>
+        </li>
+        <li class="fcee-tj9__tl-step">
+          <span class="fcee-tj9__tl-num" aria-hidden="true">4</span>
+          <h4 class="fcee-tj9__tl-title">Evaluación de cierre y decisión conjunta</h4>
+          <p class="fcee-tj9__tl-text">Hacia el final del proceso volvemos a evaluar con los mismos instrumentos de la primera sesión, para comparar el antes y el después de forma objetiva. Con esa información decidimos juntos si el trabajo está cumplido o si conviene continuar.</p>
+        </li>
+      </ol>
+      <p class="fcee-tj9__closing-note">El entrenamiento ejecutivo es un protocolo flexible de aproximadamente 10 sesiones, con evaluación al inicio y al final del proceso. La continuidad se decide en conjunto con cada persona a partir de esos resultados.</p>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-equipo">
+    <div class="fcee-tj9__inner fcee-tj9__inner--wide">
+      <p class="fcee-tj9__eyebrow">Quiénes somos</p>
+      <h3 id="fcee-tj9-equipo" class="fcee-tj9__title">Nuestro equipo</h3>
+      <div class="fcee-tj9__grid fcee-tj9__grid--3">
+
+        <article class="fcee-tj9__team-card">
+          <img src="https://5v5uhz4w7w.ucarecd.net/84cef0f2-f408-4e3e-be3c-dc07c0e1b684/1e020faca.png" alt="Lic. Florencia Cruz" class="fcee-tj9__team-avatar" loading="lazy">
+          <span class="fcee-tj9__team-role">Coordinación</span>
+          <h4 class="fcee-tj9__team-name">Lic. Florencia Cruz</h4>
+          <p class="fcee-tj9__team-mn">MN 68840</p>
+          <p class="fcee-tj9__team-spec"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA)</p>
+          <details class="fcee-tj9__team-cv">
+            <summary class="fcee-tj9__team-cv-toggle">Más información</summary>
+            <p>Licenciada en Psicología (UBA). Especializada en Neuropsicología Clínica y en Psicología Clínica y Terapia Cognitivo-Conductual (UBA). Realizó la Diplomatura "Psicodiagnóstico basado en la evidencia" (Universidad de San Isidro) y "Neurorehabilitación Metodología VETAS" (UCA), y cuenta con formaciones de posgrado en autismo, TDAH y neurodivergencias, con foco en evaluación y diagnóstico en personas adultas. Cuenta con experiencia en instituciones de rehabilitación y evaluación neurocognitiva como INECO, INBA, CRIBE y Fundación AlunCo. Posee experiencia como docente universitaria en Neurociencias (USAL). Participó como investigadora en proyectos de neuropsicología en UBA e INECO, con asistencia en congresos nacionales e internacionales en el área de neuropsicología.</p>
+          </details>
+        </article>
+
+        <article class="fcee-tj9__team-card">
+          <img src="https://5v5uhz4w7w.ucarecd.net/d8c65c2c-852d-45a1-a418-162087778436/Natifoto.png" alt="Lic. Natalia Alberto" class="fcee-tj9__team-avatar" loading="lazy">
+          <span class="fcee-tj9__team-role">Neuropsicóloga</span>
+          <h4 class="fcee-tj9__team-name">Lic. Natalia Alberto</h4>
+          <p class="fcee-tj9__team-mn">MN 77584</p>
+          <p class="fcee-tj9__team-spec"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>TCC · DBT · EMDR</p>
+          <details class="fcee-tj9__team-cv">
+            <summary class="fcee-tj9__team-cv-toggle">Más información</summary>
+            <p>Licenciada en Psicología (UBA) y Acompañante Terapéutico (Hospital Infanto-juvenil "Carolina T. García"). Cuenta con formación clínica especializada en Neuropsicología (Fundación Foro e INECO), Terapia Cognitivo-Conductual y Terapia Dialéctico Conductual (DBT). Actualmente se encuentra realizando el entrenamiento en EMDR (Desensibilización y Reprocesamiento por Movimientos Oculares), un abordaje diseñado para el tratamiento de traumas mediante estimulación bilateral. Posee experiencia en el acompañamiento de infancias, adolescencias y adultos mayores. Se desempeña como docente universitaria en la Universidad CAECE y como perito auxiliar de la justicia. Integra el equipo de inclusión de la Escuela Arlene Fern y desarrolla su práctica clínica privada, especializándose en la atención de población adulta-joven neurodivergente.</p>
+          </details>
+        </article>
+
+        <article class="fcee-tj9__team-card">
+          <img src="https://5v5uhz4w7w.ucarecd.net/e56a07de-3111-4b3e-9cb6-980fa6b7f15a/WhatsAppImage20260206at105942AM.jpeg" alt="Lic. Camila Diven" class="fcee-tj9__team-avatar" loading="lazy">
+          <span class="fcee-tj9__team-role">Neuropsicóloga</span>
+          <h4 class="fcee-tj9__team-name">Lic. Camila Diven</h4>
+          <p class="fcee-tj9__team-mn">MN 72967 · MP 63190</p>
+          <p class="fcee-tj9__team-spec"><strong>Neuropsicóloga y Psicoterapeuta</strong><br>Especializada en Neuropsicología Clínica (UBA)</p>
+          <details class="fcee-tj9__team-cv">
+            <summary class="fcee-tj9__team-cv-toggle">Más información</summary>
+            <p>Licenciada en Psicología (UBA). Realizó la Especialización en Neuropsicología Clínica (UBA) y una Beca de Perfeccionamiento en Neurología y Neuropsicología del Adulto en el Hospital Italiano de Buenos Aires. Cuenta además con Actualización en Trastornos Alimentarios (UBA). Se dedica a la evaluación y rehabilitación neuropsicológica en adultos. Se desempeñó como Jefa del Área de Neuropsicología en Adultos en INBA y como docente universitaria en UAI y Universidad CAECE. Actualmente es docente de Neurofisiología en la UBA y en Universidad CAECE. Ha formado parte de equipos de investigación, con presentaciones en congresos nacionales e internacionales en el área de neuropsicología.</p>
+          </details>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-valores">
+    <div class="fcee-tj9__inner fcee-tj9__inner--wide">
+      <p class="fcee-tj9__eyebrow">Aranceles</p>
+      <h3 id="fcee-tj9-valores" class="fcee-tj9__title">Valores del servicio</h3>
+      <p class="fcee-tj9__text">Contamos con distintas modalidades según el momento del proceso en el que te encuentres: sesiones individuales, el pack de proceso completo, o la posibilidad de sumar una evaluación neurocognitiva para empezar con un perfil más preciso de tus fortalezas y áreas de trabajo.</p>
+      <div class="fcee-tj9__grid fcee-tj9__grid--3">
+        <div class="fcee-tj9__price-card">
+          <span class="fcee-tj9__price-icon" aria-hidden="true">🗓️</span>
+          <h4 class="fcee-tj9__price-title">Sesión individual</h4>
+          <p class="fcee-tj9__price-text">Podés comenzar con sesiones sueltas para conocer el espacio y evaluar si el proceso es para vos.</p>
+          <div class="fcee-tj9__price-footer">
+            <div class="fcee-tj9__price-box">
+              <span class="fcee-tj9__price-amount">$55.000</span>
+              <span class="fcee-tj9__price-sub">por sesión</span>
+            </div>
+            <span class="fcee-tj9__price-badge">⏱️ 45–50 minutos</span>
+          </div>
+        </div>
+        <div class="fcee-tj9__price-card fcee-tj9__price-card--featured">
+          <span class="fcee-tj9__price-flag">El más elegido</span>
+          <span class="fcee-tj9__price-icon" aria-hidden="true">📦</span>
+          <h4 class="fcee-tj9__price-title">Pack proceso completo</h4>
+          <p class="fcee-tj9__price-text">Para quienes se comprometen con el proceso. El pack te asegura continuidad y un valor preferencial por sesión.</p>
+          <div class="fcee-tj9__price-footer">
+            <div class="fcee-tj9__price-box">
+              <span class="fcee-tj9__price-amount">$495.000</span>
+              <span class="fcee-tj9__price-sub">pack de 10 sesiones · 10% de descuento</span>
+            </div>
+            <span class="fcee-tj9__price-badge">📈 Seguimiento de tu progreso</span>
+          </div>
+        </div>
+        <div class="fcee-tj9__price-card">
+          <span class="fcee-tj9__price-icon" aria-hidden="true">🧩</span>
+          <h4 class="fcee-tj9__price-title">Evaluación neurocognitiva + Entrenamiento</h4>
+          <p class="fcee-tj9__price-text">Empezás con una evaluación neurocognitiva completa y continuás el entrenamiento con la misma profesional, que diseña tu plan a partir de tus resultados.</p>
+          <div class="fcee-tj9__price-footer">
+            <div class="fcee-tj9__price-box">
+              <span class="fcee-tj9__price-amount">$589.500</span>
+              <span class="fcee-tj9__price-sub">evaluación + pack de 10 sesiones · 10% de descuento</span>
+            </div>
+            <span class="fcee-tj9__price-badge">💰 Ahorrás $65.500</span>
+          </div>
+        </div>
+      </div>
+      <p class="fcee-tj9__payment-note">💳 <strong>Medio de pago:</strong> Transferencia bancaria o Mercado Pago. El horario se confirma abonando una sesión por adelantado.</p>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel fcee-tj9__panel--muted" aria-labelledby="fcee-tj9-antes">
+    <div class="fcee-tj9__inner">
+      <p class="fcee-tj9__eyebrow">Información administrativa</p>
+      <h3 id="fcee-tj9-antes" class="fcee-tj9__title">Antes de empezar</h3>
+      <div class="fcee-tj9__grid fcee-tj9__grid--2">
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">✅</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Confirmación del turno</h4>
+            <p class="fcee-tj9__item-text">El horario queda reservado una vez abonada la primera sesión o el pack correspondiente.</p>
+          </div>
+        </div>
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">🔔</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Cancelaciones y cambios</h4>
+            <p class="fcee-tj9__item-text">Los cambios o cancelaciones pueden realizarse con hasta 24 hs hábiles de anticipación vía WhatsApp. Pasado ese plazo, la sesión se considera realizada.</p>
+          </div>
+        </div>
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">⚠️</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Continuidad del proceso</h4>
+            <p class="fcee-tj9__item-text">Si se registran dos inasistencias consecutivas sin aviso previo, el espacio podrá darse de baja para priorizar la organización de turnos.</p>
+          </div>
+        </div>
+        <div class="fcee-tj9__item">
+          <span class="fcee-tj9__item-icon" aria-hidden="true">🧾</span>
+          <div>
+            <h4 class="fcee-tj9__item-title">Medio de pago</h4>
+            <p class="fcee-tj9__item-text">Transferencia bancaria o Mercado Pago. El pack se abona de forma completa o en cuotas según se acuerde al momento de la inscripción.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__panel" aria-labelledby="fcee-tj9-faq">
+    <div class="fcee-tj9__inner">
+      <p class="fcee-tj9__eyebrow">Dudas frecuentes</p>
+      <h3 id="fcee-tj9-faq" class="fcee-tj9__title">Preguntas frecuentes</h3>
+      <div class="fcee-tj9__faq-list">
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Necesito tener un diagnóstico de TDAH o autismo para empezar?</summary>
+          <p>No. También trabajamos con personas sin diagnóstico formal que buscan mejorar su organización, gestión del tiempo y autonomía en el día a día. Sin embargo, evaluamos en la primera sesión si sería adecuado realizar primero una evaluación diagnóstica y/o neurocognitiva.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Las sesiones son online?</summary>
+          <p>Sí, todas las sesiones se realizan de forma online. Contamos con atención online desde cualquier lugar. Todos nuestros servicios pueden realizarse bajo esta modalidad, siempre que resulte adecuada para el proceso.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Con qué frecuencia son las sesiones?</summary>
+          <p>Se sugiere una frecuencia semanal. Si estás en proceso de psicoterapia, puede espaciarse a quincenal para complementar ambos espacios.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Tengo que hacerme una evaluación neurocognitiva antes de empezar?</summary>
+          <p>No es un requisito excluyente. En la primera sesión evaluamos junto con vos si te conviene sumarla, ya que ayuda a identificar tus fortalezas y a diseñar mejores estrategias según tu perfil. Si la sumás, la realiza la misma profesional que después te acompaña en el entrenamiento ejecutivo, así el plan de trabajo parte directamente de tus resultados.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Puedo empezar con una sesión suelta sin comprometerme al proceso completo?</summary>
+          <p>Sí, podés empezar con sesiones individuales y pasar al pack de 10 sesiones cuando quieras.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Cómo se abona la sesión?</summary>
+          <p>Al momento de coordinar la sesión, se abona por adelantado la sesión o el pack elegido para confirmar el turno. Podés abonar por transferencia bancaria o Mercado Pago.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Cómo se define quién me atiende?</summary>
+          <p>Contanos qué área querés trabajar, si tenés un diagnóstico y qué días y horarios tenés disponibles. En función de esta información, pensamos qué profesional del equipo puede acompañarte y ella te escribe para coordinar.</p>
+        </details>
+        <details class="fcee-tj9__faq-item">
+          <summary>¿Trabajan con obras sociales?</summary>
+          <p>Trabajamos únicamente de manera particular. Si tu plan contempla la posibilidad de reintegro, la profesional puede emitir la factura correspondiente para que puedas gestionarlo con tu obra social o prepaga.</p>
+        </details>
+      </div>
+      <div class="fcee-tj9__faq-cta">
+        <p>¿Te quedó alguna duda?</p>
+        <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--solid">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Escribinos tu pregunta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fcee-tj9__cta" aria-labelledby="fcee-tj9-cta-title">
+    <div class="fcee-tj9__inner fcee-tj9__hero-inner">
+      <h3 id="fcee-tj9-cta-title" class="fcee-tj9__cta-title">¿Querés empezar?</h3>
+      <span class="fcee-tj9__cta-sub">Estamos para acompañarte</span>
+      <p class="fcee-tj9__cta-text">Escribinos para contarnos qué área querés trabajar y coordinamos una primera sesión.</p>
+      <a href="https://wa.me/5491123902485" class="fcee-tj9__btn fcee-tj9__btn--inverse-brand">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.522 5.826L.057 23.214c-.073.267.167.505.433.429l5.424-1.427A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 0 1-5.013-1.375l-.36-.213-3.717.977.995-3.641-.234-.374A9.818 9.818 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Escribinos por WhatsApp
+      </a>
+    </div>
+  </section>
+
+</div>
